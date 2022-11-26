@@ -22,4 +22,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void PackageDeliveredEventHandler(DropOff dropOff, bool anyoneHome);
+
+    [Signal]
+    public delegate void MoneyChangedEventHandler(int newMoney);
 }

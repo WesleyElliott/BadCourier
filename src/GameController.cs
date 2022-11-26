@@ -4,9 +4,11 @@ struct GameState {
 
     public GameState() {
         GameTime = 120;
+        Money = 0;
     }
 
     public int GameTime; // Seconds
+    public int Money;
 }
 
 public partial class GameController : Node {
@@ -38,8 +40,12 @@ public partial class GameController : Node {
     }
 
     private void OnPackageDelivered(DropOff dropOff, bool anyoneHome) {
+        gameState.Money += 20;
+        this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
         if (!anyoneHome) {
             gameState.GameTime += 10;
+            gameState.Money += 10;
+            this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
             this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
         }
     }
