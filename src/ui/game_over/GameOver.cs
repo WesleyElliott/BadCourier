@@ -29,7 +29,7 @@ public partial class GameOver : Control {
         QuitButton.Pressed -= OnQuitPressed;
     }
 
-    public void Render() {
+    public void Render(int money) {
         if (tween != null) {
             tween.Kill();
         }
@@ -46,6 +46,8 @@ public partial class GameOver : Control {
         tween.TweenProperty(Score, "modulate:a", 1f, 0.6f).SetDelay(1.3f);
         tween.TweenProperty(RestartButton, "modulate:a", 1f, 0.4f).SetDelay(1.8f);
         tween.TweenProperty(QuitButton, "modulate:a", 1f, 0.4f).SetDelay(1.8f);
+
+        Score.Text = string.Format("Score: ${0:N0}", money);
     }
 
     private void OnRestartPressed() {

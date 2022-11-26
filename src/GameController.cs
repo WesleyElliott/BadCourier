@@ -3,7 +3,7 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        GameTime = 4;
+        GameTime = 15;
         Money = 0;
         Paused = false;
         GameOver = false;
@@ -80,7 +80,7 @@ public partial class GameController : Node {
         this.EventBus().EmitSignal(EventBus.SignalName.GameEnd);
         gameState.GameOver = true;
         GameOver.Visible = true;
-        GameOver.Render();
+        GameOver.Render(gameState.Money);
 
         gameTimer.Stop();
     }
