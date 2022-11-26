@@ -12,7 +12,7 @@ public partial class PackageComponent : Control {
 
     public override void _Ready() {
         PackagesLabel.Text = "0";
-        this.EventBus().PlayerCollectPackage += UpdatePackagesLabel;
+        this.EventBus().PlayerPackageUpdated += UpdatePackagesLabel;
     }
 
     private void UpdatePackagesLabel(int packages) {

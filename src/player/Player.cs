@@ -55,7 +55,7 @@ public partial class Player : Node3D {
 			box.DropOff.DropOffColor = dropOffColor;
 			box.DropOff.CallDeferred("Enable");
 
-			this.EventBus().EmitSignal(EventBus.SignalName.PlayerCollectPackage, boxes.GetChildCount());
+			this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
 		}
 	}
 
@@ -92,7 +92,7 @@ public partial class Player : Node3D {
 		} else {
 			GD.Print("[Delivery] Nobody home! BONUS $$$");
 		}
-		this.EventBus().EmitSignal(EventBus.SignalName.PlayerCollectPackage, boxes.GetChildCount());
+		this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
 	}
 
 }
