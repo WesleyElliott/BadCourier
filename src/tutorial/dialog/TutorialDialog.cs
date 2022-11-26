@@ -5,6 +5,9 @@ public partial class TutorialDialog : Control {
     [Export]
     public Label MessageLabel;
 
+    [Export]
+    public Label HelpText;
+
     private Tween tween;
     private bool isShown = false;
 
@@ -35,6 +38,7 @@ public partial class TutorialDialog : Control {
             }
 
             tween = GetTree().CreateTween();
+            tween.SetPauseMode(Tween.TweenPauseMode.Process);
             tween.TweenProperty(MessageLabel, "modulate:a", 0, 0.4f)
                 .SetTrans(Tween.TransitionType.Quint)
                 .SetEase(Tween.EaseType.Out);
@@ -42,6 +46,7 @@ public partial class TutorialDialog : Control {
                 MessageLabel.Text = message;
 
                 var tween2 = GetTree().CreateTween();
+                tween2.SetPauseMode(Tween.TweenPauseMode.Process);
                 tween2.TweenProperty(MessageLabel, "modulate:a", 1, 0.4f)
                     .SetTrans(Tween.TransitionType.Quint)
                     .SetEase(Tween.EaseType.Out);
@@ -51,12 +56,17 @@ public partial class TutorialDialog : Control {
         }
     }
 
+    public void SetHelpText(string text) {
+        HelpText.Text = text;
+    }
+
     public void ShowDialog() {
         if (tween != null) {
             tween.Kill();
         }
 
         tween = GetTree().CreateTween();
+        tween.SetPauseMode(Tween.TweenPauseMode.Process);
         tween.TweenProperty(this, "position", new Vector2(1188, Position.y), 1.2f)
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.InOut);
@@ -68,6 +78,7 @@ public partial class TutorialDialog : Control {
         }
 
         tween = GetTree().CreateTween();
+        tween.SetPauseMode(Tween.TweenPauseMode.Process);
         tween.TweenProperty(this, "position", new Vector2(2000, Position.y), 1.2f)
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.InOut);
