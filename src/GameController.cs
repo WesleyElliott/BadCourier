@@ -3,13 +3,25 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        GameTime = 15;
+        _gameTime = 15;
         Money = 0;
         Paused = false;
         GameOver = false;
     }
 
-    public int GameTime; // Seconds
+    private int _gameTime;
+
+    public int GameTime {
+        get {
+            return _gameTime;
+        }
+        set {
+            _gameTime = value;
+            if (_gameTime < 0) {
+                _gameTime = 0;
+            }
+        }
+    }
     public int Money;
     public bool Paused;
     public bool GameOver;
@@ -47,15 +59,14 @@ public partial class GameController : Node {
         OnTick();
     }
 
-    public override void _Process(double delta) {
-        if (gameState.GameTime < 0 && !gameState.GameOver) {
-            HandleGameOver();
-        }
-    }
-
     public void OnTick() {
         gameTimer.Start();
         this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
+
+        if (gameState.GameTime == 0 && !gameState.GameOver) {
+            HandleGameOver();
+        }
+
         gameState.GameTime -= 1;
     }
 
