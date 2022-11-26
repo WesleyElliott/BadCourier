@@ -82,7 +82,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="HUD"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -94,7 +93,6 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="LeftUI" type="VBoxContainer" parent="HUD/Margins"]
-layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 224.0
@@ -104,13 +102,12 @@ theme_override_constants/separation = 24
 
 [node name="Control1" type="Control" parent="HUD/Margins/LeftUI"]
 custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_right = 200.0
 offset_bottom = 80.0
 
 [node name="TimerComponent" parent="HUD/Margins/LeftUI/Control1" node_paths=PackedStringArray("GameController") instance=ExtResource("3_my3vf")]
-layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -125,14 +122,13 @@ GameController = NodePath("../../../../../GameController")
 
 [node name="Control2" type="Control" parent="HUD/Margins/LeftUI"]
 custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_top = 104.0
 offset_right = 200.0
 offset_bottom = 184.0
 
 [node name="MoneyComponent" parent="HUD/Margins/LeftUI/Control2" instance=ExtResource("4_snpbr")]
-layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -144,14 +140,13 @@ size_flags_vertical = 0
 
 [node name="Control3" type="Control" parent="HUD/Margins/LeftUI"]
 custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_top = 208.0
 offset_right = 200.0
 offset_bottom = 288.0
 
 [node name="PackageComponent" parent="HUD/Margins/LeftUI/Control3" node_paths=PackedStringArray("GameController") instance=ExtResource("5_owhpt")]
-layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -162,7 +157,6 @@ size_flags_horizontal = 0
 GameController = NodePath("../../../../../GameController")
 
 [node name="RightUI" type="VBoxContainer" parent="HUD/Margins"]
-layout_mode = 2
 offset_left = 1956.0
 offset_top = 24.0
 offset_right = 1956.0
@@ -171,7 +165,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="DropOffNotifications" type="Control" parent="HUD/Margins/RightUI" node_paths=PackedStringArray("GameController")]
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_bottom = 976.0
 size_flags_vertical = 3
@@ -1537,7 +1531,6 @@ grow_vertical = 2
 
 [node name="DialogBox" type="MarginContainer" parent="TutorialUI" node_paths=PackedStringArray("MessageLabel", "HelpText")]
 process_mode = 3
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -1556,7 +1549,6 @@ HelpText = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/MessageLa
 
 [node name="Panel" type="Panel" parent="TutorialUI/DialogBox"]
 custom_minimum_size = Vector2(768, 384)
-layout_mode = 2
 offset_right = 768.0
 offset_bottom = 384.0
 grow_horizontal = 0
@@ -1564,7 +1556,6 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k2owq")
 
 [node name="MarginContainer" type="MarginContainer" parent="TutorialUI/DialogBox/Panel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1576,7 +1567,6 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TutorialUI/DialogBox/Panel/MarginContainer"]
-layout_mode = 2
 offset_left = 24.0
 offset_top = 8.0
 offset_right = 744.0
@@ -1585,7 +1575,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MessageLabel" type="Label" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 720.0
 offset_bottom = 71.0
 size_flags_vertical = 2
@@ -1594,13 +1583,11 @@ label_settings = SubResource("LabelSettings_ht0d4")
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 297.0
 offset_right = 720.0
 offset_bottom = 368.0
 
 [node name="MessageLabel2" type="Label" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 720.0
 offset_bottom = 71.0
 size_flags_horizontal = 3
@@ -1610,7 +1597,6 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="TutorialUI"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

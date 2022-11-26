@@ -53,14 +53,15 @@ public partial class TutorialController : Node {
         this.EventBus().PackageDelivered -= OnPackageDelivered;
     }
 
+    public override void _Ready() {
+        var startTimer = GetTree().CreateTimer(1);
+        startTimer.Timeout += () => {
+            HandleIntro();
+        };
+    }
+
     public override void _UnhandledKeyInput(InputEvent @event) {
         if (@event is InputEventKey eventKey) {
-            if (eventKey.Pressed && eventKey.Keycode == Key.Key3) {
-                if (state == TutorialState.Start) {
-                    HandleIntro();
-                }
-            }
-
             if (eventKey.Pressed) {
                 lastPressedKey = eventKey.Keycode;
             }
