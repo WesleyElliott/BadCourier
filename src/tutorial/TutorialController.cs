@@ -18,15 +18,26 @@ public partial class TutorialController : Node {
     [Export]
     public Control PackagesUI { get; private set; }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     private TutorialState state = TutorialState.Start;
     private Key? lastPressedKey;
+    private int packageExpiryTime = 0;
 
     public override void _EnterTree() {
         CheckPoint1.AreaEntered += OnCheckpoint1;
+        this.EventBus().BoxCollected += OnBoxCollected;
+        this.EventBus().GameTimerTick += OnGameTick;
     }
 
     public override void _ExitTree() {
         CheckPoint1.AreaExited -= OnCheckpoint1;
+        this.EventBus().BoxCollected -= OnBoxCollected;
+        this.EventBus().GameTimerTick -= OnGameTick;
     }
 
     public override void _UnhandledKeyInput(InputEvent @event) {
@@ -50,11 +61,11 @@ public partial class TutorialController : Node {
 
         await WaitUntilSpacePressed();
         
-        TutorialDialog.SetMessage("As you know, we pride ourselves on always delivering packages at the most inconvenient of times", true);
+        TutorialDialog.SetMessage("As you know, we pride ourselves on always delivering packages at the most inconvenient of times.", true);
         
         await WaitUntilSpacePressed();
 
-        TutorialDialog.SetMessage("So lets get started! Using the Arrow Keys, you drive your truck around", true);
+        TutorialDialog.SetMessage("So lets get started! Using the Arrow Keys, you drive your truck around.", true);
         TutorialDialog.SetHelpText("[WASD]");
         Player.Van.CanDrive = true;
 
@@ -80,7 +91,7 @@ public partial class TutorialController : Node {
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.InOut);
 
-        TutorialDialog.SetMessage("Check the top left of your screen. That will show you how many packages are at the warehouse", true);
+        TutorialDialog.SetMessage("Check the top left of your screen. That will show you how many packages are at the warehouse.", true);
         await WaitUntilSpacePressed();
         TutorialDialog.SetMessage("There are already 2 packages to pick up. Don't let the warehouse get full, else you're fired.", true);
 
@@ -88,7 +99,32 @@ public partial class TutorialController : Node {
 
         TutorialDialog.HideDialog();
         Player.Van.CanDrive = true;
+        packageExpiryTime = LevelData.PackageExpiryTime;
         this.EventBus().EmitSignal(EventBus.SignalName.GameStart);
+    }
+
+    private async void HandleDropOffLocations() {
+        Player.Van.CanDrive = false;
+        state = TutorialState.DropOffLocations;
+
+        TutorialDialog.SetMessage("Once you have the packages, you should see some markers to show you where to drop them off.");
+        TutorialDialog.SetHelpText("[Space]");
+        TutorialDialog.ShowDialog();
+        await WaitUntilSpacePressed();
+        
+        TutorialDialog.SetMessage("On the right, you'll see how much time you have to get the package delivered. Make sure its delivered on time, or you'll lose time!", true);
+        await WaitUntilSpacePressed();
+
+        TutorialDialog.SetMessage("If the icon has an [x] on it, the person isn't at home. This is the ideal time to make the delivery.", true);
+        await WaitUntilSpacePressed();
+
+        TutorialDialog.SetMessage("You'll get bonus money and a TIME BOOST if you deliver to them when they're not at home.", true);
+        await WaitUntilSpacePressed();
+
+        TutorialDialog.SetMessage("If they're at home, you'll still get some money - but none of the bonuses!", true);
+        await WaitUntilSpacePressed();
+        TutorialDialog.HideDialog();
+        Player.Van.CanDrive = true;
     }
 
     private async Task WaitUntilSpacePressed() {
@@ -108,5 +144,18 @@ public partial class TutorialController : Node {
 
     private void OnCheckpoint1(Area3D body) {
         HandleWarehouse();
+    }
+
+    private void OnBoxCollected() {
+        if (state == TutorialState.Packages)
+            HandleDropOffLocations();
+    }
+
+    private void OnGameTick(int newTime) {
+        packageExpiryTime -= 1;
+        if (packageExpiryTime <= 2) {
+            packageExpiryTime = LevelData.PackageExpiryTime;
+            this.EventBus().EmitSignal(EventBus.SignalName.ResetDropOffTimers);
+        }
     }
 }

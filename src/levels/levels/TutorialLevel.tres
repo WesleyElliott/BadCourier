@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_e4xmc")
-GameTime = 30
+GameTime = 2000
 WarehouseCapacity = 5
 WarehouseStartingPackageCount = 0
 PackageSpawnRange = Vector2i(1200, 1200)
-PackageExpiryTime = 60
+PackageExpiryTime = 15
 PlayerPackageCapacity = 5
 PackageDeliveredTimeAward = 10
 PackageDeliveredMoneyAward = 20

@@ -40,4 +40,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void GameStartEventHandler();
+
+    [Signal]
+    public delegate void ResetDropOffTimersEventHandler();
 }

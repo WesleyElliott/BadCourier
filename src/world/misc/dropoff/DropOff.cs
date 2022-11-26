@@ -45,11 +45,13 @@ public partial class DropOff : Node3D {
     public override void _EnterTree() {
         this.EventBus().GameTimerTick += OnTickTimeout;
         this.EventBus().GameEnd += OnGameEnd;
+        this.EventBus().ResetDropOffTimers += ResetDropOffTimers;
     }
 
     public override void _ExitTree() {
         this.EventBus().GameTimerTick -= OnTickTimeout;
         this.EventBus().GameEnd -= OnGameEnd;
+        this.EventBus().ResetDropOffTimers -= ResetDropOffTimers;
     }
 
     public override void _Ready() {
@@ -113,5 +115,12 @@ public partial class DropOff : Node3D {
     private void OnGameEnd() {
         HomeStateTimer.Stop();
         ExpirationTimer.Stop();
+    }
+
+    private void ResetDropOffTimers() {
+        ExpirationTimer.Stop();
+        timeLeft = LevelData.PackageExpiryTime;
+        ExpirationTimer.WaitTime = timeLeft;
+        ExpirationTimer.Start();
     }
 }
