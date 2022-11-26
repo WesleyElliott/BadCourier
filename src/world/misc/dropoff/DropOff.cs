@@ -5,15 +5,27 @@ public partial class DropOff : Node3D {
     public MeshInstance3D Model { get; private set; }
     public Timer Timer { get; private set; }
     public CollisionShape3D CollisionShape { get; private set; }
+    public WayPoint WayPoint { get; private set; }
 
     public bool SomeoneHome { get; private set; } = true;
+    public Color DropOffColor { 
+        get {
+            return dropOffColor;
+        } 
+        set {
+            dropOffColor = value;
+            WayPoint.Modulate = dropOffColor;
+        }
+    }
 
+    private Color dropOffColor;
     private RandomNumberGenerator rng;
 
     public override void _Ready() {
         Model = GetNode<MeshInstance3D>("Model");
         Timer = GetNode<Timer>("Timer");
         CollisionShape = GetNode<CollisionShape3D>("Collider/CollisionShape");
+        WayPoint = GetNode<WayPoint>("WayPoint");
 
         rng = new RandomNumberGenerator();
         rng.Randomize();
@@ -40,11 +52,13 @@ public partial class DropOff : Node3D {
 
     public void Enable() {
         Show();
+        WayPoint.Show();
         CollisionShape.Disabled = false;
     }
 
     public void Disable() {
         Hide();
+        WayPoint.Hide();
         CollisionShape.Disabled = true;
     }
 }
