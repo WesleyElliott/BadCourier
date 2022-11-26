@@ -54,6 +54,8 @@ public partial class Player : Node3D {
 			var dropOffColor = dropOffColors[boxes.GetChildCount()];
 			box.DropOff.DropOffColor = dropOffColor;
 			box.DropOff.CallDeferred("Enable");
+
+			this.EventBus().EmitSignal(EventBus.SignalName.PlayerCollectPackage, boxes.GetChildCount());
 		}
 	}
 
