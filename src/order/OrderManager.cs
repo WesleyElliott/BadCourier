@@ -33,26 +33,25 @@ public partial class OrderManager : Node {
     */
     public void GenerateOrder() {
         GD.Print("[Order] Generating order...");
-        var eligibleDropOffPoints = DropOffPoints.GetChildren()
-            .Cast<DropOff>()
-            .Where(dropOff => !dropOff.HasOrder);
-
-        if (eligibleDropOffPoints.Count() == 0) {
-            GD.Print("[Order] No more drop of points...");
-            return;
-        }
-
-        var dropOffPoint = eligibleDropOffPoints.ElementAt(rng.RandiRange(0, eligibleDropOffPoints.Count() - 1));
-        dropOffPoint.HasOrder = true;
-
-        GD.Print($"[Order] Drop off @ {dropOffPoint.Name}");
-
         var boxScene = GD.Load<PackedScene>("res://src/world/misc/box/Box.tscn");
         Box box = (Box) boxScene.Instantiate();
-        box.DropOff = dropOffPoint;
         box.Visible = false;
 
         AddChild(box);
         this.EventBus().EmitSignal(EventBus.SignalName.WarehouseCapacity, GetChildCount());
+    }
+
+    public DropOff GetRandomDropOff() {
+         var eligibleDropOffPoints = DropOffPoints.GetChildren()
+            .Cast<DropOff>()
+            .Where(dropOff => !dropOff.HasOrder);
+
+        if (eligibleDropOffPoints.Count() == 0) {
+            GD.PrintErr("[Order] No more drop of points...");
+            return null;
+        }
+        var dropOffPoint = eligibleDropOffPoints.ElementAt(rng.RandiRange(0, eligibleDropOffPoints.Count() - 1));
+        GD.Print($"[Order] Drop off @ {dropOffPoint.Name}");
+        return dropOffPoint;
     }
 }

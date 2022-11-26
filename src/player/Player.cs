@@ -57,8 +57,10 @@ public partial class Player : Node3D {
 				GD.Print("Cannot carry anymore boxes");
 				return;
 			}
-			var parent = box.GetParent();
+			OrderManager parent = (OrderManager) box.GetParent();
+			var dropOffPoint = parent.GetRandomDropOff();
 			parent.RemoveChild(box);
+			box.DropOff = dropOffPoint;
 			box.Visible = false;
 			boxes.AddChild(box);
 			var dropOffColor = OrderColors.OrderColorOptions[boxes.GetChildCount()];

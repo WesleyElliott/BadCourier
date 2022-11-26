@@ -117,8 +117,6 @@ visible = false
 visible = false
 
 [node name="Countdown" parent="." instance=ExtResource("10_ph3hr")]
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.998882, 0.0302078, 0.0363726, -0.0456629, 0.416828, 0.907838, 0.0122627, -0.908483, 0.417741, 0, 28.5081, 9.77891)
