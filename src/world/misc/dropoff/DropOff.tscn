@@ -47,7 +47,6 @@ offset_bottom = 42.0
 script = ExtResource("2_qa81q")
 
 [node name="Marker" type="TextureRect" parent="WayPoint"]
-layout_mode = 0
 offset_left = -14.0
 offset_top = -42.0
 offset_right = 14.0

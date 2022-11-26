@@ -57,6 +57,7 @@ public partial class Player : Node3D {
 
 			this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
 			this.EventBus().EmitSignal(EventBus.SignalName.PlayerPickupPackage, box.DropOff);
+			this.EventBus().EmitSignal(EventBus.SignalName.WarehouseCapacity, parent.GetChildCount());
 		}
 	}
 
