@@ -1,12 +1,56 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=7 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
 [ext_resource type="PackedScene" uid="uid://cgupj6d18i0y8" path="res://src/player/Player.tscn" id="3_aafgf"]
-[ext_resource type="PackedScene" uid="uid://bhjdr5mdsard2" path="res://src/ui/packages/PackageComponent.tscn" id="5_55vw0"]
+[ext_resource type="PackedScene" uid="uid://bx24huigwieum" path="res://src/ui/packages/PackageComponent.tscn" id="5_55vw0"]
 [ext_resource type="Script" path="res://src/GameController.cs" id="6_x582o"]
+[ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="6_ytojr"]
 
 [node name="DemoScene" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margins" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="PackageComponent" parent="UI/Margins" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 216.0
+offset_bottom = 1000.0
+size_flags_horizontal = 0
+GameController = NodePath("../../../GameController")
+
+[node name="TimerComponent" parent="UI/Margins" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1832.0
+offset_top = 24.0
+offset_right = 2024.0
+offset_bottom = 96.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+GameController = NodePath("../../../GameController")
 
 [node name="World" parent="." instance=ExtResource("1_adbhg")]
 
@@ -21,34 +65,6 @@ environment = ExtResource("2_im14v")
 [node name="Player" parent="." instance=ExtResource("3_aafgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57321, 0, 0)
 BoxCapacity = 5
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Margins" type="MarginContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="PackageComponent" parent="UI/Margins" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
-layout_mode = 2
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 2024.0
-offset_bottom = 1000.0
-GameController = NodePath("../../../GameController")
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("6_x582o")

@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://c5jgujgnbkw5b" path="res://src/world/WorldMeshLib.tres" id="1_gblxm"]
 [ext_resource type="Script" path="res://src/order/OrderManager.cs" id="3_3uyrs"]
-[ext_resource type="PackedScene" uid="uid://cecwxkpsvet5a" path="res://src/world/misc/dropoff/DropOff.tscn" id="3_nussy"]
+[ext_resource type="PackedScene" uid="uid://b3ejx1wnpb25x" path="res://src/world/misc/dropoff/DropOff.tscn" id="3_nussy"]
 [ext_resource type="Texture2D" uid="uid://dx5fdsaceunm0" path="res://src/warehouse/loading_zone.png" id="4_gres5"]
 [ext_resource type="Script" path="res://src/warehouse/Warehouse.cs" id="4_v60ma"]
 [ext_resource type="PackedScene" uid="uid://maaq1i2ukihx" path="res://src/world/misc/box/Box.tscn" id="5_2xn53"]
