@@ -44,6 +44,9 @@ public partial class GameController : Node {
     [Export]
     public Pause PauseMenu { get; private set; }
 
+    [Export]
+    public SoundController SoundController { get; private set; }
+
     private Timer gameTimer;
     private GameState gameState = new GameState();
 
@@ -96,6 +99,7 @@ public partial class GameController : Node {
             this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "+ 10s", SafeColor);
         }
         this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ ${addedMoney}", SafeColor);
+        SoundController.PlayPackageDelivered();
     }
 
     private void OnPackageExpired(DropOff dropOff) {
