@@ -5,7 +5,7 @@
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
 [ext_resource type="Script" path="res://src/ui/drop_off/DropOffNotifications.cs" id="2_l7yum"]
 [ext_resource type="PackedScene" uid="uid://bv5gicifn33ht" path="res://src/ui/drop_off/DropOffComponent.tscn" id="2_xmkmn"]
-[ext_resource type="Resource" path="res://src/levels/levels/DemoLevel.tres" id="2_y3f0f"]
+[ext_resource type="Resource" uid="uid://b5mokj6hjtjpb" path="res://src/levels/levels/DemoLevel.tres" id="2_y3f0f"]
 [ext_resource type="PackedScene" uid="uid://cgupj6d18i0y8" path="res://src/player/Player.tscn" id="3_aafgf"]
 [ext_resource type="PackedScene" uid="uid://c1yi54701ra65" path="res://src/ui/warehouse/WarehouseComponent.tscn" id="3_lnpd3"]
 [ext_resource type="PackedScene" uid="uid://dokh0xdkn4n78" path="res://src/ui/money/MoneyComponent.tscn" id="4_1icfj"]
@@ -139,7 +139,6 @@ environment = ExtResource("2_im14v")
 
 [node name="Player" parent="." instance=ExtResource("3_aafgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57321, 0, 0)
-BoxCapacity = 5
 OrderColors = ExtResource("11_2pgxb")
 
 [node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver", "PauseMenu", "SoundController")]

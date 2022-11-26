@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5mokj6hjtjpb"]
 
 [ext_resource type="Script" path="res://src/levels/LevelData.cs" id="1_e4xmc"]
 
@@ -12,5 +12,6 @@ PackageExpiryTime = 15
 PlayerPackageCapacity = 5
 PackageDeliveredTimeAward = 10
 PackageDeliveredMoneyAward = 20
-PackageExpiredMoneyCost = 10
+PackageDeliveredMoneyBonus = 10
+PackageExpiredTimeCost = 10
 DropOffHomeStateChangeRange = Vector2i(5, 8)
