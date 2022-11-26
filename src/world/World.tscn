@@ -39,14 +39,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.0989, 0, -28.497)
 [node name="DropOff3" parent="DropOffPoints" instance=ExtResource("3_nussy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.0989, 0, -4.07977)
 
+[node name="DropOff4" parent="DropOffPoints" instance=ExtResource("3_nussy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.031, 0, -17.7967)
+
 [node name="DropOff5" parent="DropOffPoints" instance=ExtResource("3_nussy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.1052, 0, -4.07977)
 
 [node name="DropOff6" parent="DropOffPoints" instance=ExtResource("3_nussy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.1052, 0, -4.07977)
-
-[node name="DropOff4" parent="DropOffPoints" instance=ExtResource("3_nussy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.031, 0, -17.7967)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.8477, 0, 3.65113)
 
 [node name="OrderManager" type="Node" parent="." node_paths=PackedStringArray("CollectionPoints", "DropOffPoints")]
 script = ExtResource("3_3uyrs")

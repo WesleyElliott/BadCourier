@@ -23,6 +23,8 @@ public partial class Player : Node {
 		dropOffColors.Add(new Color(0, 0, 1));
 		dropOffColors.Add(new Color(1, 1, 0));
 		dropOffColors.Add(new Color(0, 1, 1));
+		dropOffColors.Add(new Color(1, 0, 1));
+		dropOffColors.Add(new Color(1, 1, 1));
     }
 
     public override void _PhysicsProcess(double delta) {
@@ -48,6 +50,7 @@ public partial class Player : Node {
 			boxes.AddChild(box);
 			var dropOffColor = dropOffColors[boxes.GetChildCount()];
 			box.DropOff.DropOffColor = dropOffColor;
+			box.DropOff.CallDeferred("Enable");
 		}
 	}
 
@@ -68,6 +71,7 @@ public partial class Player : Node {
 		GD.Print($"[Delivery] Dropping off package: {box.Name}");
 		boxes.RemoveChild(box);
 		box.QueueFree();
+		dropOff.HasOrder = false;
 		dropOff.CallDeferred("Disable");
 
 		if (dropOff.SomeoneHome) {

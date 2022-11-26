@@ -41,7 +41,7 @@ public partial class OrderManager : Node {
             .Where(point => point.GetChildCount() == 0);
         var eligibleDropOffPoints = DropOffPoints.GetChildren()
             .Cast<DropOff>()
-            .Where(box => box.Visible == false);
+            .Where(dropOff => !dropOff.HasOrder);
 
         if (eligibleDropOffPoints.Count() == 0 || eligibleCollectionPoints.Count() == 0) {
             GD.Print("[Order] No more drop of points...");
@@ -50,14 +50,14 @@ public partial class OrderManager : Node {
 
         var collectionPoint = eligibleCollectionPoints.ElementAt(rng.RandiRange(0, eligibleCollectionPoints.Count() - 1));
         var dropOffPoint = eligibleDropOffPoints.ElementAt(rng.RandiRange(0, eligibleDropOffPoints.Count() - 1));
+        dropOffPoint.HasOrder = true;
 
-        GD.Print($"[Order] Collection @ {collectionPoint.Position} | Drop off @ {dropOffPoint.Position}");
+        GD.Print($"[Order] Collection @ {collectionPoint.Name} | Drop off @ {dropOffPoint.Name}");
 
         var boxScene = GD.Load<PackedScene>("res://src/world/misc/box/Box.tscn");
         Box box = (Box) boxScene.Instantiate();
         box.DropOff = dropOffPoint;
 
         collectionPoint.AddChild(box);
-        dropOffPoint.Enable();
     }
 }

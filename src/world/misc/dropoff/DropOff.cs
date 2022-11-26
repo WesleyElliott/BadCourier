@@ -8,6 +8,7 @@ public partial class DropOff : Node3D {
     public WayPoint WayPoint { get; private set; }
 
     public bool SomeoneHome { get; private set; } = true;
+    public bool HasOrder { get; set; } = false;
     public Color DropOffColor { 
         get {
             return dropOffColor;
