@@ -41,25 +41,27 @@ public partial class Player : Node {
 	public void OnAreaEntered(Area3D other) {
 		if (other.Owner is DropOff) {
 			DropOff dropOff = (DropOff) other.Owner;
-			if (dropOff.CanDropOff) {
-				DropOffPackage(dropOff);
-			} else {
-				GD.Print("NO ONE IS HOME!");
-			}
+			DropOffPackage(dropOff);
 		} 
 	}
 
 	private void DropOffPackage(DropOff dropOff) {
 		var box = boxes.GetChildren().Cast<Box>().Where(box => box.DropOff == dropOff).FirstOrDefault();
 		if (box == null) {
-			GD.Print("No box found for this drop off zone!");
+			GD.Print("[Delivery] No packages for this drop off");
 			return;
 		}
 
-		GD.Print($"Dropping off box: {box.Name}");
+		GD.Print($"[Delivery] Dropping off package: {box.Name}");
 		boxes.RemoveChild(box);
 		box.QueueFree();
 		dropOff.CallDeferred("Disable");
+
+		if (dropOff.SomeoneHome) {
+			GD.Print("[Delivery] Some was home, no bonus!");
+		} else {
+			GD.Print("[Delivery] Nobody home! BONUS $$$");
+		}	
 	}
 
 }

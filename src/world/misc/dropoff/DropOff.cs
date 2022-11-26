@@ -6,7 +6,7 @@ public partial class DropOff : Node3D {
     public Timer Timer { get; private set; }
     public CollisionShape3D CollisionShape { get; private set; }
 
-    public bool CanDropOff { get; private set; } = true;
+    public bool SomeoneHome { get; private set; } = true;
 
     private RandomNumberGenerator rng;
 
@@ -28,10 +28,10 @@ public partial class DropOff : Node3D {
         }
         Timer.WaitTime = rng.RandiRange(5, 8);
         Timer.Start();
-        CanDropOff = !CanDropOff;
+        SomeoneHome = !SomeoneHome;
 
         StandardMaterial3D material = (StandardMaterial3D) Model.GetActiveMaterial(0);
-        if (CanDropOff) {
+        if (SomeoneHome) {
             material.AlbedoColor = new Color(0, 1, 0);
         } else {
             material.AlbedoColor = new Color(1, 0, 0);
