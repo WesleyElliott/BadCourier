@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dktfhjqskmpyn"]
+[gd_scene load_steps=9 format=3 uid="uid://bjgngxw6tcvss"]
 
 [ext_resource type="PackedScene" uid="uid://cfift5xi0v4jy" path="res://src/car/model/van.glb" id="1_60xwk"]
 [ext_resource type="Script" path="res://src/car/Car.cs" id="1_kxlsj"]
 [ext_resource type="Script" path="res://src/car/notifications/CarNotifications.cs" id="3_u1hih"]
 [ext_resource type="PackedScene" uid="uid://5gwq33cyysu3" path="res://src/car/notifications/CarNotification.tscn" id="4_sjnbr"]
+[ext_resource type="AudioStream" uid="uid://cxs12xmar8y17" path="res://src/car/audio/engine.ogg" id="5_evwky"]
+[ext_resource type="AudioStream" uid="uid://cq42f8dlsgl11" path="res://src/car/audio/skid.ogg" id="6_3c4o5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4av3t"]
 bounce = 0.4
@@ -13,12 +15,14 @@ absorbent = true
 margin = 2.0
 radius = 1.0
 
-[node name="Van" type="Node3D" node_paths=PackedStringArray("Model", "Sphere", "Container", "RayCast")]
+[node name="Van" type="Node3D" node_paths=PackedStringArray("Model", "Sphere", "Container", "RayCast", "EngineAudio", "SkidAudio")]
 script = ExtResource("1_kxlsj")
 Model = NodePath("Container/Node")
 Sphere = NodePath("Sphere")
 Container = NodePath("Container")
 RayCast = NodePath("Container/RayCast3D")
+EngineAudio = NodePath("Container/EngineAudioPlayer")
+SkidAudio = NodePath("Container/SkidAudioPlayer")
 
 [node name="Container" type="Node3D" parent="."]
 
@@ -35,6 +39,13 @@ collide_with_areas = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81894, 0)
 script = ExtResource("3_u1hih")
 NotificationTemplate = ExtResource("4_sjnbr")
+
+[node name="EngineAudioPlayer" type="AudioStreamPlayer3D" parent="Container"]
+stream = ExtResource("5_evwky")
+
+[node name="SkidAudioPlayer" type="AudioStreamPlayer3D" parent="Container"]
+stream = ExtResource("6_3c4o5")
+volume_db = -2.0
 
 [node name="Sphere" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

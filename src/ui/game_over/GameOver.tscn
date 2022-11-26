@@ -54,7 +54,6 @@ RestartButton = NodePath("Panel/VBoxContainer/HBoxContainer/RestartButton")
 QuitButton = NodePath("Panel/VBoxContainer/HBoxContainer/QuitButton")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -63,7 +62,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2nlfy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -76,13 +74,12 @@ theme_override_constants/separation = 12
 
 [node name="Control" type="Control" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 256)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_right = 734.0
 offset_bottom = 256.0
 
 [node name="Heading" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 268.0
 offset_right = 734.0
 offset_bottom = 445.0
@@ -93,7 +90,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Score" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 457.0
 offset_right = 734.0
 offset_bottom = 547.0
@@ -105,14 +101,13 @@ uppercase = true
 
 [node name="Control2" type="Control" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_top = 559.0
 offset_right = 734.0
 offset_bottom = 623.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_left = 231.0
 offset_top = 635.0
 offset_right = 503.0
@@ -123,7 +118,6 @@ theme_override_constants/separation = 16
 [node name="RestartButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" groups=["Button"]]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
-layout_mode = 2
 offset_right = 128.0
 offset_bottom = 72.0
 size_flags_horizontal = 4
@@ -139,7 +133,6 @@ text = "RESTART"
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" groups=["Button"]]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
-layout_mode = 2
 offset_left = 144.0
 offset_right = 272.0
 offset_bottom = 72.0

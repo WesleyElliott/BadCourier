@@ -10,8 +10,16 @@ public partial class Car : Node3D {
 
     [Export]
     public Node3D Container { get; private set; }
+
     [Export]
     public RayCast3D RayCast { get; private set; }
+
+    [Export]
+    public AudioStreamPlayer3D EngineAudio { get; private set; }
+
+    [Export]
+    public AudioStreamPlayer3D SkidAudio { get; private set; }
+
     public bool CanDrive = true;
     private Node3D Body { get; set; }
     private Node3D RightWheel { get; set; }
@@ -30,6 +38,7 @@ public partial class Car : Node3D {
         Body = Model.GetNode<Node3D>("model/tmpParent/van2/body");
         RightWheel = Model.GetNode<Node3D>("model/tmpParent/van2/wheel_frontRight");
         LeftWheel = Model.GetNode<Node3D>("model/tmpParent/van2/wheel_frontLeft");
+        EngineAudio.Play();
     }
 
     public override void _PhysicsProcess(double delta) {
@@ -74,5 +83,21 @@ public partial class Car : Node3D {
 
         Body.Rotation = new Vector3(Mathf.DegToRad((torqueVelocity * 1.2f)), 0, 0);
         Body.RotateObjectLocal(Vector3.Forward, rotationVelocity / 5f);
+
+        var skidding = (Sphere.LinearVelocity.Cross(forward).Length() > 5);
+        if (skidding) {
+            if (!SkidAudio.Playing)
+                SkidAudio.Play();
+        } else {
+            SkidAudio.Stop();
+        }
+
+        HandleEngineAudio();
     }
+
+    private void HandleEngineAudio() {
+        var pitchOffset = Sphere.LinearVelocity.Length() / 30;
+        EngineAudio.PitchScale = 1 + pitchOffset;
+    }
+
 }
