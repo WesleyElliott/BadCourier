@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgupj6d18i0y8"]
+[gd_scene load_steps=4 format=3 uid="uid://cgupj6d18i0y8"]
 
 [ext_resource type="Script" path="res://src/player/Player.cs" id="1_gpnmw"]
 [ext_resource type="PackedScene" uid="uid://dktfhjqskmpyn" path="res://src/car/Van.tscn" id="2_5t2is"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w47xt"]
+size = Vector3(1.38146, 1, 2.70675)
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container", "Model")]
 script = ExtResource("1_gpnmw")
@@ -10,7 +13,7 @@ Container = NodePath("Van/Container")
 Model = NodePath("Van/Container/Node")
 
 [node name="Rig" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.62388, 0.78152, 0, -0.78152, 0.623879, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906307, 0, -0.906308, 0.422618, 0, 0, 0)
 
 [node name="Camera" type="Camera3D" parent="Rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
@@ -18,5 +21,18 @@ current = true
 fov = 50.0
 
 [node name="Van" parent="." instance=ExtResource("2_5t2is")]
+
+[node name="BoxCollider" type="Area3D" parent="Van/Container/Node" index="0"]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Van/Container/Node/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.768535, 0.500442)
+shape = SubResource("BoxShape3D_w47xt")
+
+[node name="Boxes" type="Node" parent="."]
+
+[connection signal="area_entered" from="Van/Container/Node/BoxCollider" to="." method="OnAreaEntered"]
+[connection signal="body_entered" from="Van/Container/Node/BoxCollider" to="." method="OnBoxEntered"]
 
 [editable path="Van"]
