@@ -4,9 +4,6 @@ using System.Linq;
 public partial class OrderManager : Node {
 
     [Export]
-    public Node CollectionPoints { get; private set; }
-
-    [Export]
     public Node DropOffPoints { get; private set; }
 
     private RandomNumberGenerator rng = new RandomNumberGenerator();
@@ -36,28 +33,25 @@ public partial class OrderManager : Node {
     */
     private void GenerateOrder() {
         GD.Print("[Order] Generating order...");
-        var eligibleCollectionPoints = CollectionPoints.GetChildren()
-            .Cast<Node3D>()
-            .Where(point => point.GetChildCount() == 0);
         var eligibleDropOffPoints = DropOffPoints.GetChildren()
             .Cast<DropOff>()
             .Where(dropOff => !dropOff.HasOrder);
 
-        if (eligibleDropOffPoints.Count() == 0 || eligibleCollectionPoints.Count() == 0) {
+        if (eligibleDropOffPoints.Count() == 0) {
             GD.Print("[Order] No more drop of points...");
             return;
         }
 
-        var collectionPoint = eligibleCollectionPoints.ElementAt(rng.RandiRange(0, eligibleCollectionPoints.Count() - 1));
         var dropOffPoint = eligibleDropOffPoints.ElementAt(rng.RandiRange(0, eligibleDropOffPoints.Count() - 1));
         dropOffPoint.HasOrder = true;
 
-        GD.Print($"[Order] Collection @ {collectionPoint.Name} | Drop off @ {dropOffPoint.Name}");
+        GD.Print($"[Order] Drop off @ {dropOffPoint.Name}");
 
         var boxScene = GD.Load<PackedScene>("res://src/world/misc/box/Box.tscn");
         Box box = (Box) boxScene.Instantiate();
         box.DropOff = dropOffPoint;
+        box.Visible = false;
 
-        collectionPoint.AddChild(box);
+        AddChild(box);
     }
 }

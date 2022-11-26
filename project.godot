@@ -57,6 +57,7 @@ back={
 3d_render/layer_2="Box"
 3d_physics/layer_2="Box"
 3d_physics/layer_3="DropOff"
+3d_physics/layer_4="Warehouse"
 
 [rendering]
 

@@ -16,15 +16,15 @@ Model = NodePath("Van/Container/Node")
 transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819151, 0, -0.819152, 0.573576, 0, 0, 0)
 
 [node name="Camera" type="Camera3D" parent="Rig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+transform = Transform3D(1, 0, 0, 0, 1, 5.66244e-07, 0, 0, 1, 0, 0, 28)
 current = true
 fov = 50.0
 
 [node name="Van" parent="." instance=ExtResource("2_5t2is")]
 
 [node name="BoxCollider" type="Area3D" parent="Van/Container/Node" index="0"]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 14
+collision_mask = 14
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Van/Container/Node/BoxCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.768535, 0.500442)

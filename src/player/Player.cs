@@ -2,7 +2,10 @@ using Godot;
 using System.Linq;
 using System.Collections.Generic;
 
-public partial class Player : Node {
+public partial class Player : Node3D {
+
+	[Export]
+	public int BoxCapacity { get; private set; }
 
 	[Export]
 	public Node3D Rig { get; private set; }
@@ -40,7 +43,7 @@ public partial class Player : Node {
 			if (boxes.GetChildren().Contains(box)) {
 				return;
 			}
-			if (boxes.GetChildCount() == 5) {
+			if (TotalBoxes() == BoxCapacity) {
 				GD.Print("Cannot carry anymore boxes");
 				return;
 			}
@@ -59,6 +62,14 @@ public partial class Player : Node {
 			DropOff dropOff = (DropOff) other.Owner;
 			DropOffPackage(dropOff);
 		} 
+	}
+
+	public int TotalBoxes() {
+		return boxes.GetChildCount();
+	}
+
+	public int AvailableSpace() {
+		return BoxCapacity - TotalBoxes();
 	}
 
 	private void DropOffPackage(DropOff dropOff) {
