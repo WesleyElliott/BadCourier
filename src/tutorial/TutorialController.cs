@@ -10,6 +10,9 @@ public partial class TutorialController : Node {
     public Player Player { get; private set; }
 
     [Export]
+    public Warehouse Warehouse { get; private set; }
+
+    [Export]
     public Area3D CheckPoint1 { get; private set; }
 
     [Export]
@@ -69,6 +72,8 @@ public partial class TutorialController : Node {
 
         await WaitUntilSpacePressed();
 
+        Warehouse.OrderManager.GenerateOrder();
+        Warehouse.OrderManager.GenerateOrder();
         var tween = GetTree().CreateTween();
         tween.SetPauseMode(Tween.TweenPauseMode.Process);
         tween.TweenProperty(PackagesUI, "position:x", 0, 0.7f)
@@ -83,6 +88,7 @@ public partial class TutorialController : Node {
 
         TutorialDialog.HideDialog();
         Player.Van.CanDrive = true;
+        this.EventBus().EmitSignal(EventBus.SignalName.GameStart);
     }
 
     private async Task WaitUntilSpacePressed() {

@@ -1,10 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://bwndid3ob5px5"]
+[gd_scene load_steps=44 format=3 uid="uid://bwndid3ob5px5"]
 
 [ext_resource type="MeshLibrary" uid="uid://c5jgujgnbkw5b" path="res://src/world/WorldMeshLib.tres" id="1_b14ho"]
 [ext_resource type="Script" path="res://src/levels/Level.cs" id="1_x0nhf"]
-[ext_resource type="Resource" uid="uid://b5mokj6hjtjpb" path="res://src/levels/levels/DemoLevel.tres" id="2_5qyx7"]
 [ext_resource type="PackedScene" uid="uid://bo7gutye3xu8a" path="res://src/world/nature/models/tree_thin.glb" id="2_8aqct"]
 [ext_resource type="PackedScene" uid="uid://cd0gk1gmwohmc" path="res://src/world/parks/TownHall.tscn" id="2_md77t"]
+[ext_resource type="Resource" uid="uid://b7pms1muu3tfv" path="res://src/levels/levels/TutorialLevel.tres" id="2_qr0db"]
 [ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="3_my3vf"]
 [ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="4_2ssjg"]
 [ext_resource type="PackedScene" uid="uid://dokh0xdkn4n78" path="res://src/ui/money/MoneyComponent.tscn" id="4_snpbr"]
@@ -27,8 +27,13 @@
 [ext_resource type="Script" path="res://src/GameController.cs" id="35_74ih2"]
 [ext_resource type="PackedScene" uid="uid://bhcmfc1mg5hee" path="res://src/world/parks/HouseParkBig1.tscn" id="35_nb0a6"]
 [ext_resource type="AudioStream" uid="uid://2tk0te67mlhy" path="res://src/audio/Wood Block1.ogg" id="36_7delf"]
+[ext_resource type="Script" path="res://src/SoundController.cs" id="36_skinu"]
+[ext_resource type="AudioStream" uid="uid://cg42y04f7w0fc" path="res://src/ui/audio/Minimalist7.ogg" id="37_060hr"]
 [ext_resource type="PackedScene" uid="uid://dpc27umohhmn0" path="res://src/world/nature/models/stump_oldTall.glb" id="37_guxri"]
+[ext_resource type="AudioStream" uid="uid://b3gwwtr02rydt" path="res://src/audio/Modern13.ogg" id="38_5p077"]
 [ext_resource type="PackedScene" uid="uid://tej0g6hs17qt" path="res://src/world/nature/models/stone_smallD.glb" id="38_wu3kx"]
+[ext_resource type="AudioStream" uid="uid://b438r7km4oa5j" path="res://src/audio/Music.wav" id="39_s3spt"]
+[ext_resource type="PackedScene" uid="uid://evf2h4ep5h4k" path="res://src/ui/pause/Pause.tscn" id="40_yv177"]
 [ext_resource type="PackedScene" uid="uid://jpihcxwme0mj" path="res://src/world/nature/models/fence_planksDouble.glb" id="41_lol81"]
 [ext_resource type="PackedScene" uid="uid://2odljg5cnnas" path="res://src/world/nature/models/path_stone.glb" id="42_r03ux"]
 [ext_resource type="PackedScene" uid="uid://b8bgdm47eooob" path="res://src/world/parks/GreenMile.tscn" id="42_vy3y2"]
@@ -54,7 +59,7 @@ font_size = 52
 
 [node name="TutorialWorld" type="Node3D"]
 script = ExtResource("1_x0nhf")
-LevelData = ExtResource("2_5qyx7")
+LevelData = ExtResource("2_qr0db")
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -549,6 +554,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -136.999)
 [node name="DropOff1" parent="DropOffPoints" instance=ExtResource("20_0plmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0534, 0, 5.45674)
 
+[node name="DropOff2" parent="DropOffPoints" instance=ExtResource("20_0plmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36226, 0, 45.496)
+
 [node name="Warehouse" parent="." node_paths=PackedStringArray("DropOffPoints") instance=ExtResource("19_h1mm2")]
 DropOffPoints = NodePath("../DropOffPoints")
 
@@ -566,16 +574,17 @@ environment = ExtResource("21_18y64")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94481, 0, 20.6749)
 OrderColors = ExtResource("23_ltgri")
 
-[node name="TutorialController" type="Node" parent="." node_paths=PackedStringArray("TutorialDialog", "Player", "CheckPoint1", "PackagesUI")]
+[node name="TutorialController" type="Node" parent="." node_paths=PackedStringArray("TutorialDialog", "Player", "Warehouse", "CheckPoint1", "PackagesUI")]
 process_mode = 3
 script = ExtResource("26_5fn7j")
 TutorialDialog = NodePath("../TutorialUI/DialogBox")
 Player = NodePath("../Player")
+Warehouse = NodePath("../Warehouse")
 CheckPoint1 = NodePath("CheckPoint1")
 PackagesUI = NodePath("../HUD/Margins/LeftUI/Control3/PackageComponent")
 
 [node name="CheckPoint1" type="Area3D" parent="TutorialController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84411, 0, -16.4587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84411, 0, -11.1906)
 collision_layer = 256
 collision_mask = 256
 
@@ -678,6 +687,32 @@ SoundController = NodePath("../SoundController")
 BoxCollectedSound = ExtResource("36_7delf")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
+
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio", "PackageDeliveredAudio", "GenericAudio", "MusicAudio")]
+process_mode = 3
+script = ExtResource("36_skinu")
+ButtonAudio = NodePath("ButtonAudio")
+PackageDeliveredAudio = NodePath("PackageDeliveredAudio")
+GenericAudio = NodePath("GenericAudio")
+MusicAudio = NodePath("MusicAudio")
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("37_060hr")
+volume_db = 8.0
+
+[node name="PackageDeliveredAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("38_5p077")
+
+[node name="GenericAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("36_7delf")
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="SoundController"]
+process_mode = 3
+stream = ExtResource("39_s3spt")
+volume_db = -30.0
+
+[node name="Pause" parent="." instance=ExtResource("40_yv177")]
+visible = false
 
 [connection signal="timeout" from="GameController/GameTimer" to="GameController" method="OnTick"]
 
