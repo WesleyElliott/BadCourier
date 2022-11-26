@@ -5,15 +5,15 @@
 [resource]
 script = ExtResource("1_e43lw")
 GameTime = 120
-WarehouseCapacity = 15
+WarehouseCapacity = 20
 WarehouseStartingPackageCount = 4
-PackageSpawnRange = Vector2i(10, 20)
-PackageExpiryTime = 45
+PackageSpawnRange = Vector2i(5, 15)
+PackageExpiryTime = 50
 PlayerPackageCapacity = 5
-PackageDeliveredTimeAward = 15
+PackageDeliveredTimeAward = 20
 PackageDeliveredMoneyAward = 10
 PackageDeliveredMoneyBonus = 15
-PackageExpiredTimeCost = 15
+PackageExpiredTimeCost = 5
 DropOffHomeStateChangeRange = Vector2i(10, 20)
 GameStartPlaysMusic = true
 GameStartGeneratesOrder = true
