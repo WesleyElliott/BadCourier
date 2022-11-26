@@ -26,9 +26,9 @@ public partial class Car : Node3D {
     private Vector3 bodyPosition = new Vector3(0, 0, 0);
 
     public override void _Ready() {
-        Body = Model.GetNode<Node3D>("tmpParent/van2/body");
-        RightWheel = Model.GetNode<Node3D>("tmpParent/van2/wheel_frontRight");
-        LeftWheel = Model.GetNode<Node3D>("tmpParent/van2/wheel_frontLeft");
+        Body = Model.GetNode<Node3D>("model/tmpParent/van2/body");
+        RightWheel = Model.GetNode<Node3D>("model/tmpParent/van2/wheel_frontRight");
+        LeftWheel = Model.GetNode<Node3D>("model/tmpParent/van2/wheel_frontLeft");
     }
 
     public override void _PhysicsProcess(double delta) {

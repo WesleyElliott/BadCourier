@@ -7,7 +7,7 @@
 script = ExtResource("1_gpnmw")
 Rig = NodePath("Rig")
 Container = NodePath("Van/Container")
-Model = NodePath("Van/Container/model")
+Model = NodePath("Van/Container/Node")
 
 [node name="Rig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.62388, 0.78152, 0, -0.78152, 0.623879, 0, 0, 0)

@@ -13,14 +13,17 @@ radius = 1.0
 
 [node name="Van" type="Node3D" node_paths=PackedStringArray("Model", "Sphere", "Container", "RayCast")]
 script = ExtResource("1_kxlsj")
-Model = NodePath("Container/model")
+Model = NodePath("Container/Node")
 Sphere = NodePath("Sphere")
 Container = NodePath("Container")
 RayCast = NodePath("Container/RayCast3D")
 
 [node name="Container" type="Node3D" parent="."]
 
-[node name="model" parent="Container" instance=ExtResource("1_60xwk")]
+[node name="Node" type="Node3D" parent="Container"]
+
+[node name="model" parent="Container/Node" instance=ExtResource("1_60xwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="RayCast3D" type="RayCast3D" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
