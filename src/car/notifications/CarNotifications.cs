@@ -1,4 +1,5 @@
 using Godot;
+using System.Threading.Tasks;
 
 public partial class CarNotifications : Node3D {
 
@@ -17,20 +18,11 @@ public partial class CarNotifications : Node3D {
         base._PhysicsProcess(delta);
     }
 
-    private void ShowNotification(string text, Color color) {
-        if (GetChildCount() > 0) {
-            ScheduleNotification(text, color);
-        } else {
-            var notification = NotificationTemplate.Instantiate<CarNotification>();
-            AddChild(notification);
-            notification.ShowNotification(text, color);
-        }
-    }
-
-    private async void ScheduleNotification(string text, Color color) {
-        await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
+    private async void ShowNotification(string text, Color color) {
         var notification = NotificationTemplate.Instantiate<CarNotification>();
         AddChild(notification);
+        if (GetChildCount() > 1)
+            await Task.Delay(300 * GetChildCount());
         notification.ShowNotification(text, color);
     }
 }

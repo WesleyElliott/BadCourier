@@ -42,4 +42,7 @@ public partial class LevelData : Resource {
 
     [Export]
     public bool GameStartGeneratesOrder = true;
+
+    [Export(hint: PropertyHint.Range, hintString: "0,1,0.05")]
+    public float ResetTimerChancePercentage = 0.3f;
 }

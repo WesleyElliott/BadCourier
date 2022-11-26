@@ -4,7 +4,12 @@ public partial class CarNotification : Label3D {
 
     private Tween tween;
 
+    public override void _EnterTree() {
+        Visible = false;
+    }
+
     public void ShowNotification(string text, Color color) {
+        Visible = true;
         Text = text;
         Modulate = color;
 

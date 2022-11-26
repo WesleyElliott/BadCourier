@@ -58,8 +58,11 @@ public partial class GameController : Node {
 
     private Timer gameTimer;
     private GameState gameState;
+    private RandomNumberGenerator rng;
 
     public override void _EnterTree() {
+        rng = new RandomNumberGenerator();
+        rng.Randomize();
         gameState.GameTime = LevelData.GameTime;
         this.EventBus().PackageDelivered += OnPackageDelivered;
         this.EventBus().PackageExpired += OnPackageExpired;
@@ -107,6 +110,7 @@ public partial class GameController : Node {
 
     private void OnPackageDelivered(DropOff dropOff, bool anyoneHome) {
         var addedMoney = LevelData.PackageDeliveredMoneyAward;
+        var timersReset = false;
         gameState.Money += addedMoney;
         this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
         if (!anyoneHome) {
@@ -116,8 +120,18 @@ public partial class GameController : Node {
             this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
             this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
             this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ {LevelData.PackageDeliveredTimeAward}s", SafeColor);
+
+            // Random chance to reset drop off timers
+            var r = rng.Randf();
+            if (r <= LevelData.ResetTimerChancePercentage) {
+                timersReset = true;
+            }
         }
         this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ ${addedMoney}", SafeColor);
+        if (timersReset) {
+            this.EventBus().EmitSignal(EventBus.SignalName.ResetDropOffTimers);
+            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "Timer's RESET!", SafeColor);
+        }
         SoundController.PlayPackageDelivered();
     }
 
