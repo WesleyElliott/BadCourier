@@ -171,8 +171,9 @@ shape = SubResource("BoxShape3D_qecvp")
 mesh_library = SubResource("MeshLibrary_2bdsm")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.638902, 0.769288, 0, -0.769288, 0.638902, 0, 8.49809, 9.77891)
+transform = Transform3D(0.998882, 0.0302078, 0.0363726, -0.0456629, 0.416828, 0.907838, 0.0122627, -0.908483, 0.417741, 0, 28.5081, 9.77891)
 light_color = Color(1, 0.968627, 0.74902, 1)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_im14v")
