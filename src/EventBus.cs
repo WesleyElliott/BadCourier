@@ -19,4 +19,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void PackageExpiredEventHandler(DropOff dropOff);
+
+    [Signal]
+    public delegate void PackageDeliveredEventHandler(DropOff dropOff, bool anyoneHome);
 }

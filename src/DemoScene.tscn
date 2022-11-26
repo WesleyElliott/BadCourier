@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,6 +33,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="LeftUI" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 216.0
@@ -40,6 +42,7 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 24
 
 [node name="PackageComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -49,7 +52,7 @@ size_flags_horizontal = 0
 GameController = NodePath("../../../../GameController")
 
 [node name="DropOffNotifications" type="Control" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController")]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_top = 96.0
 offset_right = 192.0
@@ -60,6 +63,7 @@ GameController = NodePath("../../../../GameController")
 NotificationScene = ExtResource("2_xmkmn")
 
 [node name="RightUI" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
 offset_left = 1832.0
 offset_top = 24.0
 offset_right = 2024.0
@@ -68,6 +72,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="TimerComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -79,6 +84,7 @@ size_flags_vertical = 0
 GameController = NodePath("../../../../GameController")
 
 [node name="WarehouseInfoComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_lnpd3")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

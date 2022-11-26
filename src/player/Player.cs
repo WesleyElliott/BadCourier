@@ -99,6 +99,7 @@ public partial class Player : Node3D {
 
 		this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
 		this.EventBus().EmitSignal(EventBus.SignalName.HideNotification, dropOff);
+		this.EventBus().EmitSignal(EventBus.SignalName.PackageDelivered, dropOff, dropOff.SomeoneHome);
 	}
 
 	private void OnPackageExpired(DropOff dropOff) {
