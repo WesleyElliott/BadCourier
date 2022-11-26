@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/levels/LevelData.cs" id="1_e4xmc"]
+
+[resource]
+script = ExtResource("1_e4xmc")
+GameTime = 30
+WarehouseCapacity = 10
+WarehouseStartingPackageCount = 3
+PackageSpawnRange = Vector2i(3, 6)
+PackageExpiryTime = 15
+PlayerPackageCapacity = 5
+PackageDeliveredTimeAward = 10
+PackageDeliveredMoneyAward = 20
+PackageExpiredMoneyCost = 10
+DropOffHomeStateChangeRange = Vector2i(5, 8)
