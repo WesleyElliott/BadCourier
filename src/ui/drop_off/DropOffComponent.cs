@@ -17,7 +17,9 @@ public partial class DropOffComponent : Control {
     public DropOff DropOff;
     public GameController GameController;
     
-    private Tween tween;
+    private Tween showHideTween;
+    private Tween timerTween;
+    private Tween moveTween;
 
     public override void _EnterTree() {
         DropOff.HomeStateChanged += UpdateAtHomeStatus;
@@ -44,28 +46,28 @@ public partial class DropOffComponent : Control {
     }
 
     public void ShowNotification() {
-        if (tween != null) {
-            tween.Kill();
+        if (showHideTween != null) {
+            showHideTween.Kill();
         }
-        tween = GetTree().CreateTween();
-        tween.TweenProperty(this, "position", new Vector2(0, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
+        showHideTween = GetTree().CreateTween();
+        showHideTween.TweenProperty(this, "position", new Vector2(0, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
     }
 
     public void MoveNotification(Vector2 position) {
-        if (tween != null) {
-            tween.Kill();
+        if (moveTween != null) {
+            moveTween.Kill();
         }
-        tween = GetTree().CreateTween();
-        tween.TweenProperty(this, "position",position, 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
+        moveTween = GetTree().CreateTween();
+        moveTween.TweenProperty(this, "position",position, 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
     }
 
     public void HideNotification(Callable callback) {
-        if (tween != null) {
-            tween.Kill();
+        if (showHideTween != null) {
+            showHideTween.Kill();
         }
-        tween = GetTree().CreateTween();
-        tween.TweenProperty(this, "position", new Vector2(-200, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
-        tween.TweenCallback(callback);
+        showHideTween = GetTree().CreateTween();
+        showHideTween.TweenProperty(this, "position", new Vector2(-200, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
+        showHideTween.TweenCallback(callback);
     }
 
     private void UpdateTimeProgress(int timeRemaining, int expirationTime) {
@@ -73,11 +75,11 @@ public partial class DropOffComponent : Control {
         var color = GetProgressColor(percent);
 
         TimerProgress.TintProgress = color;
-        if (tween != null) {
-            tween.Kill();
+        if (timerTween != null) {
+            timerTween.Kill();
         }
-        tween = GetTree().CreateTween();
-        tween.TweenProperty(TimerProgress, "value", percent, 0.3f).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quint);
+        timerTween = GetTree().CreateTween();
+        timerTween.TweenProperty(TimerProgress, "value", percent, 0.3f).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quint);
     }
 
     private Color GetProgressColor(float percent) {

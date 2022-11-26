@@ -12,11 +12,12 @@ public partial class DropOffNotifications : Control {
     private int notificationCount;
 
     public override void _Ready() {
-        this.EventBus().PlayerPickupPackage += OnPlayerPickupPackage;
-        this.EventBus().PlayerDropOffPackage += OnPlayerDropOffPackage;
+        this.EventBus().ShowNotification += OnShowNotification;
+        this.EventBus().HideNotification += OnHideNotification;
     }
     
-    private void OnPlayerPickupPackage(DropOff dropOff) {
+    private void OnShowNotification(DropOff dropOff) {
+        GD.Print($"OnShowNotification: {dropOff.Name}");
         DropOffComponent notification = NotificationScene.Instantiate<DropOffComponent>();
         var yOffset = 112 * notificationCount;
         notification.LayoutMode = 0;
@@ -28,10 +29,12 @@ public partial class DropOffNotifications : Control {
         notificationCount += 1;
     }
     
-    private void OnPlayerDropOffPackage(DropOff dropOff) {
+    private void OnHideNotification(DropOff dropOff) {
+        GD.Print($"OnHideNotification: {dropOff.Name}");
         var notification = GetChildren().Cast<DropOffComponent>().FirstOrDefault(child => child.DropOff.Name == dropOff.Name);
         if (notification != null) {
             notification.HideNotification(Callable.From(() => {
+                GD.Print($"Notification: {dropOff.Name} removed");
                 notification.QueueFree();
                 RemoveChild(notification);
                 notificationCount -= 1;

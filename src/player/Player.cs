@@ -56,7 +56,7 @@ public partial class Player : Node3D {
 			box.DropOff.CallDeferred("Enable");
 
 			this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
-			this.EventBus().EmitSignal(EventBus.SignalName.PlayerPickupPackage, box.DropOff);
+			this.EventBus().EmitSignal(EventBus.SignalName.ShowNotification, box.DropOff);
 			this.EventBus().EmitSignal(EventBus.SignalName.WarehouseCapacity, parent.GetChildCount());
 		}
 	}
@@ -95,7 +95,7 @@ public partial class Player : Node3D {
 			GD.Print("[Delivery] Nobody home! BONUS $$$");
 		}
 		this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
-		this.EventBus().EmitSignal(EventBus.SignalName.PlayerDropOffPackage, dropOff);
+		this.EventBus().EmitSignal(EventBus.SignalName.HideNotification, dropOff);
 	}
 
 }

@@ -81,6 +81,6 @@ public partial class DropOff : Node3D {
     }
 
     private void OnExpirationTimeout() {
-        GD.Print($"Oh fuck, {Name}'s delivery has expired!");
+        this.EventBus().EmitSignal(EventBus.SignalName.HideNotification, this);
     }
 }

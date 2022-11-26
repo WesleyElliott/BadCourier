@@ -12,8 +12,8 @@ public partial class EventBus : Node {
     public delegate void GameTimerTickEventHandler(int newTime);
 
     [Signal]
-    public delegate void PlayerPickupPackageEventHandler(DropOff dropOff);
+    public delegate void ShowNotificationEventHandler(DropOff dropOff);
 
     [Signal]
-    public delegate void PlayerDropOffPackageEventHandler(DropOff dropOff);
+    public delegate void HideNotificationEventHandler(DropOff dropOff);
 }
