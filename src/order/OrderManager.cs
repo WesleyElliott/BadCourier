@@ -53,5 +53,6 @@ public partial class OrderManager : Node {
         box.Visible = false;
 
         AddChild(box);
+        this.EventBus().EmitSignal(EventBus.SignalName.WarehouseCapacity, GetChildCount());
     }
 }

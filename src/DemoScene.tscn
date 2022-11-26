@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=8 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
 [ext_resource type="PackedScene" uid="uid://cgupj6d18i0y8" path="res://src/player/Player.tscn" id="3_aafgf"]
+[ext_resource type="PackedScene" uid="uid://c1yi54701ra65" path="res://src/ui/warehouse/WarehouseComponent.tscn" id="3_lnpd3"]
 [ext_resource type="PackedScene" uid="uid://bx24huigwieum" path="res://src/ui/packages/PackageComponent.tscn" id="5_55vw0"]
 [ext_resource type="Script" path="res://src/GameController.cs" id="6_x582o"]
 [ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="6_ytojr"]
@@ -18,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,6 +31,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="PackageComponent" parent="UI/Margins" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -39,18 +42,35 @@ offset_bottom = 1000.0
 size_flags_horizontal = 0
 GameController = NodePath("../../../GameController")
 
-[node name="TimerComponent" parent="UI/Margins" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
 offset_left = 1832.0
 offset_top = 24.0
 offset_right = 2024.0
-offset_bottom = 96.0
+offset_bottom = 1000.0
+size_flags_horizontal = 8
+theme_override_constants/separation = 16
+
+[node name="TimerComponent" parent="UI/Margins/VBoxContainer" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 192.0
+offset_bottom = 72.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-GameController = NodePath("../../../GameController")
+GameController = NodePath("../../../../GameController")
+
+[node name="WarehouseInfoComponent" parent="UI/Margins/VBoxContainer" instance=ExtResource("3_lnpd3")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 88.0
+offset_right = 192.0
+offset_bottom = 104.0
 
 [node name="World" parent="." instance=ExtResource("1_adbhg")]
 
