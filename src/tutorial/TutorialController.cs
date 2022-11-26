@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 public partial class TutorialController : Node {
 
     [Export]
+    public GameController GameController { get; private set; }
+
+    [Export]
     public TutorialDialog TutorialDialog { get; private set; }
 
     [Export]
@@ -38,12 +41,14 @@ public partial class TutorialController : Node {
         CheckPoint1.AreaEntered += OnCheckpoint1;
         this.EventBus().BoxCollected += OnBoxCollected;
         this.EventBus().GameTimerTick += OnGameTick;
+        this.EventBus().PackageDelivered += OnPackageDelivered;
     }
 
     public override void _ExitTree() {
         CheckPoint1.AreaExited -= OnCheckpoint1;
         this.EventBus().BoxCollected -= OnBoxCollected;
         this.EventBus().GameTimerTick -= OnGameTick;
+        this.EventBus().PackageDelivered -= OnPackageDelivered;
     }
 
     public override void _UnhandledKeyInput(InputEvent @event) {
@@ -151,6 +156,44 @@ public partial class TutorialController : Node {
         Player.Van.CanDrive = true;
     }
 
+    private async void HandleDelivery(bool anyoneHome) {
+        Player.Van.CanDrive = false;
+        state = TutorialState.Money;
+
+        var moneyEarned = LevelData.PackageDeliveredMoneyAward;
+        if (!anyoneHome) {
+            moneyEarned += LevelData.PackageDeliveredMoneyBonus;
+        }
+
+        TutorialDialog.SetMessage($"You're a natural! A sweet ${moneyEarned} in your pocket. Well, our pocket...");
+        TutorialDialog.SetHelpText("[Space]");
+        TutorialDialog.ShowDialog();
+
+        var tween = GetTree().CreateTween();
+        tween.SetPauseMode(Tween.TweenPauseMode.Process);
+        tween.TweenProperty(MoneyUI, "position:x", 0, 0.7f)
+            .SetTrans(Tween.TransitionType.Quint)
+            .SetEase(Tween.EaseType.InOut);
+
+        this.EventBus().EmitSignal(EventBus.SignalName.ExpireDeliveries);
+
+        await WaitUntilSpacePressed();
+        if (TutorialDialog.SkipPositionTween(true)) {
+            await WaitUntilSpacePressed();
+        }
+
+        TutorialDialog.SetMessage("You can see how much money you've earned at the top left. Your final score at the end of your shift will be this!", true);
+        await WaitUntilSpacePressed();
+
+        TutorialDialog.SetMessage("You'll also notice the other delivery expired, so you lost some time on that order. Make sure to get those deliveries done.", true);
+        await WaitUntilSpacePressed();
+
+        TutorialDialog.SetMessage("Well. It looks like you know what you're doing here. Time to send you off on some real deliveries", true);
+        await WaitUntilSpacePressed();
+
+        TutorialDialog.HideDialog();
+    }
+
     private async Task WaitUntilSpacePressed() {
         while (lastPressedKey != Key.Space) {
             await Task.Delay(100);
@@ -181,5 +224,13 @@ public partial class TutorialController : Node {
             packageExpiryTime = LevelData.PackageExpiryTime;
             this.EventBus().EmitSignal(EventBus.SignalName.ResetDropOffTimers);
         }
+
+        if (newTime <= 2) {
+            GameController.ResetGameTime();
+        }
+    }
+
+    private void OnPackageDelivered(DropOff dropOff, bool anyoneHome) {
+        HandleDelivery(anyoneHome);
     }
 }

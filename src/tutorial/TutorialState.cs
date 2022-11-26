@@ -3,6 +3,5 @@ enum TutorialState {
     Controls,
     Packages,
     DropOffLocations,
-    Timer,
     Money,
 }

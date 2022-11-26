@@ -101,6 +101,10 @@ public partial class GameController : Node {
         gameState.GameTime -= 1;
     }
 
+    public void ResetGameTime() {
+        gameState.GameTime = LevelData.GameTime;
+    }
+
     private void OnPackageDelivered(DropOff dropOff, bool anyoneHome) {
         var addedMoney = LevelData.PackageDeliveredMoneyAward;
         gameState.Money += addedMoney;
