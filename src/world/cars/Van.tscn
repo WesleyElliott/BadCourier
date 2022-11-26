@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ij3lqw54ux6"]
+
+[ext_resource type="PackedScene" uid="uid://1ecwuj10l1rp" path="res://src/world/cars/models/van.glb" id="1_kro1h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7h5wa"]
+size = Vector3(1.32027, 1.2991, 2.76571)
+
+[node name="van" instance=ExtResource("1_kro1h")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.685666, 0)
+shape = SubResource("BoxShape3D_7h5wa")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl2whdju5k1xk"]
+
+[ext_resource type="PackedScene" uid="uid://13auj5hvwux6" path="res://src/world/cars/models/delivery.glb" id="1_1h2lx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlvro"]
+size = Vector3(1.49122, 2.01428, 3.34856)
+
+[node name="delivery" instance=ExtResource("1_1h2lx")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02542, 0)
+shape = SubResource("BoxShape3D_qlvro")

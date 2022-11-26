@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b66m2i44tacbh"]
+[gd_scene load_steps=38 format=3 uid="uid://b66m2i44tacbh"]
 
 [ext_resource type="Script" path="res://src/levels/Level.cs" id="1_chroj"]
 [ext_resource type="Resource" uid="uid://b5mokj6hjtjpb" path="res://src/levels/levels/DemoLevel.tres" id="2_c4ar6"]
@@ -25,8 +25,18 @@
 [ext_resource type="PackedScene" uid="uid://c1d41wk5hmhgu" path="res://src/world/nature/models/tree_pineTallC.glb" id="23_6ts3d"]
 [ext_resource type="PackedScene" uid="uid://bo7gutye3xu8a" path="res://src/world/nature/models/tree_thin.glb" id="24_xxass"]
 [ext_resource type="PackedScene" uid="uid://d4jvp554hatoj" path="res://src/world/nature/models/tree_pineDefaultB.glb" id="25_jmok2"]
+[ext_resource type="PackedScene" uid="uid://b3ij3lqw54ux6" path="res://src/world/cars/Van.tscn" id="26_jaob6"]
 [ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="26_mkeox"]
+[ext_resource type="PackedScene" uid="uid://bl2whdju5k1xk" path="res://src/world/cars/Delivery.tscn" id="27_6iv0d"]
 [ext_resource type="PackedScene" uid="uid://cnt1lkuqo8106" path="res://src/world/buildings/models/large_buildingF.glb" id="27_t145k"]
+[ext_resource type="PackedScene" uid="uid://dpawcdj87lth4" path="res://src/world/cars/Taxi.tscn" id="28_iwhr2"]
+[ext_resource type="PackedScene" uid="uid://co72l3volyj0i" path="res://src/world/cars/Police.tscn" id="29_epslp"]
+[ext_resource type="PackedScene" uid="uid://8462sxmjjrxs" path="res://src/world/cars/Firetruck.tscn" id="30_w1n7i"]
+[ext_resource type="PackedScene" uid="uid://foddhyp8dcu6" path="res://src/world/cars/Ambulance.tscn" id="31_3c2tf"]
+[ext_resource type="PackedScene" uid="uid://n7tb7qokdb2h" path="res://src/world/cars/Sedan.tscn" id="32_22hef"]
+[ext_resource type="PackedScene" uid="uid://dclmy4y3ld3hk" path="res://src/world/cars/SUV.tscn" id="33_1w14j"]
+[ext_resource type="PackedScene" uid="uid://dryjoj5hm2dmk" path="res://src/world/cars/Truck.tscn" id="34_31rhw"]
+[ext_resource type="PackedScene" uid="uid://bpmvr847ha6wf" path="res://src/world/roads/models/light_curved.glb" id="35_d5nvw"]
 
 [node name="MainWorld" type="Node3D"]
 script = ExtResource("1_chroj")
@@ -1714,6 +1724,674 @@ transform = Transform3D(0.749338, 0, 0.280166, 0, 0.8, 0, -0.280166, 0, 0.749338
 
 [node name="tree_small24" parent="Props/SuburbParks2/Wild8" instance=ExtResource("26_mkeox")]
 transform = Transform3D(0.992538, 0, 0.987354, 0, 1.4, 0, -0.987354, 0, 0.992538, -3.99484, 9.53674e-07, 0.533846)
+
+[node name="Cars" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.325, 0, -30.4456)
+
+[node name="Warehouse" type="Node3D" parent="Props/Cars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6601, 7.62939e-06, -57.3824)
+
+[node name="van" parent="Props/Cars/Warehouse" instance=ExtResource("26_jaob6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.806801, 0, 6.1831)
+
+[node name="van2" parent="Props/Cars/Warehouse" instance=ExtResource("26_jaob6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.996941, 0, -9.62104)
+
+[node name="delivery" parent="Props/Cars/Warehouse" instance=ExtResource("27_6iv0d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.656792, 0, 10.3722)
+
+[node name="delivery2" parent="Props/Cars/Warehouse" instance=ExtResource("27_6iv0d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.656792, 0, 7.96735)
+
+[node name="delivery3" parent="Props/Cars/Warehouse" instance=ExtResource("27_6iv0d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.656792, 0, -6.72124)
+
+[node name="Taxis" type="Node3D" parent="Props/Cars"]
+
+[node name="taxi" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93496, 0, -4.15465)
+
+[node name="taxi2" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93496, 0, -47.6947)
+
+[node name="taxi3" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93496, 0, -93.2732)
+
+[node name="taxi4" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5306, 0, -34.8577)
+
+[node name="taxi5" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.0637, 0, -34.9607)
+
+[node name="taxi6" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.57865, -3.8147e-06, -70.1308)
+
+[node name="taxi7" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.86015, -3.8147e-06, 11.8124)
+
+[node name="taxi8" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.32452, -3.8147e-06, 32.4714)
+
+[node name="taxi9" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 14.0552, 0.104568, 39.9154)
+
+[node name="taxi10" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -30.0292, 0.104568, -9.52536)
+
+[node name="taxi11" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -30.0292, 0.104568, -106.22)
+
+[node name="taxi12" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 26.2767, 0.104568, -2.59463)
+
+[node name="taxi13" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 23.3665, 0.104568, -98.2596)
+
+[node name="taxi14" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-2.83122e-07, 0, 1, 0, 1, 0, -1, 0, -2.83122e-07, 13.1051, 0.104568, -83.0061)
+
+[node name="taxi15" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(-2.83122e-07, 0, 1, 0, 1, 0, -1, 0, -2.83122e-07, -16.2296, 0.104568, -139.201)
+
+[node name="taxi16" parent="Props/Cars/Taxis" instance=ExtResource("28_iwhr2")]
+transform = Transform3D(3.70545e-07, 0, -1, 0, 1, 0, 1, 0, 3.70545e-07, 12.208, 0.104568, -136.447)
+
+[node name="Police" type="Node3D" parent="Props/Cars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54546, 0, 3.86011)
+
+[node name="police" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+
+[node name="police2" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293228, 0, -119.334)
+
+[node name="police3" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8467, 0, -51.2256)
+
+[node name="police4" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.27, 0, 12.1898)
+
+[node name="police5" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -34.4716, 0, -53.2706)
+
+[node name="police6" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -21.6076, -3.8147e-06, 35.7897)
+
+[node name="police7" parent="Props/Cars/Police" instance=ExtResource("29_epslp")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -23.6585, -3.8147e-06, -84.1614)
+
+[node name="Service" type="Node3D" parent="Props/Cars"]
+
+[node name="firetruck" parent="Props/Cars/Service" instance=ExtResource("30_w1n7i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.8082, -3.33786e-06, -56.2485)
+
+[node name="firetruck2" parent="Props/Cars/Service" instance=ExtResource("30_w1n7i")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.2186, -3.8147e-06, -28.7769)
+
+[node name="ambulance" parent="Props/Cars/Service" instance=ExtResource("31_3c2tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3476, 0, -129.344)
+
+[node name="ambulance2" parent="Props/Cars/Service" instance=ExtResource("31_3c2tf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 22.4343, 0, -117.356)
+
+[node name="Suburbs1" type="Node3D" parent="Props/Cars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0454941, 0, 115.798)
+
+[node name="sedan" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7801, -1.90735e-06, 10.9604)
+
+[node name="sedan2" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7801, -1.90735e-06, -14.7131)
+
+[node name="sedan3" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69431, -1.90735e-06, 33.2241)
+
+[node name="sedan4" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69431, -1.90735e-06, -29.9997)
+
+[node name="sedan5" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.0818, -5.72205e-06, 42.6513)
+
+[node name="sedan17" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.07076, -1.90735e-06, 3.83778)
+
+[node name="sedan15" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.3743, -1.90735e-06, -30.7802)
+
+[node name="sedan16" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.3743, -1.90735e-06, 3.75694)
+
+[node name="sedan6" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2444, -1.90735e-06, -0.955574)
+
+[node name="sedan7" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2444, -1.90735e-06, 25.827)
+
+[node name="sedan8" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.98954, -1.90735e-06, -7.70226)
+
+[node name="sedan9" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.081, -1.90735e-06, -7.70226)
+
+[node name="sedan10" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.081, -1.90735e-06, -18.9027)
+
+[node name="sedan11" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -54.0893, -1.90735e-06, 20.1779)
+
+[node name="sedan12" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 57.3176, -1.90735e-06, 20.1779)
+
+[node name="sedan13" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 57.3176, -1.90735e-06, -18.0782)
+
+[node name="sedan14" parent="Props/Cars/Suburbs1" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 57.3176, -1.90735e-06, -8.13432)
+
+[node name="suv" parent="Props/Cars/Suburbs1" instance=ExtResource("33_1w14j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93033, 0, 18.0008)
+
+[node name="suv2" parent="Props/Cars/Suburbs1" instance=ExtResource("33_1w14j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8575, 0, 18.0008)
+
+[node name="suv3" parent="Props/Cars/Suburbs1" instance=ExtResource("33_1w14j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27682, 0, 51.1604)
+
+[node name="suv5" parent="Props/Cars/Suburbs1" instance=ExtResource("33_1w14j")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2166, 0, -46.5993)
+
+[node name="suv4" parent="Props/Cars/Suburbs1" instance=ExtResource("33_1w14j")]
+transform = Transform3D(0.895199, 0, 0.445667, 0, 1, 0, -0.445667, 0, 0.895199, 19.3484, 0, 51.1604)
+
+[node name="truck" parent="Props/Cars/Suburbs1" instance=ExtResource("34_31rhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2223, 0, 2.67515)
+
+[node name="truck2" parent="Props/Cars/Suburbs1" instance=ExtResource("34_31rhw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.5811, 0, -26.6476)
+
+[node name="truck3" parent="Props/Cars/Suburbs1" instance=ExtResource("34_31rhw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.7837, 1.90735e-06, -59.1748)
+
+[node name="truck4" parent="Props/Cars/Suburbs1" instance=ExtResource("34_31rhw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5305, 1.90735e-06, -54.6608)
+
+[node name="Suburbs2" type="Node3D" parent="Props/Cars"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.12014, 0, -214.956)
+
+[node name="sedan" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7801, -1.90735e-06, 10.9604)
+
+[node name="sedan2" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7801, -1.90735e-06, -14.7131)
+
+[node name="sedan3" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69431, -1.90735e-06, 33.2241)
+
+[node name="sedan4" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69431, -1.90735e-06, -29.9997)
+
+[node name="sedan5" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.0818, -5.72205e-06, 42.6513)
+
+[node name="sedan17" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.07076, -1.90735e-06, 3.83778)
+
+[node name="sedan15" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.3743, -1.90735e-06, -30.7802)
+
+[node name="sedan16" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.3743, -1.90735e-06, 3.75694)
+
+[node name="sedan6" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2444, -1.90735e-06, -0.955574)
+
+[node name="sedan7" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2444, -1.90735e-06, 25.827)
+
+[node name="sedan8" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.98954, -1.90735e-06, -7.70226)
+
+[node name="sedan9" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.081, -1.90735e-06, -7.70226)
+
+[node name="sedan10" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.081, -1.90735e-06, -18.9027)
+
+[node name="sedan11" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -54.0893, -1.90735e-06, 20.1779)
+
+[node name="sedan12" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 57.3176, -1.90735e-06, 20.1779)
+
+[node name="sedan13" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 57.3176, -1.90735e-06, -18.0782)
+
+[node name="sedan14" parent="Props/Cars/Suburbs2" instance=ExtResource("32_22hef")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 57.3176, -1.90735e-06, -8.13432)
+
+[node name="suv" parent="Props/Cars/Suburbs2" instance=ExtResource("33_1w14j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93033, 0, 18.0008)
+
+[node name="suv2" parent="Props/Cars/Suburbs2" instance=ExtResource("33_1w14j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8575, 0, 18.0008)
+
+[node name="suv3" parent="Props/Cars/Suburbs2" instance=ExtResource("33_1w14j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27682, 0, 51.1604)
+
+[node name="suv5" parent="Props/Cars/Suburbs2" instance=ExtResource("33_1w14j")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2166, 0, -46.5993)
+
+[node name="suv4" parent="Props/Cars/Suburbs2" instance=ExtResource("33_1w14j")]
+transform = Transform3D(0.895199, 0, 0.445667, 0, 1, 0, -0.445667, 0, 0.895199, 19.3484, 0, 51.1604)
+
+[node name="truck" parent="Props/Cars/Suburbs2" instance=ExtResource("34_31rhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2223, 0, 2.67515)
+
+[node name="truck2" parent="Props/Cars/Suburbs2" instance=ExtResource("34_31rhw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.5811, 0, -26.6476)
+
+[node name="truck3" parent="Props/Cars/Suburbs2" instance=ExtResource("34_31rhw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.7837, 1.90735e-06, -59.1748)
+
+[node name="truck4" parent="Props/Cars/Suburbs2" instance=ExtResource("34_31rhw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5305, 1.90735e-06, -54.6608)
+
+[node name="Lights" type="Node3D" parent="Props"]
+
+[node name="Lights" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -76.6648, 0, -63.3296)
+
+[node name="light_curved" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57068, 0, -1.76813)
+
+[node name="light_curved3" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81073, 0, -1.76813)
+
+[node name="light_curved4" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12857, 0, -1.76813)
+
+[node name="light_curved5" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16753, 0, -1.76813)
+
+[node name="light_curved6" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52815, 0, -1.76813)
+
+[node name="light_curved2" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.52075, 0, 1.52344)
+
+[node name="light_curved7" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.7608, 0, 1.52344)
+
+[node name="light_curved8" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.821493, 0, 1.52344)
+
+[node name="light_curved9" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.21746, 0, 1.52344)
+
+[node name="light_curved10" parent="Props/Lights/Lights" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.57809, 0, 1.52344)
+
+[node name="Lights2" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -76.6648, 0, -87.338)
+
+[node name="light_curved" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57068, 0, -1.76813)
+
+[node name="light_curved3" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81073, 0, -1.76813)
+
+[node name="light_curved4" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12857, 0, -1.76813)
+
+[node name="light_curved5" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16753, 0, -1.76813)
+
+[node name="light_curved6" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52815, 0, -1.76813)
+
+[node name="light_curved2" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.52075, 0, 1.52344)
+
+[node name="light_curved7" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.7608, 0, 1.52344)
+
+[node name="light_curved8" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.821493, 0, 1.52344)
+
+[node name="light_curved9" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.21746, 0, 1.52344)
+
+[node name="light_curved10" parent="Props/Lights/Lights2" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.57809, 0, 1.52344)
+
+[node name="Lights3" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -76.6648, 0, -111.847)
+
+[node name="light_curved" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57068, 0, -1.76813)
+
+[node name="light_curved3" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81073, 0, -1.76813)
+
+[node name="light_curved4" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12857, 0, -1.76813)
+
+[node name="light_curved5" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16753, 0, -1.76813)
+
+[node name="light_curved6" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52815, 0, -1.76813)
+
+[node name="light_curved2" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.52075, 0, 1.52344)
+
+[node name="light_curved7" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.7608, 0, 1.52344)
+
+[node name="light_curved8" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.821493, 0, 1.52344)
+
+[node name="light_curved9" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.21746, 0, 1.52344)
+
+[node name="light_curved10" parent="Props/Lights/Lights3" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.57809, 0, 1.52344)
+
+[node name="Lights4" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -76.6648, 0, -167.272)
+
+[node name="light_curved" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57068, 0, -1.76813)
+
+[node name="light_curved3" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81073, 0, -1.76813)
+
+[node name="light_curved4" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12857, 0, -1.76813)
+
+[node name="light_curved5" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16753, 0, -1.76813)
+
+[node name="light_curved6" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52815, 0, -1.76813)
+
+[node name="light_curved2" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.52075, 0, 1.52344)
+
+[node name="light_curved7" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.7608, 0, 1.52344)
+
+[node name="light_curved8" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.821493, 0, 1.52344)
+
+[node name="light_curved9" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.21746, 0, 1.52344)
+
+[node name="light_curved10" parent="Props/Lights/Lights4" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.57809, 0, 1.52344)
+
+[node name="Lights5" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -101.163)
+
+[node name="light_curved" parent="Props/Lights/Lights5" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights5" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights5" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights6" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -77.3484)
+
+[node name="light_curved" parent="Props/Lights/Lights6" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights6" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights6" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights10" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -53.7752)
+
+[node name="light_curved" parent="Props/Lights/Lights10" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights10" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights10" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights11" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -36.4292)
+
+[node name="light_curved" parent="Props/Lights/Lights11" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights11" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights11" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights12" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -13.9068)
+
+[node name="light_curved" parent="Props/Lights/Lights12" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights12" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights12" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights7" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -122.703)
+
+[node name="light_curved" parent="Props/Lights/Lights7" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights7" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights7" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights8" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -142.639)
+
+[node name="light_curved" parent="Props/Lights/Lights8" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights8" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights8" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights9" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -75.8289, 0, -159.017)
+
+[node name="light_curved" parent="Props/Lights/Lights9" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights9" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights9" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights13" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -77.3484)
+
+[node name="light_curved" parent="Props/Lights/Lights13" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights13" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights13" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights14" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -53.7752)
+
+[node name="light_curved" parent="Props/Lights/Lights14" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights14" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights14" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights15" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -36.4292)
+
+[node name="light_curved" parent="Props/Lights/Lights15" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights15" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights15" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights16" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -13.9068)
+
+[node name="light_curved" parent="Props/Lights/Lights16" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights16" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights16" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights17" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -122.703)
+
+[node name="light_curved" parent="Props/Lights/Lights17" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights17" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights17" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights18" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -142.639)
+
+[node name="light_curved" parent="Props/Lights/Lights18" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights18" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights18" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights19" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -107.587, 0, -159.017)
+
+[node name="light_curved" parent="Props/Lights/Lights19" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights19" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights19" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights20" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -77.3484)
+
+[node name="light_curved" parent="Props/Lights/Lights20" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights20" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights20" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights21" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -53.7752)
+
+[node name="light_curved" parent="Props/Lights/Lights21" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights21" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights21" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights22" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -36.4292)
+
+[node name="light_curved" parent="Props/Lights/Lights22" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights22" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights22" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights23" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -13.9068)
+
+[node name="light_curved" parent="Props/Lights/Lights23" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights23" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights23" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights24" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -122.703)
+
+[node name="light_curved" parent="Props/Lights/Lights24" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights24" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights24" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights25" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -142.639)
+
+[node name="light_curved" parent="Props/Lights/Lights25" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights25" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights25" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
+
+[node name="Lights26" type="Node3D" parent="Props/Lights"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -51.1909, 0, -159.017)
+
+[node name="light_curved" parent="Props/Lights/Lights26" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, 1.49849)
+
+[node name="light_curved2" parent="Props/Lights/Lights26" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.58742, 0, -1.20816)
+
+[node name="light_curved3" parent="Props/Lights/Lights26" instance=ExtResource("35_d5nvw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
 
 [node name="Player" parent="." instance=ExtResource("5_i0ml7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.025, 1.52588e-05, -65.3233)

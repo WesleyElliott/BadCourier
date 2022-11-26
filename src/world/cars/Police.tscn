@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://co72l3volyj0i"]
+
+[ext_resource type="PackedScene" uid="uid://cy8lgn240nelp" path="res://src/world/cars/models/police.glb" id="1_n7b3l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2sgdn"]
+size = Vector3(1.36226, 1.27642, 3.03121)
+
+[node name="police" instance=ExtResource("1_n7b3l")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.680155, 0)
+shape = SubResource("BoxShape3D_2sgdn")
