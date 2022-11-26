@@ -1,0 +1,347 @@
+[gd_scene load_steps=21 format=3 uid="uid://cyjvcxybe6us5"]
+
+[ext_resource type="PackedScene" uid="uid://wnu1vi8xoprw" path="res://src/world/roads/models/construction_barrier.glb" id="1_w7qqs"]
+[ext_resource type="PackedScene" uid="uid://84s3pt8wfwx2" path="res://src/world/roads/models/construction_pylon.glb" id="2_8ra2d"]
+[ext_resource type="PackedScene" uid="uid://djivdcduxvpgi" path="res://src/world/roads/models/construction_light.glb" id="3_cjsg7"]
+[ext_resource type="PackedScene" uid="uid://fhjjvedoyd05" path="res://src/world/roads/models/road_crossing.glb" id="4_lo0hb"]
+[ext_resource type="PackedScene" uid="uid://dop86fofryxfr" path="res://src/world/roads/models/road_straight.glb" id="5_xmf4e"]
+[ext_resource type="PackedScene" uid="uid://bpmvr847ha6wf" path="res://src/world/roads/models/light_curved.glb" id="6_tc7kd"]
+[ext_resource type="PackedScene" uid="uid://5nv4rgfgnx20" path="res://src/world/roads/models/tile_low.glb" id="7_v7uml"]
+[ext_resource type="PackedScene" uid="uid://b3ij3lqw54ux6" path="res://src/world/cars/Van.tscn" id="8_6060p"]
+[ext_resource type="PackedScene" uid="uid://co72l3volyj0i" path="res://src/world/cars/Police.tscn" id="9_fr0xa"]
+[ext_resource type="PackedScene" uid="uid://dpawcdj87lth4" path="res://src/world/cars/Taxi.tscn" id="10_dc8di"]
+[ext_resource type="PackedScene" uid="uid://cl3x4dpf7j3ne" path="res://src/world/buildings/models/large_buildingC.glb" id="11_kak4r"]
+[ext_resource type="PackedScene" uid="uid://j0cyrw6kgxlu" path="res://src/world/buildings/models/skyscraperE.glb" id="12_buqrj"]
+[ext_resource type="PackedScene" uid="uid://bxcrv6voejj3d" path="res://src/world/buildings/models/skyscraperC.glb" id="13_dpoyn"]
+[ext_resource type="PackedScene" uid="uid://cvu4gpqjuh6rk" path="res://src/world/misc/box/box.glb" id="14_halkq"]
+[ext_resource type="PackedScene" uid="uid://utgm0bq22p6b" path="res://src/world/buildings/models/detail_umbrellaDetailed.glb" id="15_k6jk1"]
+[ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="16_f7g2o"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dp31d"]
+auto_exposure_enabled = true
+auto_exposure_speed = 1.79
+dof_blur_far_enabled = true
+dof_blur_far_distance = 1.77
+dof_blur_far_transition = 2.66
+dof_blur_near_enabled = true
+dof_blur_near_distance = 1.33
+dof_blur_near_transition = 0.69
+dof_blur_amount = 0.11
+auto_exposure_min_sensitivity = 141.06
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yqa1"]
+sky_top_color = Color(0.285891, 0.453272, 0.55, 1)
+sky_horizon_color = Color(0.670588, 0.654902, 0.552941, 1)
+sky_curve = 0.0699774
+ground_bottom_color = Color(0.639216, 0.541176, 0.427451, 1)
+ground_horizon_color = Color(0.639216, 0.65098, 0.662745, 1)
+ground_curve = 0.00353556
+sun_angle_max = 148.05
+
+[sub_resource type="Sky" id="Sky_xb0l8"]
+sky_material = SubResource("ProceduralSkyMaterial_0yqa1")
+
+[sub_resource type="Environment" id="Environment_ja53t"]
+background_mode = 2
+background_color = Color(0.411765, 0.788235, 1, 1)
+sky = SubResource("Sky_xb0l8")
+ambient_light_color = Color(0.635294, 1, 0.152941, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.5
+tonemap_white = 1.47
+glow_enabled = true
+glow_strength = 0.38
+glow_bloom = 0.38
+fog_enabled = true
+fog_light_energy = 2.41
+fog_sun_scatter = 0.29
+fog_density = 0.0276
+adjustment_brightness = 1.88
+
+[node name="Intro" type="Node3D"]
+
+[node name="Roads" type="Node3D" parent="."]
+
+[node name="construction_barrier" parent="Roads" instance=ExtResource("1_w7qqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.271694, 0, -1.42124)
+
+[node name="construction_barrier2" parent="Roads" instance=ExtResource("1_w7qqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528103, 0, -1.42124)
+
+[node name="construction_pylon" parent="Roads" instance=ExtResource("2_8ra2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280866, 0, -1.21974)
+
+[node name="construction_pylon2" parent="Roads" instance=ExtResource("2_8ra2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541441, 0, -1.21974)
+
+[node name="construction_light" parent="Roads" instance=ExtResource("3_cjsg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.704645, 0, -1.23713)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Roads/construction_light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.230743, 0.743932)
+light_color = Color(1, 0.360784, 0.137255, 1)
+light_energy = 0.71
+light_indirect_energy = 0.0
+light_size = 0.106
+omni_range = 0.28
+omni_attenuation = 1.23114
+
+[node name="road_crossing" parent="Roads" instance=ExtResource("4_lo0hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.754)
+
+[node name="road_straight2" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.754321)
+
+[node name="road_straight3" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.754321)
+
+[node name="road_straight4" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.754321)
+
+[node name="road_straight6" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.754321)
+
+[node name="road_straight5" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.754321)
+
+[node name="light_curved" parent="Roads" instance=ExtResource("6_tc7kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12665, -0.00408173, -1.22301)
+
+[node name="light_curved2" parent="Roads" instance=ExtResource("6_tc7kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126646, -0.00408173, -1.22301)
+
+[node name="light_curved3" parent="Roads" instance=ExtResource("6_tc7kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87335, -0.00408173, -1.22301)
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="tile_low" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.222007)
+
+[node name="tile_low2" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.222007)
+
+[node name="tile_low3" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.222007)
+
+[node name="tile_low12" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0.222007)
+
+[node name="tile_low4" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.222007)
+
+[node name="tile_low5" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.222007)
+
+[node name="tile_low6" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.73364)
+
+[node name="tile_low7" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.73364)
+
+[node name="tile_low8" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.73364)
+
+[node name="tile_low11" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.73364)
+
+[node name="tile_low9" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.73364)
+
+[node name="tile_low10" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.73364)
+
+[node name="Cars" type="Node3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="van" parent="Cars" instance=ExtResource("8_6060p")]
+transform = Transform3D(-0.0115858, 0.123487, 0.992278, -0.185494, 0.974855, -0.123485, -0.982577, -0.185492, 0.0116116, 5.1172, 0.452857, 0.133504)
+
+[node name="body" parent="Cars/van/tmpParent/van2" index="0"]
+transform = Transform3D(1, 0, 9.31323e-10, -1.49012e-08, 1, -2.42144e-08, 5.58794e-09, -2.35159e-08, 1, -0.0131449, 0.269082, -0.108751)
+
+[node name="wheel_frontLeft" parent="Cars/van/tmpParent/van2" index="3"]
+transform = Transform3D(-0.996149, 0.0102966, 0.0870725, 0.0117391, 0.999802, 0.0160705, 0.0868897, -0.0170308, 0.996072, -0.35, 0.3, -0.760001)
+
+[node name="wheel_frontRight" parent="Cars/van/tmpParent/van2" index="4"]
+transform = Transform3D(0.985833, 0.0184224, 0.166718, -0.0237288, 0.999272, 0.0298927, -0.166046, -0.0334252, 0.985551, 0.35, 0.3, -0.759999)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cars/van"]
+transform = Transform3D(6.66429, 0.00144947, -0.177992, 0.0236324, 6.60023, 0.938558, 0.176422, -0.938854, 6.59787, -0.562913, 0.687102, -1.32543)
+light_color = Color(1, 0.909804, 0.831373, 1)
+light_size = 0.161
+spot_range = 0.592
+spot_attenuation = 1.07177
+spot_angle_attenuation = 0.87055
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Cars/van"]
+transform = Transform3D(6.66429, 0.00144935, -0.177991, 0.0236324, 6.60023, 0.938558, 0.176422, -0.938854, 6.59787, 0.278933, 0.768637, -1.47212)
+light_color = Color(1, 0.909804, 0.831373, 1)
+light_size = 0.147
+spot_range = 0.592
+spot_attenuation = 1.07177
+spot_angle_attenuation = 0.87055
+
+[node name="police" parent="Cars" instance=ExtResource("9_fr0xa")]
+transform = Transform3D(-0.182676, -0.00673995, 0.98315, -0.123264, 0.992243, -0.0161011, -0.975415, -0.124129, -0.18209, 9.23571, 0, -1.00227)
+
+[node name="body" parent="Cars/police/tmpParent/police2" index="0"]
+transform = Transform3D(0.999898, -0.011559, 0.00842768, 0.0120693, 0.997925, -0.063238, -0.00767936, 0.0633332, 0.997963, -0.00360954, 0.229058, -0.150475)
+
+[node name="wheel_frontLeft" parent="Cars/police/tmpParent/police2" index="4"]
+transform = Transform3D(-0.974531, 0.000474989, -0.224253, 0.00680124, 0.9996, -0.0274389, 0.22415, -0.0282653, -0.974145, -0.35, 0.3, -0.81)
+
+[node name="wheel_frontRight" parent="Cars/police/tmpParent/police2" index="5"]
+transform = Transform3D(0.978171, 0.000660211, 0.2078, -0.00608228, 0.999658, 0.0254549, -0.207712, -0.0261632, 0.97784, 0.35, 0.3, -0.809999)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cars/police"]
+transform = Transform3D(6.66667, 0, 2.74181e-06, 0, 6.66667, -8.9407e-08, -3.21865e-06, 2.98023e-08, 6.66667, -0.357246, 0.514042, -1.07956)
+light_color = Color(1, 0.909804, 0.831373, 1)
+light_energy = 0.447
+light_size = 0.248
+spot_range = 0.592
+spot_attenuation = 1.07177
+spot_angle_attenuation = 0.87055
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Cars/police"]
+transform = Transform3D(6.66667, -5.96046e-08, 3.45707e-06, 1.19209e-07, 6.66667, -8.9407e-08, -3.93391e-06, 2.98023e-08, 6.66667, 0.480707, 0.615605, -1.23573)
+light_color = Color(1, 0.909804, 0.831373, 1)
+light_energy = 0.447
+light_size = 0.248
+spot_range = 0.592
+spot_attenuation = 1.07177
+spot_angle_attenuation = 0.87055
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Cars/police"]
+transform = Transform3D(-5.90354, -0.012386, -3.09719, 0.810901, -6.44025, -1.5199, -2.98918, -1.72264, 5.70454, -0.229063, 1.30028, -0.148422)
+light_color = Color(1, 0.215686, 0.188235, 1)
+light_size = 0.248
+spot_range = 0.592
+spot_attenuation = 1.07177
+spot_angle_attenuation = 0.87055
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Cars/police"]
+transform = Transform3D(-5.90354, -0.0123852, -3.09719, 0.8109, -6.44025, -1.5199, -2.98918, -1.72264, 5.70454, 0.24046, 1.29452, -0.0917149)
+light_color = Color(0.34902, 0.231373, 1, 1)
+light_size = 0.248
+spot_range = 0.592
+spot_attenuation = 1.07177
+spot_angle_attenuation = 0.87055
+
+[node name="taxi" parent="Cars" instance=ExtResource("10_dc8di")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.17299, 0, -1.28739)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="large_buildingC" parent="Buildings" instance=ExtResource("11_kak4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08392, 0, -1.60686)
+
+[node name="skyscraperE" parent="Buildings" instance=ExtResource("12_buqrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33572, 0, -1.60686)
+
+[node name="skyscraperE2" parent="Buildings" instance=ExtResource("12_buqrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62954, 0, -1.60686)
+
+[node name="skyscraperC" parent="Buildings" instance=ExtResource("13_dpoyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.60686)
+
+[node name="Misc" type="Node3D" parent="."]
+
+[node name="box" parent="Misc" instance=ExtResource("14_halkq")]
+transform = Transform3D(0.278335, -0.105476, -0.0374752, 0.111935, 0.262273, 0.0931849, 0, -0.100438, 0.282687, 1.05858, 0.146718, -0.0937099)
+
+[node name="box2" parent="Misc" instance=ExtResource("14_halkq")]
+transform = Transform3D(0.196275, 0.0741727, -0.214417, 0.0359405, 0.269771, 0.126221, 0.224019, -0.108267, 0.167612, 1.077, 0.054, 0.016)
+
+[node name="detail_umbrellaDetailed" parent="Misc" instance=ExtResource("15_k6jk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942021, -0.07392, -1.04195)
+
+[node name="tree_small" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.602654, 0, -0.532683)
+
+[node name="tree_small2" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.894808, 0, -0.532683)
+
+[node name="tree_small3" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.24383, 0, -0.532683)
+
+[node name="tree_small4" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.63304, 0, -0.532683)
+
+[node name="tree_small5" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.05319, 0, -0.532683)
+
+[node name="tree_small6" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.76104, 0, -0.532683)
+
+[node name="tree_small7" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.41202, 0, -0.532683)
+
+[node name="tree_small8" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.02281, 0, -0.532683)
+
+[node name="tree_small9" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.05319, 0, 0.606589)
+
+[node name="tree_small10" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.76104, 0, 0.606589)
+
+[node name="tree_small11" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.41202, 0, 0.606589)
+
+[node name="tree_small12" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.02281, 0, 0.606589)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.762052, -0.100037, 0.639742, -0.0925364, 0.961028, 0.260505, -0.640869, -0.257717, 0.723096, 1.597, 0.587, 0.866)
+attributes = SubResource("CameraAttributesPractical_dp31d")
+fov = 45.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ja53t")
+
+[node name="Lights" type="Node3D" parent="WorldEnvironment"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118026, 0.642064, -0.313984)
+light_color = Color(1, 0.984314, 0.729412, 1)
+shadow_enabled = true
+shadow_opacity = 0.61
+shadow_blur = 2.407
+omni_range = 0.94
+omni_attenuation = 2.2974
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88179, 0.642064, -0.313984)
+light_color = Color(1, 0.984314, 0.729412, 1)
+shadow_enabled = true
+shadow_opacity = 0.61
+shadow_blur = 2.407
+omni_range = 0.94
+omni_attenuation = 2.2974
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16757, 0.642064, -0.313984)
+light_color = Color(1, 0.984314, 0.729412, 1)
+shadow_enabled = true
+shadow_opacity = 0.61
+shadow_blur = 2.407
+omni_range = 0.94
+omni_attenuation = 2.2974
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15048, 0.650633, -0.320564)
+visible = false
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87074, 0.650633, -0.320564)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.595706, 0.803202, 0, -0.803202, 0.595706, 0, 2.99092, 2.32361)
+light_color = Color(1, 0.85098, 0.682353, 1)
+light_energy = 0.424
+shadow_enabled = true
+
+[editable path="Cars/van"]
+[editable path="Cars/police"]
