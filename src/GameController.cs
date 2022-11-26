@@ -3,7 +3,7 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        _gameTime = 15;
+        _gameTime = 20;
         Money = 0;
         Paused = false;
         GameOver = false;
@@ -84,19 +84,24 @@ public partial class GameController : Node {
     }
 
     private void OnPackageDelivered(DropOff dropOff, bool anyoneHome) {
+        var addedMoney = 20;
         gameState.Money += 20;
         this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
         if (!anyoneHome) {
             gameState.GameTime += 10;
             gameState.Money += 10;
+            addedMoney += 10;
             this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
             this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
+            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "+ 10s", SafeColor);
         }
+        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ ${addedMoney}", SafeColor);
     }
 
     private void OnPackageExpired(DropOff dropOff) {
         gameState.GameTime -= 10;
         this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
+        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "- 10s", CriticalColor);
     }
 
     private void OnPauseChanged(bool newState) {

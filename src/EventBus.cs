@@ -31,4 +31,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void PauseChangedEventHandler(bool newState);
+    
+    [Signal]
+    public delegate void CarNotificationEventHandler(string text, Color color);
 }

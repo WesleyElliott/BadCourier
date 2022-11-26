@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dktfhjqskmpyn"]
+[gd_scene load_steps=7 format=3 uid="uid://dktfhjqskmpyn"]
 
 [ext_resource type="PackedScene" uid="uid://cfift5xi0v4jy" path="res://src/car/model/van.glb" id="1_60xwk"]
 [ext_resource type="Script" path="res://src/car/Car.cs" id="1_kxlsj"]
+[ext_resource type="Script" path="res://src/car/notifications/CarNotifications.cs" id="3_u1hih"]
+[ext_resource type="PackedScene" uid="uid://5gwq33cyysu3" path="res://src/car/notifications/CarNotification.tscn" id="4_sjnbr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4av3t"]
 bounce = 0.4
@@ -28,6 +30,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 [node name="RayCast3D" type="RayCast3D" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collide_with_areas = true
+
+[node name="Notifications" type="Node3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81894, 0)
+script = ExtResource("3_u1hih")
+NotificationTemplate = ExtResource("4_sjnbr")
 
 [node name="Sphere" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
