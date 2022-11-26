@@ -11,9 +11,6 @@ public partial class Countdown : Control {
     [Export]
     public AudioStreamPlayer AudioPlayer { get; private set; }
 
-    [Export]
-    public AudioStream GameStartAudioStream { get; private set; }
-
     private int time = 3;
 
     public override void _EnterTree() {
@@ -42,7 +39,6 @@ public partial class Countdown : Control {
             Label.Text = "GO!";
             GD.Print("GO!");
             this.EventBus().EmitSignal(EventBus.SignalName.GameStart);
-            //AudioPlayer.Stream = GameStartAudioStream;
             AudioPlayer.PitchScale += 0.3f;
             AudioPlayer.VolumeDb += 3;
             AudioPlayer.Play();
