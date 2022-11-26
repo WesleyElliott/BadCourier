@@ -146,7 +146,6 @@ mesh = ExtResource("10_22s1s")
 shape = SubResource("ConcavePolygonShape3D_vjsq8")
 
 [node name="big_building_b" type="MeshInstance3D" parent="."]
-visible = false
 mesh = ExtResource("11_1uq0m")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="big_building_b"]
