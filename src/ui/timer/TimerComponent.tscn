@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://4x5na8gwhug5"]
+[gd_scene load_steps=8 format=3 uid="uid://4x5na8gwhug5"]
 
 [ext_resource type="Script" path="res://src/ui/timer/TimerComponent.cs" id="1_lkooo"]
 [ext_resource type="Texture2D" uid="uid://btp3xiy6rpipc" path="res://src/ui/sprites/blue_panel.png" id="2_7dkxc"]
+[ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="3_lekla"]
 [ext_resource type="Texture2D" uid="uid://cp2pcq7s585hp" path="res://src/ui/sprites/blue_round_panel.png" id="4_n5v42"]
 [ext_resource type="Texture2D" uid="uid://ck32l4ppl43db" path="res://src/ui/timer/hourglass.png" id="4_s5px2"]
 
@@ -14,7 +15,8 @@ margin_bottom = 8.0
 region_rect = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gqt4h"]
-font_size = 32
+font = ExtResource("3_lekla")
+font_size = 38
 outline_size = 8
 outline_color = Color(0.470588, 0.470588, 0.470588, 1)
 
@@ -51,13 +53,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_right = 12
+theme_override_constants/margin_right = 6
 
 [node name="TimerLabel" type="Label" parent="Panel/MarginContainer"]
-offset_left = 67.0
-offset_top = 8.0
-offset_right = 148.0
-offset_bottom = 56.0
+offset_left = 71.0
+offset_top = 4.0
+offset_right = 154.0
+offset_bottom = 60.0
 size_flags_horizontal = 8
 text = "02:00"
 label_settings = SubResource("LabelSettings_gqt4h")

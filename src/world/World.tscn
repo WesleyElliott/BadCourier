@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyscq2mcmblhd"]
+[gd_scene load_steps=15 format=3 uid="uid://dyscq2mcmblhd"]
 
 [ext_resource type="MeshLibrary" uid="uid://c5jgujgnbkw5b" path="res://src/world/WorldMeshLib.tres" id="1_gblxm"]
 [ext_resource type="Script" path="res://src/order/OrderManager.cs" id="3_3uyrs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dx5fdsaceunm0" path="res://src/warehouse/loading_zone.png" id="4_gres5"]
 [ext_resource type="Script" path="res://src/warehouse/Warehouse.cs" id="4_v60ma"]
 [ext_resource type="PackedScene" uid="uid://maaq1i2ukihx" path="res://src/world/misc/box/Box.tscn" id="5_2xn53"]
+[ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="6_g7fxq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as221"]
 transparency = 1
@@ -130,24 +131,30 @@ transform = Transform3D(-7.86805e-08, 1.8, 7.86805e-08, 0, -7.86805e-08, 1.8, 1.
 modulate = Color(1, 0.989254, 0, 1)
 outline_modulate = Color(0.52549, 0.52549, 0.52549, 1)
 text = "Loading Zone"
+font = ExtResource("6_g7fxq")
 font_size = 64
 outline_size = 36
+uppercase = true
 
 [node name="Label2" type="Label3D" parent="Warehouse/LoadingZone"]
 transform = Transform3D(1.8, 5.56077e-15, 2.43069e-22, 0, -7.86805e-08, 1.8, 5.56077e-15, -1.8, -7.86805e-08, -4.45199, 0.17, 4.40779)
 modulate = Color(1, 0.989254, 0, 1)
 outline_modulate = Color(0.52549, 0.52549, 0.52549, 1)
 text = "Loading Zone"
+font = ExtResource("6_g7fxq")
 font_size = 64
 outline_size = 36
+uppercase = true
 
 [node name="Label3" type="Label3D" parent="Warehouse/LoadingZone"]
 transform = Transform3D(-1.8, 2.71792e-07, 1.18804e-14, 0, -7.86805e-08, 1.8, 2.71792e-07, 1.8, 7.86805e-08, -4.45199, 0.17, -4.38722)
 modulate = Color(1, 0.989254, 0, 1)
 outline_modulate = Color(0.52549, 0.52549, 0.52549, 1)
 text = "Loading Zone"
+font = ExtResource("6_g7fxq")
 font_size = 64
 outline_size = 36
+uppercase = true
 
 [node name="Floor" type="MeshInstance3D" parent="Warehouse/LoadingZone"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 4, -4.479, 0.17, 0)

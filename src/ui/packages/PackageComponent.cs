@@ -27,7 +27,7 @@ public partial class PackageComponent : Control {
         // tween.TweenProperty(PackagesLabel, "scale", new Vector2(2.5f, 2.5f), 0.1f);
         // tween.TweenProperty(PackagesLabel, "position", new Vector2(-22, -80), 0.1f);
         // tween.Chain().TweenCallback(new Callable(this, nameof(OnTweenComplete)));
-        PackagesLabel.Text = $"{packages} / 20";
+        PackagesLabel.Text = $"{packages} /20";
     }
 
     private void OnTweenComplete() {
