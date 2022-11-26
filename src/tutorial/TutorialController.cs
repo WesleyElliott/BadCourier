@@ -219,10 +219,12 @@ public partial class TutorialController : Node {
     }
 
     private void OnGameTick(int newTime) {
-        packageExpiryTime -= 1;
-        if (packageExpiryTime <= 2) {
-            packageExpiryTime = LevelData.PackageExpiryTime;
-            this.EventBus().EmitSignal(EventBus.SignalName.ResetDropOffTimers);
+        if (state == TutorialState.DropOffLocations) {
+            packageExpiryTime -= 1;
+            if (packageExpiryTime <= 2) {
+                packageExpiryTime = LevelData.PackageExpiryTime;
+                this.EventBus().EmitSignal(EventBus.SignalName.ResetDropOffTimers);
+            }
         }
 
         if (newTime <= 2) {

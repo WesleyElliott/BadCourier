@@ -90,6 +90,9 @@ public partial class DropOff : Node3D {
     }
 
     private void OnTickTimeout(int newTime) {
+        if (!Visible) {
+            return; 
+        }
         timeLeft -= 1;
         ExpirationTimerTick?.Invoke(timeLeft, (int) ExpirationTimer.WaitTime);
     }
