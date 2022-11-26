@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d3vw20q0lvxgs"]
+
+[ext_resource type="Script" path="res://src/levels/LevelData.cs" id="1_e43lw"]
+
+[resource]
+script = ExtResource("1_e43lw")
+GameTime = 120
+WarehouseCapacity = 15
+WarehouseStartingPackageCount = 4
+PackageSpawnRange = Vector2i(10, 20)
+PackageExpiryTime = 45
+PlayerPackageCapacity = 5
+PackageDeliveredTimeAward = 15
+PackageDeliveredMoneyAward = 10
+PackageDeliveredMoneyBonus = 15
+PackageExpiredTimeCost = 15
+DropOffHomeStateChangeRange = Vector2i(10, 20)
+GameStartPlaysMusic = true
+GameStartGeneratesOrder = true

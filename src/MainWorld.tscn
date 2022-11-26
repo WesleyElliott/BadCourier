@@ -1,12 +1,18 @@
-[gd_scene load_steps=38 format=3 uid="uid://b66m2i44tacbh"]
+[gd_scene load_steps=54 format=3 uid="uid://b66m2i44tacbh"]
 
 [ext_resource type="Script" path="res://src/levels/Level.cs" id="1_chroj"]
-[ext_resource type="Resource" uid="uid://b5mokj6hjtjpb" path="res://src/levels/levels/DemoLevel.tres" id="2_c4ar6"]
+[ext_resource type="Resource" uid="uid://d3vw20q0lvxgs" path="res://src/levels/levels/MainLevel.tres" id="2_d6cio"]
 [ext_resource type="MeshLibrary" uid="uid://c5jgujgnbkw5b" path="res://src/world/WorldMeshLib.tres" id="2_g0ns8"]
+[ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="3_3wt35"]
 [ext_resource type="PackedScene" uid="uid://dgum38fi8ha8s" path="res://src/warehouse/Warehouse.tscn" id="3_5nxhm"]
+[ext_resource type="PackedScene" uid="uid://dokh0xdkn4n78" path="res://src/ui/money/MoneyComponent.tscn" id="4_d3gof"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="4_y1e7u"]
+[ext_resource type="PackedScene" uid="uid://bx24huigwieum" path="res://src/ui/packages/PackageComponent.tscn" id="5_05xsx"]
 [ext_resource type="PackedScene" uid="uid://cgupj6d18i0y8" path="res://src/player/Player.tscn" id="5_i0ml7"]
 [ext_resource type="Resource" uid="uid://qkudsg6te5pi" path="res://src/order/OrderColors.tres" id="6_gaabx"]
+[ext_resource type="PackedScene" uid="uid://c1yi54701ra65" path="res://src/ui/warehouse/WarehouseComponent.tscn" id="6_ytfij"]
+[ext_resource type="Script" path="res://src/ui/drop_off/DropOffNotifications.cs" id="7_aqgsp"]
+[ext_resource type="PackedScene" uid="uid://bv5gicifn33ht" path="res://src/ui/drop_off/DropOffComponent.tscn" id="8_d0uy2"]
 [ext_resource type="PackedScene" uid="uid://p5hfqyeerh4s" path="res://src/world/parks/GreenLong.tscn" id="8_op0g6"]
 [ext_resource type="PackedScene" uid="uid://b1spq3v8vpaf0" path="res://src/world/parks/MiniStatuePark1.tscn" id="9_w8t6e"]
 [ext_resource type="PackedScene" uid="uid://vom2wdpclgog" path="res://src/world/parks/Ruins.tscn" id="10_3rtbf"]
@@ -14,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b8bgdm47eooob" path="res://src/world/parks/GreenMile.tscn" id="11_bjiml"]
 [ext_resource type="PackedScene" uid="uid://byi1et7g5ou6h" path="res://src/world/parks/HouseParkRow1.tscn" id="11_xx8yw"]
 [ext_resource type="PackedScene" uid="uid://doei5wax15b7w" path="res://src/world/parks/MiniPark1.tscn" id="12_nbw5x"]
+[ext_resource type="PackedScene" uid="uid://b3ejx1wnpb25x" path="res://src/world/misc/dropoff/DropOff.tscn" id="13_fa7tp"]
 [ext_resource type="PackedScene" uid="uid://dn3wigpkx4koi" path="res://src/world/nature/models/log_large.glb" id="15_1mhsj"]
 [ext_resource type="PackedScene" uid="uid://dpc27umohhmn0" path="res://src/world/nature/models/stump_oldTall.glb" id="15_2km0l"]
 [ext_resource type="PackedScene" uid="uid://catn8hjpsrgrr" path="res://src/world/nature/models/rock_largeF.glb" id="15_8ijhx"]
@@ -37,10 +44,112 @@
 [ext_resource type="PackedScene" uid="uid://dclmy4y3ld3hk" path="res://src/world/cars/SUV.tscn" id="33_1w14j"]
 [ext_resource type="PackedScene" uid="uid://dryjoj5hm2dmk" path="res://src/world/cars/Truck.tscn" id="34_31rhw"]
 [ext_resource type="PackedScene" uid="uid://bpmvr847ha6wf" path="res://src/world/roads/models/light_curved.glb" id="35_d5nvw"]
+[ext_resource type="PackedScene" uid="uid://cc4dct2bwyhec" path="res://src/ui/game_over/GameOver.tscn" id="42_32da6"]
+[ext_resource type="PackedScene" uid="uid://evf2h4ep5h4k" path="res://src/ui/pause/Pause.tscn" id="43_438fu"]
+[ext_resource type="PackedScene" uid="uid://dfy4x2cajydsy" path="res://src/ui/countdown/Countdown.tscn" id="44_keiby"]
+[ext_resource type="Script" path="res://src/GameController.cs" id="46_xacp7"]
+[ext_resource type="AudioStream" uid="uid://2tk0te67mlhy" path="res://src/audio/Wood Block1.ogg" id="47_hnyk4"]
+[ext_resource type="Script" path="res://src/SoundController.cs" id="48_13h80"]
+[ext_resource type="AudioStream" uid="uid://cg42y04f7w0fc" path="res://src/ui/audio/Minimalist7.ogg" id="49_13ie5"]
+[ext_resource type="AudioStream" uid="uid://b3gwwtr02rydt" path="res://src/audio/Modern13.ogg" id="50_t13wy"]
+[ext_resource type="AudioStream" uid="uid://b438r7km4oa5j" path="res://src/audio/Music.wav" id="51_84a65"]
 
 [node name="MainWorld" type="Node3D"]
 script = ExtResource("1_chroj")
-LevelData = ExtResource("2_c4ar6")
+LevelData = ExtResource("2_d6cio")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margins" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="LeftUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 224.0
+offset_bottom = 1000.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 24
+
+[node name="TimerComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_3wt35")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 200.0
+offset_bottom = 80.0
+grow_horizontal = 0
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+GameController = NodePath("../../../../GameController")
+
+[node name="MoneyComponent" parent="HUD/Margins/LeftUI" instance=ExtResource("4_d3gof")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 104.0
+offset_right = 200.0
+offset_bottom = 184.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PackageComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_05xsx")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 208.0
+offset_right = 200.0
+offset_bottom = 288.0
+size_flags_horizontal = 0
+GameController = NodePath("../../../../GameController")
+
+[node name="WarehouseInfoComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytfij")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 456.0
+offset_right = 384.0
+offset_bottom = 472.0
+GameController = NodePath("../../../../GameController")
+
+[node name="RightUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
+offset_left = 1956.0
+offset_top = 24.0
+offset_right = 1956.0
+offset_bottom = 1000.0
+size_flags_horizontal = 8
+theme_override_constants/separation = 16
+
+[node name="DropOffNotifications" type="Control" parent="HUD/Margins/RightUI" node_paths=PackedStringArray("GameController")]
+layout_mode = 2
+anchors_preset = 0
+offset_bottom = 976.0
+size_flags_vertical = 3
+script = ExtResource("7_aqgsp")
+GameController = NodePath("../../../../GameController")
+NotificationScene = ExtResource("8_d0uy2")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_g0ns8")
@@ -53,13 +162,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
-[node name="Warehouse" parent="." node_paths=PackedStringArray("DropOffPoints") instance=ExtResource("3_5nxhm")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -41.148, 0, -88.2788)
-DropOffPoints = NodePath("../DropOffPoints")
-
-[node name="large_buildingF" parent="Warehouse" instance=ExtResource("27_t145k")]
-transform = Transform3D(-8.74228e-07, 0, -4, 0, 4, 0, 4, 0, -8.74228e-07, 3.53977, 1.90735e-06, 0.177437)
-
 [node name="Environment" type="Node" parent="."]
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
@@ -71,6 +173,116 @@ shadow_enabled = true
 environment = ExtResource("4_y1e7u")
 
 [node name="DropOffPoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8297, 0, -64.4958)
+
+[node name="DropOff" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.202, 0, 100.178)
+
+[node name="DropOff7" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.202, 0, 188.955)
+
+[node name="DropOff2" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9918, 0, 128.43)
+
+[node name="DropOff3" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9918, 0, 160.394)
+
+[node name="DropOff4" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5927, 0, 144.863)
+
+[node name="DropOff5" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5927, 0, 112.412)
+
+[node name="DropOff8" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2076, 0, 100.178)
+
+[node name="DropOff10" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2076, 0, 188.955)
+
+[node name="DropOff19" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1816, 0, 194.979)
+
+[node name="DropOff11" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58224, 0, 128.43)
+
+[node name="DropOff12" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58224, 0, 160.394)
+
+[node name="DropOff13" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81689, 0, 144.863)
+
+[node name="DropOff14" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81689, 0, 112.412)
+
+[node name="DropOff15" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5607, 0, 128.43)
+
+[node name="DropOff16" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5607, 0, 160.394)
+
+[node name="DropOff17" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9598, 0, 144.863)
+
+[node name="DropOff18" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9598, 0, 112.412)
+
+[node name="DropOff6" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.661, 0, -130.427)
+
+[node name="DropOff9" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.661, 0, -219.204)
+
+[node name="DropOff20" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -34.4508, 0, -158.68)
+
+[node name="DropOff21" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -34.4508, 0, -190.644)
+
+[node name="DropOff22" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.0517, 0, -175.112)
+
+[node name="DropOff23" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.0517, 0, -142.661)
+
+[node name="DropOff24" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.7486, 0, -130.427)
+
+[node name="DropOff25" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.7486, 0, -219.204)
+
+[node name="DropOff26" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 33.7226, 0, -225.228)
+
+[node name="DropOff27" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.04123, 0, -158.68)
+
+[node name="DropOff28" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.04123, 0, -190.644)
+
+[node name="DropOff29" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.35789, 0, -175.112)
+
+[node name="DropOff30" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.35789, 0, -142.661)
+
+[node name="DropOff31" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.1017, 0, -158.68)
+
+[node name="DropOff32" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.1017, 0, -190.644)
+
+[node name="DropOff33" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 37.5008, 0, -175.112)
+
+[node name="DropOff34" parent="DropOffPoints" instance=ExtResource("13_fa7tp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 37.5008, 0, -142.661)
+
+[node name="Warehouse" parent="." node_paths=PackedStringArray("DropOffPoints") instance=ExtResource("3_5nxhm")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -41.148, 0, -88.2788)
+DropOffPoints = NodePath("../DropOffPoints")
+
+[node name="large_buildingF" parent="Warehouse" instance=ExtResource("27_t145k")]
+transform = Transform3D(-8.74228e-07, 0, -4, 0, 4, 0, 4, 0, -8.74228e-07, 3.53977, 1.90735e-06, 0.177437)
 
 [node name="Props" type="Node" parent="."]
 
@@ -2393,9 +2605,55 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5874
 [node name="light_curved3" parent="Props/Lights/Lights26" instance=ExtResource("35_d5nvw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.78245, 0, 0.551374)
 
+[node name="GameOver" parent="." instance=ExtResource("42_32da6")]
+visible = false
+
+[node name="Pause" parent="." instance=ExtResource("43_438fu")]
+visible = false
+
+[node name="Countdown" parent="." instance=ExtResource("44_keiby")]
+
 [node name="Player" parent="." instance=ExtResource("5_i0ml7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.025, 1.52588e-05, -65.3233)
 OrderColors = ExtResource("6_gaabx")
+
+[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver", "PauseMenu", "SoundController")]
+process_mode = 3
+script = ExtResource("46_xacp7")
+SafeColor = Color(0.180392, 0.835294, 0.45098, 1)
+WarningColor = Color(1, 0.498039, 0.313726, 1)
+CriticalColor = Color(1, 0.278431, 0.341176, 1)
+GameOver = NodePath("../GameOver")
+PauseMenu = NodePath("../Pause")
+SoundController = NodePath("../SoundController")
+BoxCollectedSound = ExtResource("47_hnyk4")
+
+[node name="GameTimer" type="Timer" parent="GameController"]
+
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio", "PackageDeliveredAudio", "GenericAudio", "MusicAudio")]
+process_mode = 3
+script = ExtResource("48_13h80")
+ButtonAudio = NodePath("ButtonAudio")
+PackageDeliveredAudio = NodePath("PackageDeliveredAudio")
+GenericAudio = NodePath("GenericAudio")
+MusicAudio = NodePath("MusicAudio")
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("49_13ie5")
+volume_db = 8.0
+
+[node name="PackageDeliveredAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("50_t13wy")
+
+[node name="GenericAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("47_hnyk4")
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="SoundController"]
+process_mode = 3
+stream = ExtResource("51_84a65")
+volume_db = -30.0
+
+[connection signal="timeout" from="GameController/GameTimer" to="GameController" method="OnTick"]
 
 [editable path="Player"]
 [editable path="Player/Van"]

@@ -76,7 +76,7 @@ public partial class MainMenu : Control {
 
     private void OnNewGamePressed() {
         ButtonAudio.Play();
-        GetTree().ChangeSceneToFile("res://src/DemoScene.tscn");
+        GetTree().ChangeSceneToFile("res://src/MainWorld.tscn");
     }
 
     private void OnTutorialPressed() {
