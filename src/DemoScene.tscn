@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=16 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cc4dct2bwyhec" path="res://src/ui/game_over/GameOver.tscn" id="7_oq8a0"]
 [ext_resource type="PackedScene" uid="uid://evf2h4ep5h4k" path="res://src/ui/pause/Pause.tscn" id="9_rh8hs"]
 [ext_resource type="Resource" uid="uid://qkudsg6te5pi" path="res://src/order/OrderColors.tres" id="11_2pgxb"]
+[ext_resource type="Script" path="res://src/SoundController.cs" id="14_oj82j"]
+[ext_resource type="AudioStream" uid="uid://cg42y04f7w0fc" path="res://src/ui/audio/Minimalist7.ogg" id="15_j6ykx"]
 
 [node name="DemoScene" type="Node3D"]
 
@@ -25,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="HUD"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,6 +39,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="LeftUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 216.0
@@ -44,6 +48,7 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 24
 
 [node name="TimerComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -56,6 +61,7 @@ size_flags_vertical = 0
 GameController = NodePath("../../../../GameController")
 
 [node name="MoneyComponent" parent="HUD/Margins/LeftUI" instance=ExtResource("4_1icfj")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -66,6 +72,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="PackageComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -77,6 +84,7 @@ GameController = NodePath("../../../../GameController")
 
 [node name="WarehouseInfoComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_lnpd3")]
 visible = false
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -86,6 +94,7 @@ offset_bottom = 472.0
 GameController = NodePath("../../../../GameController")
 
 [node name="RightUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
 offset_left = 1956.0
 offset_top = 24.0
 offset_right = 1956.0
@@ -94,7 +103,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="DropOffNotifications" type="Control" parent="HUD/Margins/RightUI" node_paths=PackedStringArray("GameController")]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_bottom = 976.0
 size_flags_vertical = 3
@@ -133,6 +142,14 @@ GameOver = NodePath("../GameOver")
 PauseMenu = NodePath("../Pause")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
+
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio")]
+script = ExtResource("14_oj82j")
+ButtonAudio = NodePath("ButtonAudio")
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("15_j6ykx")
+volume_db = 8.0
 
 [connection signal="timeout" from="GameController/GameTimer" to="GameController" method="OnTick"]
 

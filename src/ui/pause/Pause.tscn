@@ -100,7 +100,7 @@ offset_bottom = 669.0
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 
-[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" groups=["Button"]]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
 offset_right = 128.0
@@ -115,7 +115,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_55xyy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p7lwu")
 text = "RESUME"
 
-[node name="RestartButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="RestartButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" groups=["Button"]]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
 offset_left = 144.0
@@ -131,7 +131,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_55xyy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p7lwu")
 text = "RESTART"
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" groups=["Button"]]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
 offset_left = 288.0
