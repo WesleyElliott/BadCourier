@@ -32,10 +32,12 @@ public partial class DropOff : Node3D {
 
     public override void _EnterTree() {
         this.EventBus().GameTimerTick += OnTickTimeout;
+        this.EventBus().GameEnd += OnGameEnd;
     }
 
     public override void _ExitTree() {
         this.EventBus().GameTimerTick -= OnTickTimeout;
+        this.EventBus().GameEnd -= OnGameEnd;
     }
 
     public override void _Ready() {
@@ -91,5 +93,10 @@ public partial class DropOff : Node3D {
     private void OnExpirationTimeout() {
         this.EventBus().EmitSignal(EventBus.SignalName.HideNotification, this);
         this.EventBus().EmitSignal(EventBus.SignalName.PackageExpired, this);
+    }
+
+    private void OnGameEnd() {
+        HomeStateTimer.Stop();
+        ExpirationTimer.Stop();
     }
 }
