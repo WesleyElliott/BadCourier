@@ -66,6 +66,9 @@ public partial class TutorialController : Node {
         TutorialDialog.ShowDialog();
 
         await WaitUntilSpacePressed();
+        if (TutorialDialog.SkipPositionTween(true)) {
+            await WaitUntilSpacePressed();
+        }
         
         TutorialDialog.SetMessage("As you know, we pride ourselves on always delivering packages at the most inconvenient of times.", true);
         await WaitUntilSpacePressed();
@@ -96,6 +99,9 @@ public partial class TutorialController : Node {
         TutorialDialog.ShowDialog();
 
         await WaitUntilSpacePressed();
+        if (TutorialDialog.SkipPositionTween(true)) {
+            await WaitUntilSpacePressed();
+        }
 
         Warehouse.OrderManager.GenerateOrder();
         Warehouse.OrderManager.GenerateOrder();
@@ -124,8 +130,12 @@ public partial class TutorialController : Node {
         TutorialDialog.SetMessage("Once you have the packages, you should see some markers to show you where to drop them off.");
         TutorialDialog.SetHelpText("[Space]");
         TutorialDialog.ShowDialog();
+
         await WaitUntilSpacePressed();
-        
+        if (TutorialDialog.SkipPositionTween(true)) {
+            await WaitUntilSpacePressed();
+        }
+
         TutorialDialog.SetMessage("On the right, you'll see how much time you have to get the package delivered. Make sure its delivered on time, or you'll lose time!", true);
         await WaitUntilSpacePressed();
 

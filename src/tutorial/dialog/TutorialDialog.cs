@@ -8,6 +8,8 @@ public partial class TutorialDialog : Control {
     [Export]
     public Label HelpText;
 
+    public bool TweenFinished = false;
+
     private Tween tween;
     private bool isShown = false;
 
@@ -65,11 +67,13 @@ public partial class TutorialDialog : Control {
             tween.Kill();
         }
 
+        TweenFinished = false;
         tween = GetTree().CreateTween();
         tween.SetPauseMode(Tween.TweenPauseMode.Process);
         tween.TweenProperty(this, "position", new Vector2(1188, Position.y), 1.2f)
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.InOut);
+        tween.TweenCallback(Callable.From(() => TweenFinished = true));
     }
 
     public void HideDialog() {
@@ -77,10 +81,26 @@ public partial class TutorialDialog : Control {
             tween.Kill();
         }
 
+        TweenFinished = false;
         tween = GetTree().CreateTween();
         tween.SetPauseMode(Tween.TweenPauseMode.Process);
         tween.TweenProperty(this, "position", new Vector2(2000, Position.y), 1.2f)
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.InOut);
+        tween.TweenCallback(Callable.From(() => TweenFinished = true));
+    }
+    
+    public bool SkipPositionTween(bool show) {
+        bool animationSkipped;
+        tween.Kill();
+        if (show) {
+            animationSkipped = Position.x != 1188;
+            Position = new Vector2(1188, Position.y);
+        } else {
+            animationSkipped = Position.x != 2000;
+            Position = new Vector2(2000, Position.y);
+        }
+
+        return animationSkipped;
     }
 }
