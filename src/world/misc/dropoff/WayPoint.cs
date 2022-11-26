@@ -3,12 +3,14 @@ using Godot;
 public partial class WayPoint : Control {
 
     public TextureRect Marker { get; private set; }
+    public TextureRect Icon { get; private set; }
 
     private Camera3D camera;
     private static int MARGIN = 48;
 
     public override void _Ready() {
         Marker = GetNode<TextureRect>("Marker");
+        Icon = GetNode<TextureRect>("Icon");
         camera = GetViewport().GetCamera3d();
     }
 
@@ -44,6 +46,14 @@ public partial class WayPoint : Control {
         );
 
         Rotation = 0;
+    }
+
+    public void SetColor(Color color) {
+        Marker.Modulate = color;
+    }
+
+    public void SetIcon(Texture2D icon) {
+        Icon.Texture = icon;
     }
 
     private float AngleDiff(float from, float to) {

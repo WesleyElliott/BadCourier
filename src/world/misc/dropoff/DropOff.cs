@@ -2,6 +2,12 @@ using Godot;
 
 public partial class DropOff : Node3D {
 
+    [Export]
+    public Texture2D SomeoneHomeTexture { get; private set; }
+
+    [Export]
+    public Texture2D NobodyHomeTexture { get; private set; }
+
     public delegate void HomeStateChangedEventHandler(bool atHome);
     public delegate void ExpirationTimerTickEventHandler(int newTime, int expirationTime);
 
@@ -22,7 +28,7 @@ public partial class DropOff : Node3D {
         } 
         set {
             dropOffColor = value;
-            WayPoint.Modulate = dropOffColor;
+            WayPoint.SetColor(dropOffColor);
         }
     }
 
@@ -88,6 +94,11 @@ public partial class DropOff : Node3D {
         HomeStateTimer.Start();
         SomeoneHome = !SomeoneHome;
         HomeStateChanged?.Invoke(SomeoneHome);
+        if (SomeoneHome) {
+            WayPoint.SetIcon(SomeoneHomeTexture);
+        } else {
+            WayPoint.SetIcon(NobodyHomeTexture);
+        }
     }
 
     private void OnExpirationTimeout() {
