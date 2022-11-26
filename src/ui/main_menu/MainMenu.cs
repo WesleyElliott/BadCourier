@@ -48,7 +48,7 @@ public partial class MainMenu : Control {
         var enterTween = GetTree().CreateTween().SetParallel();
         var time = 1.8f;
 
-        enterTween.TweenProperty(Panel, "color:a", 0.69f, time)
+        enterTween.TweenProperty(Panel, "color:a", 0.5f, time)
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.Out);
 

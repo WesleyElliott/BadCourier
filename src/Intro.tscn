@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cyjvcxybe6us5"]
+[gd_scene load_steps=22 format=3 uid="uid://cyjvcxybe6us5"]
 
 [ext_resource type="PackedScene" uid="uid://wnu1vi8xoprw" path="res://src/world/roads/models/construction_barrier.glb" id="1_w7qqs"]
 [ext_resource type="PackedScene" uid="uid://84s3pt8wfwx2" path="res://src/world/roads/models/construction_pylon.glb" id="2_8ra2d"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cvu4gpqjuh6rk" path="res://src/world/misc/box/box.glb" id="14_halkq"]
 [ext_resource type="PackedScene" uid="uid://utgm0bq22p6b" path="res://src/world/buildings/models/detail_umbrellaDetailed.glb" id="15_k6jk1"]
 [ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="16_f7g2o"]
+[ext_resource type="Script" path="res://src/IntroCamera.cs" id="17_gc1kp"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dp31d"]
 auto_exposure_enabled = true
@@ -296,6 +297,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.02281, 0, 0.606589)
 transform = Transform3D(0.762052, -0.100037, 0.639742, -0.0925364, 0.961028, 0.260505, -0.640869, -0.257717, 0.723096, 1.597, 0.587, 0.866)
 attributes = SubResource("CameraAttributesPractical_dp31d")
 fov = 45.0
+script = ExtResource("17_gc1kp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ja53t")
