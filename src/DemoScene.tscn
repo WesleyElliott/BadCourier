@@ -130,9 +130,9 @@ OrderColors = ExtResource("11_2pgxb")
 
 [node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver")]
 script = ExtResource("6_x582o")
-SafeColor = Color(0.654902, 1, 0.462745, 1)
-WarningColor = Color(1, 0.603922, 0.32549, 1)
-CriticalColor = Color(1, 0.247059, 0.301961, 1)
+SafeColor = Color(0.180392, 0.835294, 0.45098, 1)
+WarningColor = Color(1, 0.498039, 0.313726, 1)
+CriticalColor = Color(1, 0.278431, 0.341176, 1)
 GameOver = NodePath("../GameOver")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
