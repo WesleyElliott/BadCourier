@@ -26,14 +26,6 @@ public partial class OrderManager : Node {
         }
     }
 
-    public override void _UnhandledKeyInput(InputEvent @event) {
-        if (@event is InputEventKey eventKey) {
-            if (eventKey.Pressed && eventKey.Keycode == Key.Space) {
-                GenerateOrder();
-            }
-        }
-    }
-
     public void GenerateOrder() {
         if (GetChildCount() == LevelData.WarehouseCapacity) {
             // Game has ended!
