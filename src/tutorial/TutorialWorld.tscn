@@ -1505,9 +1505,10 @@ environment = ExtResource("21_18y64")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94481, 0, 20.6749)
 OrderColors = ExtResource("23_ltgri")
 
-[node name="TutorialController" type="Node" parent="." node_paths=PackedStringArray("TutorialDialog", "Player", "Warehouse", "CheckPoint1", "PackagesUI", "TimerUI", "MoneyUI")]
+[node name="TutorialController" type="Node" parent="." node_paths=PackedStringArray("GameController", "TutorialDialog", "Player", "Warehouse", "CheckPoint1", "PackagesUI", "TimerUI", "MoneyUI", "FadePanel")]
 process_mode = 3
 script = ExtResource("26_5fn7j")
+GameController = NodePath("../GameController")
 TutorialDialog = NodePath("../TutorialUI/DialogBox")
 Player = NodePath("../Player")
 Warehouse = NodePath("../Warehouse")
@@ -1515,6 +1516,7 @@ CheckPoint1 = NodePath("CheckPoint1")
 PackagesUI = NodePath("../HUD/Margins/LeftUI/Control3/PackageComponent")
 TimerUI = NodePath("../HUD/Margins/LeftUI/Control1/TimerComponent")
 MoneyUI = NodePath("../HUD/Margins/LeftUI/Control2/MoneyComponent")
+FadePanel = NodePath("../TutorialUI/ColorRect")
 
 [node name="CheckPoint1" type="Area3D" parent="TutorialController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84411, 0, -11.1906)
@@ -1526,7 +1528,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98695, 0)
 shape = SubResource("BoxShape3D_58vc7")
 
 [node name="TutorialUI" type="Control" parent="."]
-process_mode = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1607,6 +1608,15 @@ text = "[Space]"
 label_settings = SubResource("LabelSettings_ht0d4")
 horizontal_alignment = 2
 autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="TutorialUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.207843, 0.258824, 0)
 
 [node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver", "PauseMenu", "SoundController")]
 process_mode = 3

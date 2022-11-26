@@ -27,6 +27,9 @@ public partial class TutorialController : Node {
     [Export]
     public Control MoneyUI { get; private set; }
 
+    [Export]
+    public ColorRect FadePanel { get; private set; }
+
     private LevelData LevelData {
         get {
              return this.Level().LevelData;
@@ -45,7 +48,6 @@ public partial class TutorialController : Node {
     }
 
     public override void _ExitTree() {
-        CheckPoint1.AreaExited -= OnCheckpoint1;
         this.EventBus().BoxCollected -= OnBoxCollected;
         this.EventBus().GameTimerTick -= OnGameTick;
         this.EventBus().PackageDelivered -= OnPackageDelivered;
@@ -192,6 +194,13 @@ public partial class TutorialController : Node {
         await WaitUntilSpacePressed();
 
         TutorialDialog.HideDialog();
+
+        var exitTween = GetTree().CreateTween();
+        exitTween.SetPauseMode(Tween.TweenPauseMode.Process);
+        exitTween.TweenProperty(FadePanel, "color:a", 1f, 0.7f)
+            .SetTrans(Tween.TransitionType.Quint)
+            .SetEase(Tween.EaseType.Out);
+        exitTween.TweenCallback(Callable.From(() => GetTree().ChangeSceneToFile("res://src/ui/main_menu/MainMenu.tscn")));
     }
 
     private async Task WaitUntilSpacePressed() {
