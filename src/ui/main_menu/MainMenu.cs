@@ -4,6 +4,9 @@ public partial class MainMenu : Control {
 
     [Export]
     public Button NewGameButton { get; private set; }
+    
+    [Export]
+    public Button TutorialButton { get; private set; }
 
     [Export]
     public Button OptionsButton { get; private set; }
@@ -16,12 +19,14 @@ public partial class MainMenu : Control {
 
     public override void _EnterTree() {
         NewGameButton.Pressed += OnNewGamePressed;
+        TutorialButton.Pressed += OnTutorialPressed;
         OptionsButton.Pressed += OnOptionsPressed;
         QuitButton.Pressed += OnQuitPressed;
     }
 
     public override void _ExitTree() {
         NewGameButton.Pressed -= OnNewGamePressed;
+        TutorialButton.Pressed -= OnTutorialPressed;
         OptionsButton.Pressed -= OnOptionsPressed;
         QuitButton.Pressed -= OnQuitPressed;
     }
@@ -29,6 +34,11 @@ public partial class MainMenu : Control {
     private void OnNewGamePressed() {
         ButtonAudio.Play();
         GetTree().ChangeSceneToFile("res://src/DemoScene.tscn");
+    }
+
+    private void OnTutorialPressed() {
+        ButtonAudio.Play();
+        GetTree().ChangeSceneToFile("res://src/tutorial/TutorialWorld.tscn");
     }
 
     private void OnOptionsPressed() {
