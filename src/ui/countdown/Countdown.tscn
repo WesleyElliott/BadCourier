@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfy4x2cajydsy"]
+[gd_scene load_steps=6 format=3 uid="uid://dfy4x2cajydsy"]
 
 [ext_resource type="Script" path="res://src/ui/countdown/Countdown.cs" id="1_1l75q"]
 [ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="1_45s7w"]
+[ext_resource type="AudioStream" uid="uid://b81saqakr1k38" path="res://src/audio/African4.ogg" id="2_6v3vo"]
 [ext_resource type="AudioStream" uid="uid://talji56n1qjh" path="res://src/audio/African1.ogg" id="3_f6t7e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t67rk"]
@@ -21,8 +22,10 @@ script = ExtResource("1_1l75q")
 Label = NodePath("Label")
 Timer = NodePath("Timer")
 AudioPlayer = NodePath("AudioStreamPlayer")
+GameStartAudioStream = ExtResource("2_6v3vo")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
