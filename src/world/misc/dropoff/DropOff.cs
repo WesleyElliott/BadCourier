@@ -32,6 +32,12 @@ public partial class DropOff : Node3D {
         }
     }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     private Color dropOffColor;
     private RandomNumberGenerator rng;
     private int timeLeft;
@@ -54,9 +60,7 @@ public partial class DropOff : Node3D {
         WayPoint = GetNode<WayPoint>("WayPoint");
 
         rng = new RandomNumberGenerator();
-        rng.Randomize();
-
-        
+        rng.Randomize();   
     }
 
     public void Enable() {
@@ -75,7 +79,7 @@ public partial class DropOff : Node3D {
     }
 
     private void Reset() {
-        timeLeft = 20; //rng.RandiRange(45, 150);
+        timeLeft = LevelData.PackageExpiryTime;
         ExpirationTimer.WaitTime = timeLeft;
         ExpirationTimer.Start();
         OnHomeStateTimeout();
@@ -90,7 +94,7 @@ public partial class DropOff : Node3D {
         if (!Visible) {
             return;
         }
-        HomeStateTimer.WaitTime = rng.RandiRange(5, 8);
+        HomeStateTimer.WaitTime = rng.RandiRange(LevelData.DropOffHomeStateChangeRange.x, LevelData.DropOffHomeStateChangeRange.y);
         HomeStateTimer.Start();
         SomeoneHome = !SomeoneHome;
         HomeStateChanged?.Invoke(SomeoneHome);
