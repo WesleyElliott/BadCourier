@@ -59,6 +59,7 @@ public partial class Player : Node3D {
 			}
 			OrderManager parent = (OrderManager) box.GetParent();
 			var dropOffPoint = parent.GetRandomDropOff();
+			dropOffPoint.HasOrder = true;
 			parent.RemoveChild(box);
 			box.DropOff = dropOffPoint;
 			box.Visible = false;
