@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://evf2h4ep5h4k"]
+
+[ext_resource type="Script" path="res://src/ui/pause/Pause.cs" id="1_2c5fm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3fmq"]
+bg_color = Color(0.184314, 0.207843, 0.258824, 0.639216)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jf5ty"]
+font_size = 128
+font_color = Color(0.807843, 0.839216, 0.878431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqk30"]
+bg_color = Color(0.184314, 0.207843, 0.258824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i223v"]
+bg_color = Color(0.341176, 0.376471, 0.435294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55xyy"]
+bg_color = Color(0.152941, 0.172549, 0.215686, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p7lwu"]
+
+[node name="Pause" type="Control" node_paths=PackedStringArray("Panel", "Heading", "ResumeButton", "RestartButton", "QuitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_2c5fm")
+Panel = NodePath("Panel")
+Heading = NodePath("Panel/VBoxContainer/Heading")
+ResumeButton = NodePath("Panel/VBoxContainer/HBoxContainer/ResumeButton")
+RestartButton = NodePath("Panel/VBoxContainer/HBoxContainer/RestartButton")
+QuitButton = NodePath("Panel/VBoxContainer/HBoxContainer/QuitButton")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v3fmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -247.0
+offset_right = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 494.0
+offset_bottom = 256.0
+
+[node name="Heading" type="Label" parent="Panel/VBoxContainer"]
+offset_top = 268.0
+offset_right = 494.0
+offset_bottom = 446.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_jf5ty")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Control2" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 458.0
+offset_right = 494.0
+offset_bottom = 586.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+offset_left = 39.0
+offset_top = 598.0
+offset_right = 455.0
+offset_bottom = 670.0
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(128, 72)
+offset_right = 128.0
+offset_bottom = 72.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.643137, 0.690196, 0.745098, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_mqk30")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i223v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_55xyy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p7lwu")
+text = "RESUME"
+
+[node name="RestartButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(128, 72)
+offset_left = 144.0
+offset_right = 272.0
+offset_bottom = 72.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.643137, 0.690196, 0.745098, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_mqk30")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i223v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_55xyy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p7lwu")
+text = "RESTART"
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(128, 72)
+offset_left = 288.0
+offset_right = 416.0
+offset_bottom = 72.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.643137, 0.690196, 0.745098, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_mqk30")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i223v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_55xyy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p7lwu")
+text = "QUIT"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=14 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/GameController.cs" id="6_x582o"]
 [ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="6_ytojr"]
 [ext_resource type="PackedScene" uid="uid://cc4dct2bwyhec" path="res://src/ui/game_over/GameOver.tscn" id="7_oq8a0"]
+[ext_resource type="PackedScene" uid="uid://evf2h4ep5h4k" path="res://src/ui/pause/Pause.tscn" id="9_rh8hs"]
 [ext_resource type="Resource" uid="uid://qkudsg6te5pi" path="res://src/order/OrderColors.tres" id="11_2pgxb"]
 
 [node name="DemoScene" type="Node3D"]
@@ -112,6 +113,9 @@ NotificationScene = ExtResource("2_xmkmn")
 
 [node name="GameOver" parent="." instance=ExtResource("7_oq8a0")]
 visible = false
+
+[node name="Pause" parent="." instance=ExtResource("9_rh8hs")]
+visible = false
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -128,12 +132,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57321, 0, 0)
 BoxCapacity = 5
 OrderColors = ExtResource("11_2pgxb")
 
-[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver")]
+[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver", "PauseMenu")]
+process_mode = 3
 script = ExtResource("6_x582o")
 SafeColor = Color(0.180392, 0.835294, 0.45098, 1)
 WarningColor = Color(1, 0.498039, 0.313726, 1)
 CriticalColor = Color(1, 0.278431, 0.341176, 1)
 GameOver = NodePath("../GameOver")
+PauseMenu = NodePath("../Pause")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
 

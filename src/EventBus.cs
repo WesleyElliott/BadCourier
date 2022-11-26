@@ -28,4 +28,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void GameEndEventHandler();
+
+    [Signal]
+    public delegate void PauseChangedEventHandler(bool newState);
 }

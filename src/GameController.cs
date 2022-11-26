@@ -41,22 +41,35 @@ public partial class GameController : Node {
     [Export]
     public GameOver GameOver { get; private set; }
 
+    [Export]
+    public Pause PauseMenu { get; private set; }
+
     private Timer gameTimer;
     private GameState gameState = new GameState();
 
     public override void _EnterTree() {
         this.EventBus().PackageDelivered += OnPackageDelivered;
         this.EventBus().PackageExpired += OnPackageExpired;
+        this.EventBus().PauseChanged += OnPauseChanged;
     }
 
     public override void _ExitTree() {
         this.EventBus().PackageDelivered -= OnPackageDelivered;
         this.EventBus().PackageExpired -= OnPackageExpired;
+        this.EventBus().PauseChanged -= OnPauseChanged;
     }
 
     public override void _Ready() {
         gameTimer = GetNode<Timer>("GameTimer");
         OnTick();
+    }
+
+    public override void _UnhandledKeyInput(InputEvent @event) {
+        if (@event is InputEventKey eventKey) {
+            if (eventKey.Pressed && eventKey.Keycode == Key.Escape) {
+                OnPauseChanged(!gameState.Paused);
+            }
+        }
     }
 
     public void OnTick() {
@@ -84,6 +97,22 @@ public partial class GameController : Node {
     private void OnPackageExpired(DropOff dropOff) {
         gameState.GameTime -= 10;
         this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
+    }
+
+    private void OnPauseChanged(bool newState) {
+        gameState.Paused = newState;
+        GetTree().Paused = newState;
+
+        if (gameState.Paused) {
+            GD.Print("[GameController] PAUSED");
+            PauseMenu.Render();
+            PauseMenu.Show();
+            gameTimer.Stop();
+        } else {
+            GD.Print("[GameController] UNPAUSED");
+            PauseMenu.Hide();
+            gameTimer.Start();
+        }
     }
 
     private void HandleGameOver() {

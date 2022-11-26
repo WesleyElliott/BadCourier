@@ -41,12 +41,14 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ae20j")
 Panel = NodePath("Panel")
-Score = NodePath("Panel/CenterContainer/VBoxContainer/Score")
-Heading = NodePath("Panel/CenterContainer/VBoxContainer/Heading")
-RestartButton = NodePath("Panel/CenterContainer/VBoxContainer/HBoxContainer/RestartButton")
-QuitButton = NodePath("Panel/CenterContainer/VBoxContainer/HBoxContainer/QuitButton")
+Score = NodePath("Panel/VBoxContainer/Score")
+Heading = NodePath("Panel/VBoxContainer/Heading")
+RestartButton = NodePath("Panel/VBoxContainer/HBoxContainer/RestartButton")
+QuitButton = NodePath("Panel/VBoxContainer/HBoxContainer/QuitButton")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -56,56 +58,61 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2nlfy")
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -367.0
+offset_right = 367.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
-offset_top = 291.0
-offset_right = 734.0
-offset_bottom = 732.0
 theme_override_constants/separation = 12
 
-[node name="Heading" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 734.0
-offset_bottom = 178.0
+offset_bottom = 256.0
+
+[node name="Heading" type="Label" parent="Panel/VBoxContainer"]
+offset_top = 268.0
+offset_right = 734.0
+offset_bottom = 446.0
 text = "Game Over"
 label_settings = SubResource("LabelSettings_gvjj6")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Score" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
-offset_top = 190.0
+[node name="Score" type="Label" parent="Panel/VBoxContainer"]
+offset_top = 458.0
 offset_right = 734.0
-offset_bottom = 281.0
+offset_bottom = 549.0
 text = "Score: 200 000"
 label_settings = SubResource("LabelSettings_28qdq")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Control" type="Control" parent="Panel/CenterContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 3
 anchors_preset = 0
-offset_top = 293.0
+offset_top = 561.0
 offset_right = 734.0
-offset_bottom = 357.0
+offset_bottom = 625.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 offset_left = 231.0
-offset_top = 369.0
+offset_top = 637.0
 offset_right = 503.0
-offset_bottom = 441.0
+offset_bottom = 709.0
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 
-[node name="RestartButton" type="Button" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="RestartButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
 offset_right = 128.0
@@ -119,7 +126,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ms4if")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w7fpx")
 text = "RESTART"
 
-[node name="QuitButton" type="Button" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(128, 72)
 offset_left = 144.0
