@@ -13,6 +13,12 @@ public partial class Warehouse : Node3D {
 
     private RandomNumberGenerator rng = new RandomNumberGenerator();
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     public override void _EnterTree() {
         this.EventBus().GameStart += OnGameStart;
         OrderGenerator.Timeout += OnOrderGeneratorTimeout;
@@ -27,13 +33,13 @@ public partial class Warehouse : Node3D {
         rng.Randomize();
         OrderManager = GetNode<OrderManager>("OrderManager");
 
-        OrderGenerator.WaitTime = rng.RandiRange(4, 8);
+        OrderGenerator.WaitTime = rng.RandiRange(LevelData.PackageSpawnRange.x, LevelData.PackageSpawnRange.y);
     }
 
     public void OnPlayerEntered(Area3D body) {
         if (body.Owner is Player) {
             Player player = (Player) body.Owner;
-            var boxesToCollectCount = Mathf.Min(player.AvailableSpace(), Mathf.Min(5, TotalBoxes()));
+            var boxesToCollectCount = Mathf.Min(player.AvailableSpace(), Mathf.Min(LevelData.PlayerPackageCapacity, TotalBoxes()));
             if (boxesToCollectCount == 0) {
                 return;
             }
@@ -62,14 +68,14 @@ public partial class Warehouse : Node3D {
     }
 
     private void OnOrderGeneratorTimeout() {
-        OrderGenerator.WaitTime = rng.RandiRange(4, 8);
+        OrderGenerator.WaitTime = rng.RandiRange(LevelData.PackageSpawnRange.x, LevelData.PackageSpawnRange.y);
         OrderManager.GenerateOrder();
     }
 
     private void OnGameStart() {
         OrderGenerator.Start();
-        // Generate 4 orders to begin with
-        for (int i = 0; i < 4; i++) {
+        // Generate LevelData.WarehouseStartingPackageCount orders to begin with
+        for (int i = 0; i < LevelData.WarehouseStartingPackageCount; i++) {
             OrderManager.GenerateOrder();
         }
     }
