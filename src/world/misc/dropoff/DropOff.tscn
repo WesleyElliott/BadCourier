@@ -35,7 +35,9 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_kmcp1")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="HomeStateTimer" type="Timer" parent="."]
+
+[node name="ExpirationTimer" type="Timer" parent="."]
 
 [node name="WayPoint" type="Control" parent="."]
 layout_mode = 3
@@ -51,4 +53,5 @@ offset_top = -42.0
 offset_right = 14.0
 texture = ExtResource("3_0c0mj")
 
-[connection signal="timeout" from="Timer" to="." method="OnTimeout"]
+[connection signal="timeout" from="HomeStateTimer" to="." method="OnHomeStateTimeout"]
+[connection signal="timeout" from="ExpirationTimer" to="." method="OnExpirationTimeout"]

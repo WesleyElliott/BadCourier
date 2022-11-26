@@ -2,8 +2,15 @@ using Godot;
 
 public partial class DropOff : Node3D {
 
+    public delegate void HomeStateChangedEventHandler(bool atHome);
+    public delegate void ExpirationTimerTickEventHandler(int newTime, int expirationTime);
+
+    public event HomeStateChangedEventHandler HomeStateChanged;
+    public event ExpirationTimerTickEventHandler ExpirationTimerTick;
+
     public MeshInstance3D Model { get; private set; }
-    public Timer Timer { get; private set; }
+    public Timer HomeStateTimer { get; private set; }
+    public Timer ExpirationTimer { get; private set; }
     public CollisionShape3D CollisionShape { get; private set; }
     public WayPoint WayPoint { get; private set; }
 
@@ -21,45 +28,59 @@ public partial class DropOff : Node3D {
 
     private Color dropOffColor;
     private RandomNumberGenerator rng;
+    private int timeLeft;
 
     public override void _Ready() {
         Model = GetNode<MeshInstance3D>("Model");
-        Timer = GetNode<Timer>("Timer");
+        HomeStateTimer = GetNode<Timer>("HomeStateTimer");
+        ExpirationTimer = GetNode<Timer>("ExpirationTimer");
         CollisionShape = GetNode<CollisionShape3D>("Collider/CollisionShape");
         WayPoint = GetNode<WayPoint>("WayPoint");
 
         rng = new RandomNumberGenerator();
         rng.Randomize();
-        OnTimeout();
-    }
 
-    // TODO: This is temporary. At the moment, we just show green for can deliver, and red for cannot deliver
-    // and the time between states is random between 2 and 8 seconds.
-    public void OnTimeout() {
-        if (!Visible) {
-            return;
-        }
-        Timer.WaitTime = rng.RandiRange(5, 8);
-        Timer.Start();
-        SomeoneHome = !SomeoneHome;
-
-        StandardMaterial3D material = (StandardMaterial3D) Model.GetActiveMaterial(0);
-        if (SomeoneHome) {
-            material.AlbedoColor = new Color(0, 1, 0);
-        } else {
-            material.AlbedoColor = new Color(1, 0, 0);
-        }
+        this.EventBus().GameTimerTick += OnTickTimeout;
     }
 
     public void Enable() {
         Show();
         WayPoint.Show();
         CollisionShape.Disabled = false;
+        Reset();
     }
 
     public void Disable() {
         Hide();
         WayPoint.Hide();
         CollisionShape.Disabled = true;
+        ExpirationTimer.Stop();
+        HomeStateTimer.Stop();
+    }
+
+    private void Reset() {
+        timeLeft = 20; //rng.RandiRange(45, 150);
+        ExpirationTimer.WaitTime = timeLeft;
+        ExpirationTimer.Start();
+        OnHomeStateTimeout();
+    }
+
+    private void OnTickTimeout(int newTime) {
+        timeLeft -= 1;
+        ExpirationTimerTick?.Invoke(timeLeft, (int) ExpirationTimer.WaitTime);
+    }
+
+    private void OnHomeStateTimeout() {
+        if (!Visible) {
+            return;
+        }
+        HomeStateTimer.WaitTime = rng.RandiRange(5, 8);
+        HomeStateTimer.Start();
+        SomeoneHome = !SomeoneHome;
+        HomeStateChanged?.Invoke(SomeoneHome);
+    }
+
+    private void OnExpirationTimeout() {
+        GD.Print($"Oh fuck, {Name}'s delivery has expired!");
     }
 }
