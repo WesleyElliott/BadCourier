@@ -11,6 +11,9 @@ public partial class SoundController : Node {
     [Export]
     public AudioStreamPlayer GenericAudio;
 
+    [Export]
+    public AudioStreamPlayer MusicAudio;
+
     public override void _EnterTree() {
         var buttons = GetTree().GetNodesInGroup("Button");
         foreach (Button button in buttons) {

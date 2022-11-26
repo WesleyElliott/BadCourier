@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=19 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://2tk0te67mlhy" path="res://src/audio/Wood Block1.ogg" id="14_n3dau"]
 [ext_resource type="Script" path="res://src/SoundController.cs" id="14_oj82j"]
 [ext_resource type="AudioStream" uid="uid://cg42y04f7w0fc" path="res://src/ui/audio/Minimalist7.ogg" id="15_j6ykx"]
+[ext_resource type="AudioStream" uid="uid://b3gwwtr02rydt" path="res://src/audio/Modern13.ogg" id="16_b874u"]
+[ext_resource type="AudioStream" uid="uid://b438r7km4oa5j" path="res://src/audio/Music.wav" id="17_ml8lr"]
 
 [node name="DemoScene" type="Node3D"]
 
@@ -146,18 +148,27 @@ BoxCollectedSound = ExtResource("14_n3dau")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
 
-[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio", "PackageDeliveredAudio", "GenericAudio")]
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio", "PackageDeliveredAudio", "GenericAudio", "MusicAudio")]
 script = ExtResource("14_oj82j")
 ButtonAudio = NodePath("ButtonAudio")
-PackageDeliveredAudio = NodePath("")
+PackageDeliveredAudio = NodePath("PackageDeliveredAudio")
 GenericAudio = NodePath("GenericAudio")
+MusicAudio = NodePath("MusicAudio")
 
 [node name="ButtonAudio" type="AudioStreamPlayer" parent="SoundController"]
 stream = ExtResource("15_j6ykx")
 volume_db = 8.0
 
+[node name="PackageDeliveredAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("16_b874u")
+
 [node name="GenericAudio" type="AudioStreamPlayer" parent="SoundController"]
 stream = ExtResource("14_n3dau")
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("17_ml8lr")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="timeout" from="GameController/GameTimer" to="GameController" method="OnTick"]
 
