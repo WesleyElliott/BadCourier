@@ -21,7 +21,7 @@ public partial class PackageComponent : Control {
         }
         tween = GetTree().CreateTween().SetParallel(true);
         tween.TweenProperty(PackagesLabel, "scale", new Vector2(2.5f, 2.5f), 0.1f);
-        tween.TweenProperty(PackagesLabel, "position", new Vector2(-15, -40), 0.1f);
+        tween.TweenProperty(PackagesLabel, "position", new Vector2(-22, -80), 0.1f);
         tween.Chain().TweenCallback(new Callable(this, nameof(OnTweenComplete)));
         PackagesLabel.Text = $"{packages}";
     }
