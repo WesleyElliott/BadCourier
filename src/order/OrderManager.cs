@@ -31,7 +31,7 @@ public partial class OrderManager : Node {
         3. Create Box instance, placed at collection point
         4. Enable drop off point
     */
-    private void GenerateOrder() {
+    public void GenerateOrder() {
         GD.Print("[Order] Generating order...");
         var eligibleDropOffPoints = DropOffPoints.GetChildren()
             .Cast<DropOff>()

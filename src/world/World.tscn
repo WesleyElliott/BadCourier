@@ -456,4 +456,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.79315, 0.480798, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
+[node name="OrderGenerator" type="Timer" parent="Warehouse"]
+
 [connection signal="area_entered" from="Warehouse/LoadingZone/Floor/Area3D" to="Warehouse" method="OnPlayerEntered"]

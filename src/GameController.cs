@@ -3,7 +3,7 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        _gameTime = 20;
+        _gameTime = 60;
         Money = 0;
         Paused = false;
         GameOver = false;

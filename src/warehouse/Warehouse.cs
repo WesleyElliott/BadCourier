@@ -6,6 +6,8 @@ public partial class Warehouse : Node3D {
     [Export]
     public PackedScene BoxTemplate;
 
+    public Timer OrderGenerator { get; private set; }
+
     public OrderManager OrderManager { get; private set; }
 
     private RandomNumberGenerator rng = new RandomNumberGenerator();
@@ -13,6 +15,11 @@ public partial class Warehouse : Node3D {
     public override void _Ready() {
         rng.Randomize();
         OrderManager = GetNode<OrderManager>("OrderManager");
+        OrderGenerator = GetNode<Timer>("OrderGenerator");
+
+        OrderGenerator.WaitTime = rng.RandiRange(4, 8);
+        OrderGenerator.Timeout += OnOrderGeneratorTimeout;
+        OrderGenerator.Start();
     }
 
     public void OnPlayerEntered(Area3D body) {
@@ -44,5 +51,10 @@ public partial class Warehouse : Node3D {
 
     private Box GetBox() {
         return OrderManager.GetChildren().Cast<Box>().Where(box => box.Visible == false).FirstOrDefault();
+    }
+
+    private void OnOrderGeneratorTimeout() {
+        OrderGenerator.WaitTime = rng.RandiRange(4, 8);
+        OrderManager.GenerateOrder();
     }
 }
