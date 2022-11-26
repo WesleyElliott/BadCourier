@@ -21,12 +21,12 @@ outline_size = 8
 outline_color = Color(0.470588, 0.470588, 0.470588, 1)
 
 [node name="TimerComponent" type="Control" node_paths=PackedStringArray("TimerLabel")]
-custom_minimum_size = Vector2(192, 80)
+custom_minimum_size = Vector2(200, 80)
 layout_mode = 3
 anchor_right = 0.097
 anchor_bottom = 0.078
-offset_right = -12.776
-offset_bottom = -7.872
+offset_right = 7.93999
+offset_bottom = 0.127998
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(96, 40)
@@ -53,12 +53,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_right = 6
+theme_override_constants/margin_right = 12
 
 [node name="TimerLabel" type="Label" parent="Panel/MarginContainer"]
-offset_left = 71.0
+offset_left = 65.0
 offset_top = 4.0
-offset_right = 154.0
+offset_right = 148.0
 offset_bottom = 60.0
 size_flags_horizontal = 8
 text = "02:00"
