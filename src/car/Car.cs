@@ -12,6 +12,7 @@ public partial class Car : Node3D {
     public Node3D Container { get; private set; }
     [Export]
     public RayCast3D RayCast { get; private set; }
+    public bool CanDrive = true;
     private Node3D Body { get; set; }
     private Node3D RightWheel { get; set; }
     private Node3D LeftWheel { get; set; }
@@ -37,9 +38,9 @@ public partial class Car : Node3D {
         Model.Rotation = Model.Rotation.Lerp(modelRotation, (float) delta * 5);
         
         var turnRotation = Mathf.Clamp(14 * (float) delta * Sphere.LinearVelocity.Length(), 0f, 3.33f);
-        if (Input.IsActionPressed("left")) {
+        if (Input.IsActionPressed("left") && CanDrive) {
             modelRotation.y += Mathf.DegToRad(turnRotation);
-        } else if (Input.IsActionPressed("right")) {
+        } else if (Input.IsActionPressed("right") && CanDrive) {
             modelRotation.y -=  Mathf.DegToRad(turnRotation);
         }
 
@@ -48,9 +49,9 @@ public partial class Car : Node3D {
         var forward = -Model.GlobalTransform.basis.z;
         Sphere.ApplyForce(forward * speedTarget * 1.25f, Model.Position);
 
-        if (Input.IsActionPressed("forward")) {
+        if (Input.IsActionPressed("forward") && CanDrive) {
             speed = maxSpeed;
-        } else if (Input.IsActionPressed("back")) {
+        } else if (Input.IsActionPressed("back") && CanDrive) {
             speed = -maxSpeed / 2;
         } else {
             speed = 0;

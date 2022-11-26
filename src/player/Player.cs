@@ -16,15 +16,20 @@ public partial class Player : Node3D {
 	[Export]
 	public Node3D Model { get; private set; }
 
+	[Export]
+	public Car Van { get; private set; }
+
 	private Node boxes;
 	private List<Color> dropOffColors = new List<Color>();
 
     public override void _EnterTree() {
         this.EventBus().PackageExpired += OnPackageExpired;
+		this.EventBus().GameEnd += OnGameEnd;
     }
 
     public override void _ExitTree() {
         this.EventBus().PackageExpired -= OnPackageExpired;
+		this.EventBus().GameEnd -= OnGameEnd;
     }
 
     public override void _Ready() {
@@ -124,6 +129,10 @@ public partial class Player : Node3D {
 		dropOff.CallDeferred("Disable");
 
 		this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
+	}
+
+	private void OnGameEnd() {
+		Van.CanDrive = false;
 	}
 
 }

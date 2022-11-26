@@ -6,11 +6,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_w47xt"]
 size = Vector3(1.38146, 1, 2.70675)
 
-[node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container", "Model")]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container", "Model", "Van")]
 script = ExtResource("1_gpnmw")
 Rig = NodePath("Rig")
 Container = NodePath("Van/Container")
 Model = NodePath("Van/Container/Node")
+Van = NodePath("Van")
 
 [node name="Rig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819151, 0, -0.819152, 0.573576, 0, 0, 0)

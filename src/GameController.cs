@@ -3,12 +3,16 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        GameTime = 30;
+        GameTime = 4;
         Money = 0;
+        Paused = false;
+        GameOver = false;
     }
 
     public int GameTime; // Seconds
     public int Money;
+    public bool Paused;
+    public bool GameOver;
 }
 
 public partial class GameController : Node {
@@ -44,11 +48,8 @@ public partial class GameController : Node {
     }
 
     public override void _Process(double delta) {
-        if (gameState.GameTime < 0) {
-            GD.Print("[GameController] GAME OVER");
-            GetTree().Paused = true;
-            GameOver.Render(gameState.Money, 5, 2);
-            GameOver.Visible = true;
+        if (gameState.GameTime < 0 && !gameState.GameOver) {
+            HandleGameOver();
         }
     }
 
@@ -72,5 +73,15 @@ public partial class GameController : Node {
     private void OnPackageExpired(DropOff dropOff) {
         gameState.GameTime -= 10;
         this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
+    }
+
+    private void HandleGameOver() {
+        GD.Print("[GameController] GAME OVER");
+        this.EventBus().EmitSignal(EventBus.SignalName.GameEnd);
+        gameState.GameOver = true;
+        GameOver.Visible = true;
+        GameOver.Render();
+
+        gameTimer.Stop();
     }
 }

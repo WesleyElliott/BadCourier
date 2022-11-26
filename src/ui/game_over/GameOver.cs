@@ -3,22 +3,21 @@ using Godot;
 public partial class GameOver : Control {
 
     [Export]
-    public Label Money;
+    public Panel Panel;
 
     [Export]
-    public Label AngryCustomers;
+    public Label Score;
 
     [Export]
-    public Label MissedDeliveries;
+    public Label Heading;
 
     [Export]
-    public Label FinalScore;
+    public Button RestartButton;
 
     [Export]
-    public TextureButton RestartButton;
+    public Button QuitButton;
 
-    [Export]
-    public TextureButton QuitButton;
+    private Tween tween;
 
     public override void _EnterTree() {
         RestartButton.Pressed += OnRestartPressed;
@@ -30,17 +29,23 @@ public partial class GameOver : Control {
         QuitButton.Pressed -= OnQuitPressed;
     }
 
-    public void Render(int money, int angryCustomers, int missedDeliveries) {
-        var finalScore = CalculateFinalScore(money, angryCustomers, missedDeliveries);
+    public void Render() {
+        if (tween != null) {
+            tween.Kill();
+        }
 
-        Money.Text = $"+ {string.Format("{0:N0}", money)}";
-        AngryCustomers.Text = $"x {angryCustomers}";
-        MissedDeliveries.Text = $"- {string.Format("{0:N0}", missedDeliveries)}";
-        FinalScore.Text = $"{string.Format("{0:N0}", finalScore)}";
-    }
+        Panel.SelfModulate = new Color(1, 1, 1, 0);
+        Heading.Modulate = new Color(1, 1, 1, 0);
+        Score.Modulate = new Color(1, 1, 1, 0);
+        RestartButton.Modulate = new Color(1, 1, 1, 0);
+        QuitButton.Modulate = new Color(1, 1, 1, 0);
 
-    private int CalculateFinalScore(int money, int angryCustomers, int missedDeliveries) {
-        return (money * angryCustomers) - missedDeliveries;
+        tween = GetTree().CreateTween().SetParallel().SetPauseMode(Tween.TweenPauseMode.Process);
+        tween.TweenProperty(Panel, "self_modulate:a", 1.0f, 0.4f);
+        tween.TweenProperty(Heading, "modulate:a", 1f, 0.6f).SetDelay(0.8f);
+        tween.TweenProperty(Score, "modulate:a", 1f, 0.6f).SetDelay(1.3f);
+        tween.TweenProperty(RestartButton, "modulate:a", 1f, 0.4f).SetDelay(1.8f);
+        tween.TweenProperty(QuitButton, "modulate:a", 1f, 0.4f).SetDelay(1.8f);
     }
 
     private void OnRestartPressed() {
