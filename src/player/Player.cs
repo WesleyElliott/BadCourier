@@ -27,11 +27,13 @@ public partial class Player : Node3D {
     public override void _EnterTree() {
         this.EventBus().PackageExpired += OnPackageExpired;
 		this.EventBus().GameEnd += OnGameEnd;
+		this.EventBus().GameStart += OnGameStart;
     }
 
     public override void _ExitTree() {
         this.EventBus().PackageExpired -= OnPackageExpired;
 		this.EventBus().GameEnd -= OnGameEnd;
+		this.EventBus().GameStart -= OnGameStart;
     }
 
     public override void _Ready() {
@@ -125,4 +127,7 @@ public partial class Player : Node3D {
 		Van.CanDrive = false;
 	}
 
+	private void OnGameStart() {
+		Van.CanDrive = true;
+	}
 }

@@ -58,6 +58,7 @@ public partial class GameController : Node {
         this.EventBus().PackageExpired += OnPackageExpired;
         this.EventBus().PauseChanged += OnPauseChanged;
         this.EventBus().BoxCollected += OnBoxCollected;
+        this.EventBus().GameStart += OnGameStart;
     }
 
     public override void _ExitTree() {
@@ -65,11 +66,11 @@ public partial class GameController : Node {
         this.EventBus().PackageExpired -= OnPackageExpired;
         this.EventBus().PauseChanged -= OnPauseChanged;
         this.EventBus().BoxCollected -= OnBoxCollected;
+        this.EventBus().GameStart -= OnGameStart;
     }
 
     public override void _Ready() {
         gameTimer = GetNode<Timer>("GameTimer");
-        OnTick();
     }
 
     public override void _UnhandledKeyInput(InputEvent @event) {
@@ -141,5 +142,9 @@ public partial class GameController : Node {
         GameOver.Render(gameState.Money);
 
         gameTimer.Stop();
+    }
+
+    private void OnGameStart() {
+        OnTick();
     }
 }

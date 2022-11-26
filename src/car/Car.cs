@@ -20,7 +20,7 @@ public partial class Car : Node3D {
     [Export]
     public AudioStreamPlayer3D SkidAudio { get; private set; }
 
-    public bool CanDrive = true;
+    public bool CanDrive = false;
     private Node3D Body { get; set; }
     private Node3D RightWheel { get; set; }
     private Node3D LeftWheel { get; set; }

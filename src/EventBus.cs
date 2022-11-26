@@ -34,4 +34,7 @@ public partial class EventBus : Node {
     
     [Signal]
     public delegate void CarNotificationEventHandler(string text, Color color);
+
+    [Signal]
+    public delegate void GameStartEventHandler();
 }
