@@ -19,8 +19,10 @@ public partial class Player : Node3D {
 	[Export]
 	public Car Van { get; private set; }
 
+	[Export]
+	public OrderColorData OrderColors;
+
 	private Node boxes;
-	private List<Color> dropOffColors = new List<Color>();
 
     public override void _EnterTree() {
         this.EventBus().PackageExpired += OnPackageExpired;
@@ -34,15 +36,6 @@ public partial class Player : Node3D {
 
     public override void _Ready() {
         boxes = GetNode<Node>("Boxes");
-		dropOffColors.Add(new Color(1, 0, 0));
-		dropOffColors.Add(new Color(0, 1, 0));
-		dropOffColors.Add(new Color(0, 0, 1));
-		dropOffColors.Add(new Color(1, 1, 0));
-		dropOffColors.Add(new Color(0, 1, 1));
-		dropOffColors.Add(new Color(1, 0, 1));
-		dropOffColors.Add(new Color(1, 1, 1));
-
-		
     }
 
     public override void _PhysicsProcess(double delta) {
@@ -66,7 +59,7 @@ public partial class Player : Node3D {
 			parent.RemoveChild(box);
 			box.Visible = false;
 			boxes.AddChild(box);
-			var dropOffColor = dropOffColors[boxes.GetChildCount()];
+			var dropOffColor = OrderColors.OrderColorOptions[boxes.GetChildCount()];
 			box.DropOff.DropOffColor = dropOffColor;
 			box.DropOff.CallDeferred("Enable");
 

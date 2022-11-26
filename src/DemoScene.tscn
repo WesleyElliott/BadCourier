@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=13 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/GameController.cs" id="6_x582o"]
 [ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="6_ytojr"]
 [ext_resource type="PackedScene" uid="uid://cc4dct2bwyhec" path="res://src/ui/game_over/GameOver.tscn" id="7_oq8a0"]
+[ext_resource type="Resource" uid="uid://qkudsg6te5pi" path="res://src/order/OrderColors.tres" id="11_2pgxb"]
 
 [node name="DemoScene" type="Node3D"]
 
@@ -23,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,6 +36,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="LeftUI" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 216.0
@@ -42,6 +45,7 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 24
 
 [node name="TimerComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -54,6 +58,7 @@ size_flags_vertical = 0
 GameController = NodePath("../../../../GameController")
 
 [node name="MoneyComponent" parent="UI/Margins/LeftUI" instance=ExtResource("4_1icfj")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -64,6 +69,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="PackageComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -75,6 +81,7 @@ GameController = NodePath("../../../../GameController")
 
 [node name="WarehouseInfoComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_lnpd3")]
 visible = false
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -84,6 +91,7 @@ offset_bottom = 472.0
 GameController = NodePath("../../../../GameController")
 
 [node name="RightUI" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
 offset_left = 1956.0
 offset_top = 24.0
 offset_right = 1956.0
@@ -92,7 +100,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="DropOffNotifications" type="Control" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController")]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_bottom = 976.0
 size_flags_vertical = 3
@@ -102,6 +110,7 @@ NotificationScene = ExtResource("2_xmkmn")
 
 [node name="GameOver" parent="UI" instance=ExtResource("7_oq8a0")]
 visible = false
+layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -118,6 +127,7 @@ environment = ExtResource("2_im14v")
 [node name="Player" parent="." instance=ExtResource("3_aafgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57321, 0, 0)
 BoxCapacity = 5
+OrderColors = ExtResource("11_2pgxb")
 
 [node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver")]
 script = ExtResource("6_x582o")

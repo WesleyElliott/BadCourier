@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://qkudsg6te5pi"]
+
+[ext_resource type="Script" path="res://src/order/OrderColorData.cs" id="1_oys1u"]
+
+[resource]
+script = ExtResource("1_oys1u")
+OrderColorOptions = PackedColorArray(1, 0.647059, 0.00784314, 1, 1, 0.498039, 0.313726, 1, 1, 0.278431, 0.341176, 1, 0.180392, 0.835294, 0.45098, 1, 0.439216, 0.631373, 1, 1, 0.215686, 0.258824, 0.980392, 1)
