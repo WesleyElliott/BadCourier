@@ -12,9 +12,6 @@ offset_right = -0.512009
 offset_bottom = 0.447998
 script = ExtResource("1_pb4ah")
 ProgressBar = NodePath("CapacityProgress")
-SafeColor = Color(0.654902, 1, 0.462745, 1)
-WarningColor = Color(1, 0.603922, 0.32549, 1)
-CriticalColor = Color(1, 0.247059, 0.301961, 1)
 
 [node name="CapacityProgress" type="TextureProgressBar" parent="."]
 anchors_preset = -1

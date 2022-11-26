@@ -30,19 +30,26 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="PackageComponent" parent="UI/Margins" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+[node name="LeftUI" type="VBoxContainer" parent="UI/Margins"]
 layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 216.0
 offset_bottom = 1000.0
 size_flags_horizontal = 0
-GameController = NodePath("../../../GameController")
+theme_override_constants/separation = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins"]
+[node name="PackageComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 192.0
+offset_bottom = 72.0
+size_flags_horizontal = 0
+GameController = NodePath("../../../../GameController")
+
+[node name="RightUI" type="VBoxContainer" parent="UI/Margins"]
 layout_mode = 2
 offset_left = 1832.0
 offset_top = 24.0
@@ -51,7 +58,7 @@ offset_bottom = 1000.0
 size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
-[node name="TimerComponent" parent="UI/Margins/VBoxContainer" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+[node name="TimerComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
@@ -63,7 +70,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 GameController = NodePath("../../../../GameController")
 
-[node name="WarehouseInfoComponent" parent="UI/Margins/VBoxContainer" instance=ExtResource("3_lnpd3")]
+[node name="WarehouseInfoComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_lnpd3")]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
@@ -71,6 +78,7 @@ anchor_bottom = 0.0
 offset_top = 88.0
 offset_right = 192.0
 offset_bottom = 104.0
+GameController = NodePath("../../../../GameController")
 
 [node name="World" parent="." instance=ExtResource("1_adbhg")]
 
@@ -88,6 +96,9 @@ BoxCapacity = 5
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("6_x582o")
+SafeColor = Color(0.654902, 1, 0.462745, 1)
+WarningColor = Color(1, 0.603922, 0.32549, 1)
+CriticalColor = Color(1, 0.247059, 0.301961, 1)
 
 [node name="GameTimer" type="Timer" parent="GameController"]
 

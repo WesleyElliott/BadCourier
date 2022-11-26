@@ -11,6 +11,15 @@ struct GameState {
 
 public partial class GameController : Node {
 
+    [Export]
+    public Color SafeColor { get; private set; }
+
+    [Export]
+    public Color WarningColor { get; private set; }
+
+    [Export]
+    public Color CriticalColor { get; private set; }
+
     private Timer gameTimer;
     private GameState gameState = new GameState();
 
