@@ -68,5 +68,9 @@ public partial class Warehouse : Node3D {
 
     private void OnGameStart() {
         OrderGenerator.Start();
+        // Generate 4 orders to begin with
+        for (int i = 0; i < 4; i++) {
+            OrderManager.GenerateOrder();
+        }
     }
 }
