@@ -25,7 +25,7 @@ public partial class DropOffComponent : Control {
         DropOff.HomeStateChanged += UpdateAtHomeStatus;
         DropOff.ExpirationTimerTick += UpdateTimeProgress;
         Render(DropOff.DropOffColor);
-        Position = new Vector2(-200, Position.y);
+        Position = new Vector2(30, Position.y);
     }
 
     public override void _ExitTree() {
@@ -50,7 +50,7 @@ public partial class DropOffComponent : Control {
             showHideTween.Kill();
         }
         showHideTween = GetTree().CreateTween();
-        showHideTween.TweenProperty(this, "position", new Vector2(0, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
+        showHideTween.TweenProperty(this, "position", new Vector2(-124, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
     }
 
     public void MoveNotification(Vector2 position) {
@@ -58,7 +58,7 @@ public partial class DropOffComponent : Control {
             moveTween.Kill();
         }
         moveTween = GetTree().CreateTween();
-        moveTween.TweenProperty(this, "position",position, 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
+        moveTween.TweenProperty(this, "position", position, 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
     }
 
     public void HideNotification(Callable callback) {
@@ -66,7 +66,7 @@ public partial class DropOffComponent : Control {
             showHideTween.Kill();
         }
         showHideTween = GetTree().CreateTween();
-        showHideTween.TweenProperty(this, "position", new Vector2(-200, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
+        showHideTween.TweenProperty(this, "position", new Vector2(30, Position.y), 0.5f).SetTrans(Tween.TransitionType.Quart).SetEase(Tween.EaseType.Out);
         showHideTween.TweenCallback(callback);
     }
 

@@ -24,7 +24,7 @@ public partial class DropOffNotifications : Control {
         notification.GameController = GameController;
         notification.DropOff = dropOff;
         AddChild(notification);
-        notification.Position = new Vector2(-200, yOffset);
+        notification.Position = new Vector2(30, yOffset);
         notification.ShowNotification();
         notificationCount += 1;
     }
@@ -48,7 +48,7 @@ public partial class DropOffNotifications : Control {
         foreach (DropOffComponent notification in GetChildren()) {
              var yOffset = 112 * index;
              if (notification.Position.y != yOffset) {
-                notification.MoveNotification(new Vector2(0, yOffset));
+                notification.MoveNotification(new Vector2(-124, yOffset));
              }
              index++;
         }

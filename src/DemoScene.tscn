@@ -37,12 +37,67 @@ theme_override_constants/margin_bottom = 24
 layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
-offset_right = 24.0
+offset_right = 216.0
 offset_bottom = 1000.0
 size_flags_horizontal = 0
 theme_override_constants/separation = 24
 
-[node name="DropOffNotifications" type="Control" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController")]
+[node name="TimerComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 192.0
+offset_bottom = 80.0
+grow_horizontal = 0
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+GameController = NodePath("../../../../GameController")
+
+[node name="MoneyComponent" parent="UI/Margins/LeftUI" instance=ExtResource("4_1icfj")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 104.0
+offset_right = 192.0
+offset_bottom = 184.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PackageComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 208.0
+offset_right = 192.0
+offset_bottom = 288.0
+size_flags_horizontal = 0
+GameController = NodePath("../../../../GameController")
+
+[node name="WarehouseInfoComponent" parent="UI/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_lnpd3")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 456.0
+offset_right = 384.0
+offset_bottom = 472.0
+GameController = NodePath("../../../../GameController")
+
+[node name="RightUI" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+offset_left = 1956.0
+offset_top = 24.0
+offset_right = 1956.0
+offset_bottom = 1000.0
+size_flags_horizontal = 8
+theme_override_constants/separation = 16
+
+[node name="DropOffNotifications" type="Control" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController")]
 layout_mode = 2
 anchors_preset = 0
 offset_bottom = 976.0
@@ -50,57 +105,6 @@ size_flags_vertical = 3
 script = ExtResource("2_l7yum")
 GameController = NodePath("../../../../GameController")
 NotificationScene = ExtResource("2_xmkmn")
-
-[node name="RightUI" type="VBoxContainer" parent="UI/Margins"]
-layout_mode = 2
-offset_left = 1640.0
-offset_top = 24.0
-offset_right = 2024.0
-offset_bottom = 1000.0
-size_flags_horizontal = 8
-theme_override_constants/separation = 16
-
-[node name="TimerComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytojr")]
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 384.0
-offset_bottom = 128.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-GameController = NodePath("../../../../GameController")
-
-[node name="MoneyComponent" parent="UI/Margins/RightUI" instance=ExtResource("4_1icfj")]
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 144.0
-offset_right = 384.0
-offset_bottom = 272.0
-
-[node name="PackageComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_55vw0")]
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 288.0
-offset_right = 384.0
-offset_bottom = 416.0
-size_flags_horizontal = 0
-GameController = NodePath("../../../../GameController")
-
-[node name="WarehouseInfoComponent" parent="UI/Margins/RightUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_lnpd3")]
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 432.0
-offset_right = 384.0
-offset_bottom = 448.0
-GameController = NodePath("../../../../GameController")
 
 [node name="World" parent="." instance=ExtResource("1_adbhg")]
 

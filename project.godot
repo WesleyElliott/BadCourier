@@ -21,10 +21,10 @@ EventBus="*res://src/EventBus.cs"
 
 [display]
 
-window/size/viewport_width=2048
+window/size/viewport_width=1980
 window/size/viewport_height=1024
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 
 [dotnet]
 
