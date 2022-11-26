@@ -18,6 +18,12 @@ public partial class TutorialController : Node {
     [Export]
     public Control PackagesUI { get; private set; }
 
+    [Export]
+    public Control TimerUI { get; private set; }
+
+    [Export]
+    public Control MoneyUI { get; private set; }
+
     private LevelData LevelData {
         get {
              return this.Level().LevelData;
@@ -62,6 +68,14 @@ public partial class TutorialController : Node {
         await WaitUntilSpacePressed();
         
         TutorialDialog.SetMessage("As you know, we pride ourselves on always delivering packages at the most inconvenient of times.", true);
+        await WaitUntilSpacePressed();
+
+        var tween = GetTree().CreateTween();
+        tween.SetPauseMode(Tween.TweenPauseMode.Process);
+        tween.TweenProperty(TimerUI, "position:x", 0, 0.7f)
+            .SetTrans(Tween.TransitionType.Quint)
+            .SetEase(Tween.EaseType.InOut);
+        TutorialDialog.SetMessage("Bare in mind, your shift has a fixed time. Check the top left for how much time you have left!", true);
         
         await WaitUntilSpacePressed();
 
