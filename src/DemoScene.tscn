@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1flot2j87ujx"]
+[gd_scene load_steps=7 format=3 uid="uid://c1flot2j87ujx"]
 
 [ext_resource type="Texture2D" uid="uid://8wxr2cag7ixn" path="res://src/_debug/textures/prototype/Light/texture_07.png" id="1_lqe42"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
@@ -11,11 +11,19 @@ uv1_scale = Vector3(30, 30, 30)
 [sub_resource type="PlaneMesh" id="PlaneMesh_vlugd"]
 size = Vector2(30, 30)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qecvp"]
+size = Vector3(30, 0.1, 30)
+
 [node name="DemoScene" type="Node3D"]
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_aa6no")
 mesh = SubResource("PlaneMesh_vlugd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_qecvp")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.638902, 0.769288, 0, -0.769288, 0.638902, 0, 8.49809, 9.77891)
@@ -25,3 +33,6 @@ light_color = Color(1, 0.968627, 0.74902, 1)
 environment = ExtResource("2_im14v")
 
 [node name="Player" parent="." instance=ExtResource("3_aafgf")]
+
+[editable path="Player"]
+[editable path="Player/Van"]

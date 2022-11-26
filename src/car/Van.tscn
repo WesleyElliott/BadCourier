@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dktfhjqskmpyn"]
+
+[ext_resource type="PackedScene" uid="uid://cfift5xi0v4jy" path="res://src/car/model/van.glb" id="1_60xwk"]
+[ext_resource type="Script" path="res://src/car/Car.cs" id="1_kxlsj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4av3t"]
+bounce = 0.4
+absorbent = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1b5ki"]
+margin = 2.0
+radius = 1.0
+
+[node name="Van" type="Node3D" node_paths=PackedStringArray("Model", "Sphere", "Container", "RayCast")]
+script = ExtResource("1_kxlsj")
+Model = NodePath("Container/model")
+Sphere = NodePath("Sphere")
+Container = NodePath("Container")
+RayCast = NodePath("Container/RayCast3D")
+
+[node name="Container" type="Node3D" parent="."]
+
+[node name="model" parent="Container" instance=ExtResource("1_60xwk")]
+
+[node name="RayCast3D" type="RayCast3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collide_with_areas = true
+
+[node name="Sphere" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_4av3t")
+gravity_scale = 1.1
+continuous_cd = true
+linear_damp = 1.0
+angular_damp = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere"]
+shape = SubResource("SphereShape3D_1b5ki")

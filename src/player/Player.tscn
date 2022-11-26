@@ -1,18 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgupj6d18i0y8"]
 
-[ext_resource type="Script" path="res://src/player/Camera.cs" id="1_gnh3v"]
+[ext_resource type="Script" path="res://src/player/Player.cs" id="1_gpnmw"]
+[ext_resource type="PackedScene" uid="uid://dktfhjqskmpyn" path="res://src/car/Van.tscn" id="2_5t2is"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_34k68"]
-size = Vector3(1, 1, 2.4)
+[node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container")]
+script = ExtResource("1_gpnmw")
+Rig = NodePath("Rig")
+Container = NodePath("Van/Container")
 
-[node name="Player" type="Node3D"]
+[node name="Rig" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 0, 0)
 
-[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("FollowTarget")]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 10, 6)
+[node name="Camera" type="Camera3D" parent="Rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 current = true
-script = ExtResource("1_gnh3v")
-FollowTarget = NodePath("../TempModel")
+fov = 30.0
 
-[node name="TempModel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_34k68")
+[node name="Van" parent="." instance=ExtResource("2_5t2is")]
+
+[editable path="Van"]
