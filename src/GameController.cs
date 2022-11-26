@@ -148,6 +148,7 @@ public partial class GameController : Node {
 
     private void OnGameStart() {
         OnTick();
+        SoundController.PlayMusic();
     }
 
     private void OnWarehouseCapacityExceeded() {

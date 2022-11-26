@@ -8,6 +8,9 @@ public partial class Countdown : Control {
     [Export]
     public Timer Timer { get; private set; }
 
+    [Export]
+    public AudioStreamPlayer AudioPlayer { get; private set; }
+
     private int time = 3;
 
     public override void _EnterTree() {
@@ -16,6 +19,10 @@ public partial class Countdown : Control {
 
     public override void _ExitTree() {
         Timer.Timeout -= OnTimeout;
+    }
+
+    public override void _Ready() {
+        AudioPlayer.Play();
     }
 
     private void OnTimeout() {
@@ -29,8 +36,10 @@ public partial class Countdown : Control {
         if (time == 0) {
             Label.Text = "GO!";
             this.EventBus().EmitSignal(EventBus.SignalName.GameStart);
+            AudioPlayer.Play();
         } else {
             Label.Text = $"{time}";
+            AudioPlayer.Play();
         }
     }
 }

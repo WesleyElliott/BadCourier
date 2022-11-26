@@ -42,6 +42,7 @@ NotificationTemplate = ExtResource("4_sjnbr")
 
 [node name="EngineAudioPlayer" type="AudioStreamPlayer3D" parent="Container"]
 stream = ExtResource("5_evwky")
+volume_db = -15.0
 
 [node name="SkidAudioPlayer" type="AudioStreamPlayer3D" parent="Container"]
 stream = ExtResource("6_3c4o5")

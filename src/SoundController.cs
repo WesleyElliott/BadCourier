@@ -37,6 +37,12 @@ public partial class SoundController : Node {
         GenericAudio.Play();
     }
 
+    public void PlayMusic() {
+        MusicAudio.Play();
+        var tween = GetTree().CreateTween();
+        tween.TweenProperty(MusicAudio, "volume_db", -14, 0.8f);
+    }
+
     private void OnButtonPressed() {
         ButtonAudio.Play();
     }

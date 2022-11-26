@@ -95,6 +95,11 @@ public partial class Car : Node3D {
         HandleEngineAudio();
     }
 
+    public void OnGameStart() {
+        var tween = GetTree().CreateTween();
+        tween.TweenProperty(EngineAudio, "volume_db", -3, 0.8f);
+    }
+
     private void HandleEngineAudio() {
         var pitchOffset = Sphere.LinearVelocity.Length() / 30;
         EngineAudio.PitchScale = 1 + pitchOffset;
