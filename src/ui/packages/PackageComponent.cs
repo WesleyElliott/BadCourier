@@ -11,8 +11,8 @@ public partial class PackageComponent : Control {
     private Tween tween;
 
     public override void _Ready() {
-        PackagesLabel.Text = "0";
-        this.EventBus().PlayerPackageUpdated += UpdatePackagesLabel;
+        PackagesLabel.Text = "0 / 20";
+        this.EventBus().WarehouseCapacity += UpdatePackagesLabel;
     }
 
     private void UpdatePackagesLabel(int packages) {
@@ -23,7 +23,7 @@ public partial class PackageComponent : Control {
         // tween.TweenProperty(PackagesLabel, "scale", new Vector2(2.5f, 2.5f), 0.1f);
         // tween.TweenProperty(PackagesLabel, "position", new Vector2(-22, -80), 0.1f);
         // tween.Chain().TweenCallback(new Callable(this, nameof(OnTweenComplete)));
-        PackagesLabel.Text = $"{packages}";
+        PackagesLabel.Text = $"{packages} / 20";
     }
 
     private void OnTweenComplete() {
