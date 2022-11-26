@@ -36,4 +36,10 @@ public partial class LevelData : Resource {
 
     [Export]
     public Vector2i DropOffHomeStateChangeRange;
+
+    [Export]
+    public bool GameStartPlaysMusic = true;
+
+    [Export]
+    public bool GameStartGeneratesOrder = true;
 }

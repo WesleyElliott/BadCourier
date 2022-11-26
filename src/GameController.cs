@@ -155,7 +155,9 @@ public partial class GameController : Node {
 
     private void OnGameStart() {
         OnTick();
-        SoundController.PlayMusic();
+        if (LevelData.GameStartGeneratesOrder) {
+            SoundController.PlayMusic();
+        }
     }
 
     private void OnWarehouseCapacityExceeded() {

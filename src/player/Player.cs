@@ -135,6 +135,8 @@ public partial class Player : Node3D {
 
 	private void OnGameStart() {
 		Van.CanDrive = true;
-		Van.OnGameStart();
+		if (LevelData.GameStartGeneratesOrder) {
+			Van.OnGameStart();
+        }
 	}
 }

@@ -76,7 +76,9 @@ public partial class Warehouse : Node3D {
     }
 
     private void OnGameStart() {
-        OrderGenerator.Start();
+        if (LevelData.GameStartGeneratesOrder) {
+            OrderGenerator.Start();
+        }
         // Generate LevelData.WarehouseStartingPackageCount orders to begin with
         for (int i = 0; i < LevelData.WarehouseStartingPackageCount; i++) {
             OrderManager.GenerateOrder();
