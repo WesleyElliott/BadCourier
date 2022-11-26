@@ -9,10 +9,16 @@ public partial class TimerComponent : Control {
     [Export]
     public Label TimerLabel { get; private set; }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     private Tween tween;
 
     public override void _EnterTree() {
-        TimerLabel.Text = "02:00";
+        UpdateTimer(LevelData.GameTime);
         this.EventBus().GameTimerTick += UpdateTimer;
     }
 

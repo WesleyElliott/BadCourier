@@ -8,6 +8,12 @@ public partial class WarehouseComponent : Control {
     [Export]
     public TextureProgressBar ProgressBar { get; private set; }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     private Tween tween;
 
     public override void _EnterTree() {
@@ -21,7 +27,7 @@ public partial class WarehouseComponent : Control {
     }
 
     private void RenderProgress(int newBoxCount) {
-        var percent = newBoxCount / 20f * 100f;
+        var percent = newBoxCount / (float) LevelData.WarehouseCapacity * 100f;
         var color = GetProgressColor(percent);
 
         if (tween != null) {

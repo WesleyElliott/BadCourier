@@ -8,8 +8,14 @@ public partial class PackageComponent : Control {
     [Export]
     public Label PackagesLabel { get; private set; }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     public override void _EnterTree() {
-        PackagesLabel.Text = "0 / 20";
+        PackagesLabel.Text = $"0 /{LevelData.WarehouseCapacity}";
         this.EventBus().WarehouseCapacity += UpdatePackagesLabel;
     }
 
@@ -18,6 +24,6 @@ public partial class PackageComponent : Control {
     }
 
     private void UpdatePackagesLabel(int packages) {
-        PackagesLabel.Text = $"{packages} /20";
+        PackagesLabel.Text = $"{packages} /{LevelData.WarehouseCapacity}";
     }
 }
