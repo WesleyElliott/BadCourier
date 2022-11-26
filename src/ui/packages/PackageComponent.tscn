@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx24huigwieum"]
+[gd_scene load_steps=7 format=3 uid="uid://bx24huigwieum"]
 
 [ext_resource type="Texture2D" uid="uid://umb33vxrf7eh" path="res://src/ui/sprites/green_panel.png" id="1_14iwl"]
 [ext_resource type="Script" path="res://src/ui/packages/PackageComponent.cs" id="1_jlv47"]
-[ext_resource type="Texture2D" uid="uid://bujdesl5krnoh" path="res://src/ui/packages/box_icon.png" id="3_41osu"]
+[ext_resource type="Texture2D" uid="uid://8mflbshh8y4k" path="res://src/ui/sprites/green_round_panel.png" id="3_t7lcj"]
+[ext_resource type="Texture2D" uid="uid://d21lj588ndtdo" path="res://src/ui/packages/dice_close.png" id="4_kfytj"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfaes"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljlf2"]
 texture = ExtResource("1_14iwl")
 margin_left = 8.0
 margin_top = 8.0
@@ -12,26 +13,31 @@ margin_right = 8.0
 margin_bottom = 8.0
 region_rect = Rect2(0, 0, 100, 100)
 
-[sub_resource type="LabelSettings" id="LabelSettings_df5mu"]
-font_size = 38
+[sub_resource type="LabelSettings" id="LabelSettings_d2wbl"]
+font_size = 64
 outline_size = 8
 outline_color = Color(0.470588, 0.470588, 0.470588, 1)
 
 [node name="PackageComponent" type="Control" node_paths=PackedStringArray("PackagesLabel")]
-custom_minimum_size = Vector2(192, 72)
+custom_minimum_size = Vector2(384, 128)
 layout_mode = 3
-anchor_right = 0.094
-anchor_bottom = 0.07
-offset_right = -192.512
-offset_bottom = -71.68
+anchor_right = 0.187
+anchor_bottom = 0.125
+offset_right = 1.02399
 pivot_offset = Vector2(96, 36)
 script = ExtResource("1_jlv47")
-PackagesLabel = NodePath("Panel/MarginContainer/HBoxContainer/HBoxContainer/PackagesLabel")
+PackagesLabel = NodePath("Panel/MarginContainer/HBoxContainer/PackagesLabel")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 192.0
-offset_bottom = 72.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_lfaes")
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -48.0
+offset_right = 384.0
+offset_bottom = 48.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ljlf2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 anchors_preset = -1
@@ -44,59 +50,69 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(96, 32)
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_right = 12
+theme_override_constants/margin_right = 48
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
-offset_left = 12.0
-offset_right = 180.0
-offset_bottom = 64.0
+offset_left = 139.0
+offset_right = 288.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer"]
-offset_left = 4.0
-offset_right = 68.0
-offset_bottom = 64.0
-grow_vertical = 2
-texture = ExtResource("3_41osu")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
-offset_left = 76.0
-offset_top = 4.0
-offset_right = 163.0
-offset_bottom = 60.0
+[node name="PackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+offset_right = 37.0
+offset_bottom = 91.0
 size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="PackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/HBoxContainer"]
-offset_right = 22.0
-offset_bottom = 56.0
 size_flags_vertical = 1
 text = "3"
-label_settings = SubResource("LabelSettings_df5mu")
+label_settings = SubResource("LabelSettings_d2wbl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SlashLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/HBoxContainer"]
-offset_left = 26.0
-offset_right = 51.0
-offset_bottom = 56.0
+[node name="SlashLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+offset_left = 45.0
+offset_right = 87.0
+offset_bottom = 91.0
 size_flags_vertical = 1
 text = " /"
-label_settings = SubResource("LabelSettings_df5mu")
+label_settings = SubResource("LabelSettings_d2wbl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TotalPackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/HBoxContainer"]
-offset_left = 55.0
-offset_right = 87.0
-offset_bottom = 56.0
+[node name="TotalPackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+offset_left = 95.0
+offset_right = 149.0
+offset_bottom = 91.0
 size_flags_vertical = 1
 text = " 5"
-label_settings = SubResource("LabelSettings_df5mu")
+label_settings = SubResource("LabelSettings_d2wbl")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RoundBackground" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("3_t7lcj")
+ignore_texture_size = true
+
+[node name="Icon" type="TextureRect" parent="RoundBackground"]
+modulate = Color(0.45098, 0.803922, 0.294118, 1)
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kfytj")
+ignore_texture_size = true
