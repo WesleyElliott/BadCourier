@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcveeyfrbmxlh"]
+[gd_scene load_steps=13 format=3 uid="uid://dcveeyfrbmxlh"]
 
 [ext_resource type="Script" path="res://src/ui/game_over/GameOver.cs" id="1_ae20j"]
 [ext_resource type="Texture2D" uid="uid://dyafrjadspeci" path="res://src/ui/sprites/grey_panel.png" id="1_v2yb5"]
@@ -12,6 +12,9 @@ font_size = 58
 font_color = Color(1, 0.278431, 0.341176, 1)
 shadow_size = 8
 shadow_color = Color(1, 0.278431, 0.341176, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_atkg6"]
+color = Color(0.184314, 0.207843, 0.258824, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f6rnn"]
 font_size = 24
@@ -29,7 +32,7 @@ font_color = Color(0.180392, 0.835294, 0.45098, 1)
 font_size = 22
 font_color = Color(0.945098, 0.94902, 0.964706, 1)
 
-[node name="GameOver" type="Control" node_paths=PackedStringArray("Money", "AngryCustomers", "MissedDeliveries", "FinalScore", "RestartButton")]
+[node name="GameOver" type="Control" node_paths=PackedStringArray("Money", "AngryCustomers", "MissedDeliveries", "FinalScore", "RestartButton", "QuitButton")]
 self_modulate = Color(0.807843, 0.839216, 0.878431, 1)
 layout_mode = 3
 anchors_preset = 15
@@ -40,7 +43,8 @@ Money = NodePath("TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Money"
 AngryCustomers = NodePath("TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/AngryCustomers")
 MissedDeliveries = NodePath("TextureRect/MarginContainer/VBoxContainer/HBoxContainer3/MissedDeliveries")
 FinalScore = NodePath("TextureRect/MarginContainer/VBoxContainer/HBoxContainer4/FinalScore")
-RestartButton = NodePath("TextureRect/MarginContainer/VBoxContainer/TextureButton")
+RestartButton = NodePath("TextureRect/MarginContainer/VBoxContainer/RestartButton")
+QuitButton = NodePath("TextureRect/MarginContainer/VBoxContainer/QuitButton")
 
 [node name="TextureRect" type="NinePatchRect" parent="."]
 self_modulate = Color(0.945098, 0.94902, 0.964706, 1)
@@ -97,11 +101,12 @@ label_settings = SubResource("LabelSettings_nn8yn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="TextureRect/MarginContainer/VBoxContainer"]
+[node name="HSeparator1" type="HSeparator" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 offset_top = 86.0
 offset_right = 336.0
 offset_bottom = 90.0
+theme_override_styles/separator = SubResource("StyleBoxLine_atkg6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -190,11 +195,12 @@ label_settings = SubResource("LabelSettings_f6rnn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="TextureRect/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 offset_top = 217.0
 offset_right = 336.0
 offset_bottom = 221.0
+theme_override_styles/separator = SubResource("StyleBoxLine_atkg6")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -233,7 +239,7 @@ offset_top = 277.0
 offset_right = 336.0
 offset_bottom = 327.0
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 offset_left = 73.0
 offset_top = 331.0
@@ -243,7 +249,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("2_kxtvq")
 texture_pressed = ExtResource("3_wu5x6")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/RestartButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -268,7 +274,7 @@ offset_top = 384.0
 offset_right = 336.0
 offset_bottom = 394.0
 
-[node name="TextureButton2" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 offset_left = 73.0
 offset_top = 398.0
@@ -278,7 +284,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("4_lgcoo")
 texture_pressed = ExtResource("5_s862b")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/TextureButton2"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

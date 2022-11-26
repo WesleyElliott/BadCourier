@@ -17,12 +17,17 @@ public partial class GameOver : Control {
     [Export]
     public TextureButton RestartButton;
 
+    [Export]
+    public TextureButton QuitButton;
+
     public override void _EnterTree() {
         RestartButton.Pressed += OnRestartPressed;
+        QuitButton.Pressed += OnQuitPressed;
     }
 
     public override void _ExitTree() {
         RestartButton.Pressed -= OnRestartPressed;
+        QuitButton.Pressed -= OnQuitPressed;
     }
 
     public void Render(int money, int angryCustomers, int missedDeliveries) {
@@ -41,5 +46,9 @@ public partial class GameOver : Control {
     private void OnRestartPressed() {
         GetTree().Paused = false;
         GetTree().ReloadCurrentScene();
+    }
+
+    private void OnQuitPressed() {
+        GetTree().Quit();
     }
 }
