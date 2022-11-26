@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cecwxkpsvet5a"]
+[gd_scene load_steps=6 format=3 uid="uid://cecwxkpsvet5a"]
 
 [ext_resource type="Script" path="res://src/world/misc/dropoff/DropOff.cs" id="1_bnwiu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mnd5"]
+resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwdp1"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3e2t6"]
 material = SubResource("StandardMaterial3D_mwdp1")
-top_radius = 0.05
-bottom_radius = 0.05
+top_radius = 0.2
+bottom_radius = 0.2
 height = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kmcp1"]
@@ -19,6 +22,7 @@ script = ExtResource("1_bnwiu")
 
 [node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_5mnd5")
 mesh = SubResource("CylinderMesh_3e2t6")
 
 [node name="Collider" type="Area3D" parent="."]

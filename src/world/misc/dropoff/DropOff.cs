@@ -4,6 +4,7 @@ public partial class DropOff : Node3D {
 
     public MeshInstance3D Model { get; private set; }
     public Timer Timer { get; private set; }
+    public CollisionShape3D CollisionShape { get; private set; }
 
     public bool CanDropOff { get; private set; } = true;
 
@@ -12,6 +13,7 @@ public partial class DropOff : Node3D {
     public override void _Ready() {
         Model = GetNode<MeshInstance3D>("Model");
         Timer = GetNode<Timer>("Timer");
+        CollisionShape = GetNode<CollisionShape3D>("Collider/CollisionShape");
 
         rng = new RandomNumberGenerator();
         rng.Randomize();
@@ -21,7 +23,10 @@ public partial class DropOff : Node3D {
     // TODO: This is temporary. At the moment, we just show green for can deliver, and red for cannot deliver
     // and the time between states is random between 2 and 8 seconds.
     public void OnTimeout() {
-        Timer.WaitTime = rng.RandiRange(2, 8);
+        if (!Visible) {
+            return;
+        }
+        Timer.WaitTime = rng.RandiRange(5, 8);
         Timer.Start();
         CanDropOff = !CanDropOff;
 
@@ -31,5 +36,15 @@ public partial class DropOff : Node3D {
         } else {
             material.AlbedoColor = new Color(1, 0, 0);
         }
+    }
+
+    public void Enable() {
+        Show();
+        CollisionShape.Disabled = false;
+    }
+
+    public void Disable() {
+        Hide();
+        CollisionShape.Disabled = true;
     }
 }
