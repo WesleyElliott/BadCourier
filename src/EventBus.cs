@@ -16,4 +16,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void HideNotificationEventHandler(DropOff dropOff);
+
+    [Signal]
+    public delegate void PackageExpiredEventHandler(DropOff dropOff);
 }

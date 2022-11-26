@@ -82,5 +82,6 @@ public partial class DropOff : Node3D {
 
     private void OnExpirationTimeout() {
         this.EventBus().EmitSignal(EventBus.SignalName.HideNotification, this);
+        this.EventBus().EmitSignal(EventBus.SignalName.PackageExpired, this);
     }
 }

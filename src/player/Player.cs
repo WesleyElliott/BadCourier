@@ -28,6 +28,8 @@ public partial class Player : Node3D {
 		dropOffColors.Add(new Color(0, 1, 1));
 		dropOffColors.Add(new Color(1, 0, 1));
 		dropOffColors.Add(new Color(1, 1, 1));
+
+		this.EventBus().PackageExpired += OnPackageExpired;
     }
 
     public override void _PhysicsProcess(double delta) {
@@ -94,8 +96,25 @@ public partial class Player : Node3D {
 		} else {
 			GD.Print("[Delivery] Nobody home! BONUS $$$");
 		}
+
 		this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
 		this.EventBus().EmitSignal(EventBus.SignalName.HideNotification, dropOff);
+	}
+
+	private void OnPackageExpired(DropOff dropOff) {
+		var box = boxes.GetChildren().Cast<Box>().Where(box => box.DropOff == dropOff).FirstOrDefault();
+		if (box == null) {
+			GD.Print("[Expiration] No packages for this drop off... BUG?");
+			return;
+		}
+
+		GD.Print($"[Expiration] Removing package: {box.Name}");
+		boxes.RemoveChild(box);
+		box.QueueFree();
+		dropOff.HasOrder = false;
+		dropOff.CallDeferred("Disable");
+
+		this.EventBus().EmitSignal(EventBus.SignalName.PlayerPackageUpdated, boxes.GetChildCount());
 	}
 
 }
