@@ -3,14 +3,12 @@ using Godot;
 public partial class WayPoint : Control {
 
     public TextureRect Marker { get; private set; }
-    public Label Label { get; private set; }
 
     private Camera3D camera;
     private static int MARGIN = 48;
 
     public override void _Ready() {
         Marker = GetNode<TextureRect>("Marker");
-        Label = GetNode<Label>("Label");
         camera = GetViewport().GetCamera3d();
     }
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cecwxkpsvet5a"]
+[gd_scene load_steps=8 format=3 uid="uid://b3ejx1wnpb25x"]
 
 [ext_resource type="Script" path="res://src/world/misc/dropoff/DropOff.cs" id="1_bnwiu"]
 [ext_resource type="Script" path="res://src/world/misc/dropoff/WayPoint.cs" id="2_qa81q"]
-[ext_resource type="Texture2D" uid="uid://b0lemplrk864k" path="res://src/world/misc/dropoff/marker.svg" id="2_xaury"]
+[ext_resource type="Texture2D" uid="uid://3wew1evg2kjc" path="res://src/world/misc/dropoff/marker.png" id="3_0c0mj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mnd5"]
 resource_local_to_scene = true
@@ -40,18 +40,15 @@ shape = SubResource("CylinderShape3D_kmcp1")
 [node name="WayPoint" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 42.0
 script = ExtResource("2_qa81q")
 
 [node name="Marker" type="TextureRect" parent="WayPoint"]
-offset_left = -16.0
-offset_top = -32.0
-offset_right = 112.0
-offset_bottom = 96.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_xaury")
-
-[node name="Label" type="Label" parent="WayPoint"]
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 0
+offset_left = -14.0
+offset_top = -42.0
+offset_right = 14.0
+texture = ExtResource("3_0c0mj")
 
 [connection signal="timeout" from="Timer" to="." method="OnTimeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0lemplrk864k"
-path="res://.godot/imported/marker.svg-afcfd886889eb33c642976548f740a7f.ctex"
+uid="uid://3wew1evg2kjc"
+path="res://.godot/imported/marker.png-424c12db5770b9b31366863248a249a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/world/misc/dropoff/marker.svg"
-dest_files=["res://.godot/imported/marker.svg-afcfd886889eb33c642976548f740a7f.ctex"]
+source_file="res://src/world/misc/dropoff/marker.png"
+dest_files=["res://.godot/imported/marker.png-424c12db5770b9b31366863248a249a3.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
