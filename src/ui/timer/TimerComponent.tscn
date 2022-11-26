@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://4x5na8gwhug5"]
+
+[ext_resource type="Script" path="res://src/ui/timer/TimerComponent.cs" id="1_lkooo"]
+[ext_resource type="Texture2D" uid="uid://btp3xiy6rpipc" path="res://src/ui/sprites/blue_panel.png" id="2_7dkxc"]
+[ext_resource type="Texture2D" uid="uid://d154twm5lyxiq" path="res://src/ui/timer/clock_icon.png" id="3_kheyy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0ybi"]
+texture = ExtResource("2_7dkxc")
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 100, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gqt4h"]
+font_size = 38
+outline_size = 8
+outline_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[node name="TimerComponent" type="Control" node_paths=PackedStringArray("TimerLabel")]
+custom_minimum_size = Vector2(192, 72)
+layout_mode = 3
+anchor_right = 0.094
+anchor_bottom = 0.07
+offset_right = -0.512009
+offset_bottom = 0.32
+pivot_offset = Vector2(96, 36)
+script = ExtResource("1_lkooo")
+TimerLabel = NodePath("Panel/MarginContainer/HBoxContainer/TimerLabel")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 192.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_u0ybi")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchors_preset = -1
+anchor_top = 0.056
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0320001
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(96, 32)
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+offset_left = 12.0
+offset_right = 182.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture = ExtResource("3_kheyy")
+ignore_texture_size = true
+
+[node name="TimerLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+offset_left = 72.0
+offset_right = 170.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "02:30"
+label_settings = SubResource("LabelSettings_gqt4h")
+vertical_alignment = 1
