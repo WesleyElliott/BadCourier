@@ -5,9 +5,6 @@ using System.Collections.Generic;
 public partial class Player : Node3D {
 
 	[Export]
-	public int BoxCapacity { get; private set; }
-
-	[Export]
 	public Node3D Rig { get; private set; }
 
 	[Export]
@@ -23,6 +20,12 @@ public partial class Player : Node3D {
 	public OrderColorData OrderColors;
 
 	private Node boxes;
+
+	private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
 
     public override void _EnterTree() {
         this.EventBus().PackageExpired += OnPackageExpired;
@@ -53,7 +56,7 @@ public partial class Player : Node3D {
 			if (boxes.GetChildren().Contains(box)) {
 				return;
 			}
-			if (TotalBoxes() == BoxCapacity) {
+			if (TotalBoxes() == LevelData.PlayerPackageCapacity) {
 				GD.Print("Cannot carry anymore boxes");
 				return;
 			}
@@ -86,7 +89,7 @@ public partial class Player : Node3D {
 	}
 
 	public int AvailableSpace() {
-		return BoxCapacity - TotalBoxes();
+		return LevelData.PlayerPackageCapacity - TotalBoxes();
 	}
 
 	private void DropOffPackage(DropOff dropOff) {
