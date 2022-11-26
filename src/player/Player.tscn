@@ -3,18 +3,19 @@
 [ext_resource type="Script" path="res://src/player/Player.cs" id="1_gpnmw"]
 [ext_resource type="PackedScene" uid="uid://dktfhjqskmpyn" path="res://src/car/Van.tscn" id="2_5t2is"]
 
-[node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container")]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container", "Model")]
 script = ExtResource("1_gpnmw")
 Rig = NodePath("Rig")
 Container = NodePath("Van/Container")
+Model = NodePath("Van/Container/model")
 
 [node name="Rig" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.62388, 0.78152, 0, -0.78152, 0.623879, 0, 0, 0)
 
 [node name="Camera" type="Camera3D" parent="Rig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
 current = true
-fov = 30.0
+fov = 50.0
 
 [node name="Van" parent="." instance=ExtResource("2_5t2is")]
 

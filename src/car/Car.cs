@@ -36,7 +36,7 @@ public partial class Car : Node3D {
         Container.Position = Sphere.Position - new Vector3(0, 1, 0);
         Model.Rotation = Model.Rotation.Lerp(modelRotation, (float) delta * 5);
         
-        var turnRotation = Mathf.Clamp(20 * (float) delta * Sphere.LinearVelocity.Length(), 0f, 3.33f);
+        var turnRotation = Mathf.Clamp(14 * (float) delta * Sphere.LinearVelocity.Length(), 0f, 3.33f);
         if (Input.IsActionPressed("left")) {
             modelRotation.y += Mathf.DegToRad(turnRotation);
         } else if (Input.IsActionPressed("right")) {
