@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhjdr5mdsard2"]
+[gd_scene load_steps=6 format=3 uid="uid://bx24huigwieum"]
 
 [ext_resource type="Texture2D" uid="uid://umb33vxrf7eh" path="res://src/ui/sprites/green_panel.png" id="1_14iwl"]
 [ext_resource type="Script" path="res://src/ui/packages/PackageComponent.cs" id="1_jlv47"]
-[ext_resource type="Texture2D" uid="uid://bujdesl5krnoh" path="res://src/ui/packages/box.png" id="2_0hjgq"]
+[ext_resource type="Texture2D" uid="uid://bujdesl5krnoh" path="res://src/ui/packages/box_icon.png" id="3_41osu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfaes"]
 texture = ExtResource("1_14iwl")
@@ -18,8 +18,13 @@ outline_size = 8
 outline_color = Color(0.470588, 0.470588, 0.470588, 1)
 
 [node name="PackageComponent" type="Control" node_paths=PackedStringArray("PackagesLabel")]
+custom_minimum_size = Vector2(192, 72)
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.094
+anchor_bottom = 0.07
+offset_right = -192.512
+offset_bottom = -71.68
+pivot_offset = Vector2(96, 36)
 script = ExtResource("1_jlv47")
 PackagesLabel = NodePath("Panel/MarginContainer/HBoxContainer/HBoxContainer/PackagesLabel")
 
@@ -56,7 +61,7 @@ offset_left = 4.0
 offset_right = 68.0
 offset_bottom = 64.0
 grow_vertical = 2
-texture = ExtResource("2_0hjgq")
+texture = ExtResource("3_41osu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
 offset_left = 76.0
