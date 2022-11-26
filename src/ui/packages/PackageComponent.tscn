@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhjdr5mdsard2"]
+
+[ext_resource type="Texture2D" uid="uid://umb33vxrf7eh" path="res://src/ui/sprites/green_panel.png" id="1_14iwl"]
+[ext_resource type="Script" path="res://src/ui/packages/PackageComponent.cs" id="1_jlv47"]
+[ext_resource type="Texture2D" uid="uid://bujdesl5krnoh" path="res://src/ui/packages/box.png" id="2_0hjgq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfaes"]
+texture = ExtResource("1_14iwl")
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 8.0
+region_rect = Rect2(0, 0, 100, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_df5mu"]
+font_size = 38
+outline_size = 8
+outline_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[node name="PackageComponent" type="Control" node_paths=PackedStringArray("PackagesLabel")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jlv47")
+PackagesLabel = NodePath("Panel/MarginContainer/HBoxContainer/HBoxContainer/PackagesLabel")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 192.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lfaes")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchors_preset = -1
+anchor_top = 0.056
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0320001
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(96, 32)
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+offset_left = 12.0
+offset_right = 180.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer"]
+offset_left = 4.0
+offset_right = 68.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture = ExtResource("2_0hjgq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer"]
+offset_left = 76.0
+offset_top = 4.0
+offset_right = 163.0
+offset_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/HBoxContainer"]
+offset_right = 22.0
+offset_bottom = 56.0
+size_flags_vertical = 1
+text = "3"
+label_settings = SubResource("LabelSettings_df5mu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlashLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/HBoxContainer"]
+offset_left = 26.0
+offset_right = 51.0
+offset_bottom = 56.0
+size_flags_vertical = 1
+text = " /"
+label_settings = SubResource("LabelSettings_df5mu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalPackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/HBoxContainer"]
+offset_left = 55.0
+offset_right = 87.0
+offset_bottom = 56.0
+size_flags_vertical = 1
+text = " 5"
+label_settings = SubResource("LabelSettings_df5mu")
+horizontal_alignment = 1
+vertical_alignment = 1

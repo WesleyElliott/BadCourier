@@ -7,4 +7,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void PlayerCollectPackageEventHandler(int packageCount);
+
+    [Signal]
+    public delegate void GameTimerTickEventHandler(int newTime);
 }
