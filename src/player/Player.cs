@@ -91,7 +91,8 @@ public partial class Player : Node3D {
 			GD.Print("[Delivery] Some was home, no bonus!");
 		} else {
 			GD.Print("[Delivery] Nobody home! BONUS $$$");
-		}	
+		}
+		this.EventBus().EmitSignal(EventBus.SignalName.PlayerCollectPackage, boxes.GetChildCount());
 	}
 
 }
