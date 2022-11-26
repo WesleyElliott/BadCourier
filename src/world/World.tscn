@@ -123,311 +123,330 @@ BoxTemplate = ExtResource("5_2xn53")
 script = ExtResource("3_3uyrs")
 DropOffPoints = NodePath("../../DropOffPoints")
 
-[node name="LoadingZone" type="MeshInstance3D" parent="Warehouse"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 4, -4.479, 0.17, 0)
-mesh = SubResource("PlaneMesh_ugf7x")
+[node name="LoadingZone" type="Node3D" parent="Warehouse"]
 
-[node name="Label3D" type="Label3D" parent="Warehouse/LoadingZone"]
-transform = Transform3D(-2.18557e-08, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.25, 1.09278e-08, 4.77672e-16, -1.21984, 0, 0)
+[node name="Label1" type="Label3D" parent="Warehouse/LoadingZone"]
+transform = Transform3D(-7.86805e-08, 1.8, 7.86805e-08, 0, -7.86805e-08, 1.8, 1.8, 7.86805e-08, 3.43923e-15, -6.83671, 0.17, 0)
 modulate = Color(1, 0.989254, 0, 1)
 outline_modulate = Color(0.52549, 0.52549, 0.52549, 1)
 text = "Loading Zone"
-font_size = 128
+font_size = 64
 outline_size = 36
 
-[node name="Area3D" type="Area3D" parent="Warehouse/LoadingZone"]
+[node name="Label2" type="Label3D" parent="Warehouse/LoadingZone"]
+transform = Transform3D(1.8, 5.56077e-15, 2.43069e-22, 0, -7.86805e-08, 1.8, 5.56077e-15, -1.8, -7.86805e-08, -4.45199, 0.17, 4.40779)
+modulate = Color(1, 0.989254, 0, 1)
+outline_modulate = Color(0.52549, 0.52549, 0.52549, 1)
+text = "Loading Zone"
+font_size = 64
+outline_size = 36
+
+[node name="Label3" type="Label3D" parent="Warehouse/LoadingZone"]
+transform = Transform3D(-1.8, 2.71792e-07, 1.18804e-14, 0, -7.86805e-08, 1.8, 2.71792e-07, 1.8, 7.86805e-08, -4.45199, 0.17, -4.38722)
+modulate = Color(1, 0.989254, 0, 1)
+outline_modulate = Color(0.52549, 0.52549, 0.52549, 1)
+text = "Loading Zone"
+font_size = 64
+outline_size = 36
+
+[node name="Floor" type="MeshInstance3D" parent="Warehouse/LoadingZone"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 4, -4.479, 0.17, 0)
+mesh = SubResource("PlaneMesh_ugf7x")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Warehouse/LoadingZone/Floor"]
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Warehouse/LoadingZone/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Warehouse/LoadingZone/Floor/Area3D"]
 shape = SubResource("BoxShape3D_kgk8j")
 
-[node name="BoxProps" type="Node3D" parent="Warehouse"]
+[node name="BoxProps" type="Node3D" parent="Warehouse/LoadingZone"]
 
-[node name="Group1" type="Node3D" parent="Warehouse/BoxProps"]
+[node name="Group1" type="Node3D" parent="Warehouse/LoadingZone/BoxProps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.36918)
 
-[node name="Box1" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box1" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103695, 0, 0.533771)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box11" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box11" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.813084, 0, 0.219921)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box12" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box12" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2285, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box13" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box13" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.869805, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box14" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box14" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.538812, 0.468069, -0.750795)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box2" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box2" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.792845, 0, -1.08906)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box3" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box3" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 0)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box4" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box4" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box5" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box5" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.361615, 0, 2.01455)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box6" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box6" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.221971, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box7" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box7" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.09387, 0, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box9" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box9" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.64786, 0, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box10" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box10" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.404076, 0.46534, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box8" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box8" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.79315, 0.480798, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box15" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box15" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103695, 0, 0.533771)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box16" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box16" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.813084, 0, 0.219921)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box17" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box17" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2285, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box18" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box18" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.869805, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box19" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box19" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.538812, 0.468069, -0.750795)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box20" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box20" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.792845, 0, -1.08906)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box21" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box21" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 0)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box22" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box22" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box23" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box23" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.361615, 0, 2.01455)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box24" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box24" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.221971, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box25" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box25" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.09387, 0, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box26" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box26" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.64786, 0, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box27" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box27" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.404076, 0.46534, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box28" type="MeshInstance3D" parent="Warehouse/BoxProps/Group1"]
+[node name="Box28" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.79315, 0.480798, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Group2" type="Node3D" parent="Warehouse/BoxProps"]
+[node name="Group2" type="Node3D" parent="Warehouse/LoadingZone/BoxProps"]
 transform = Transform3D(0.813253, 0, 0.58191, 0, 1, 0, -0.58191, 0, 0.813253, -0.474461, 0, -2.43116)
 
-[node name="Box1" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box1" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103695, 0, 0.533771)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box11" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box11" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.813084, 0, 0.219921)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box12" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box12" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2285, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box13" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box13" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.869805, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box14" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box14" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.538812, 0.468069, -0.750795)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box2" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box2" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.792845, 0, -1.08906)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box3" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box3" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 0)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box4" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box4" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box5" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box5" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.361615, 0, 2.01455)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box6" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box6" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.221971, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box7" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box7" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.09387, 0, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box9" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box9" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.64786, 0, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box10" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box10" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.404076, 0.46534, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box8" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box8" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.79315, 0.480798, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box15" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box15" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103695, 0, 0.533771)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box16" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box16" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.813084, 0, 0.219921)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box17" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box17" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2285, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box18" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box18" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.869805, 0, -0.499594)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box19" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box19" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.538812, 0.468069, -0.750795)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box20" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box20" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.792845, 0, -1.08906)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box21" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box21" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 0)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box22" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box22" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.46813, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box23" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box23" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.361615, 0, 2.01455)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box24" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box24" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.221971, 0, 1.3472)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box25" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box25" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.09387, 0, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box26" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box26" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.64786, 0, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box27" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box27" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.404076, 0.46534, 0.990807)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[node name="Box28" type="MeshInstance3D" parent="Warehouse/BoxProps/Group2"]
+[node name="Box28" type="MeshInstance3D" parent="Warehouse/LoadingZone/BoxProps/Group2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.79315, 0.480798, 1.90023)
 mesh = SubResource("ArrayMesh_i17es")
 skeleton = NodePath("")
 
-[connection signal="area_entered" from="Warehouse/LoadingZone/Area3D" to="Warehouse" method="OnPlayerEntered"]
+[connection signal="area_entered" from="Warehouse/LoadingZone/Floor/Area3D" to="Warehouse" method="OnPlayerEntered"]
