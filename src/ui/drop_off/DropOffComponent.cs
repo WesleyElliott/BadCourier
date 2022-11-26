@@ -72,8 +72,12 @@ public partial class DropOffComponent : Control {
         var percent = timeRemaining / (float) expirationTime * 100f;
         var color = GetProgressColor(percent);
 
-        TimerProgress.Value = percent;
         TimerProgress.TintProgress = color;
+        if (tween != null) {
+            tween.Kill();
+        }
+        tween = GetTree().CreateTween();
+        tween.TweenProperty(TimerProgress, "value", percent, 0.3f).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quint);
     }
 
     private Color GetProgressColor(float percent) {

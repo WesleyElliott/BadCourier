@@ -8,6 +8,8 @@ public partial class WarehouseComponent : Control {
     [Export]
     public TextureProgressBar ProgressBar { get; private set; }
 
+    private Tween tween;
+
     public override void _Ready() {
         RenderProgress(0);
         this.EventBus().WarehouseCapacity += RenderProgress;
@@ -17,7 +19,12 @@ public partial class WarehouseComponent : Control {
         var percent = newBoxCount / 20f * 100f;
         var color = GetProgressColor(percent);
 
-        ProgressBar.Value = percent;
+        if (tween != null) {
+            tween.Kill();
+        }
+        tween = GetTree().CreateTween();
+        tween.TweenProperty(ProgressBar, "value", percent, 0.3f).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quint);
+
         ProgressBar.TintProgress = color;
     }
 
