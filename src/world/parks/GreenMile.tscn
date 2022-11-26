@@ -1,0 +1,229 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8bgdm47eooob"]
+
+[ext_resource type="PackedScene" uid="uid://d4jvp554hatoj" path="res://src/world/nature/models/tree_pineDefaultB.glb" id="1_wcbql"]
+[ext_resource type="PackedScene" uid="uid://bepgfngj1i6uu" path="res://src/world/nature/models/tree_tall.glb" id="2_1io05"]
+[ext_resource type="PackedScene" uid="uid://crvdppqq234nl" path="res://src/world/nature/models/statue_obelisk.glb" id="3_vp7nn"]
+[ext_resource type="PackedScene" uid="uid://8ei8utgyc476" path="res://src/world/nature/models/statue_ring.glb" id="4_ygfgv"]
+[ext_resource type="PackedScene" uid="uid://cwgbssn0668li" path="res://src/world/nature/models/statue_column.glb" id="5_bibci"]
+
+[node name="GreenMile" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 35.6756, 0, -61.2451)
+
+[node name="tree_pineDefaultB" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 0.764107)
+
+[node name="tree_tall" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 0)
+
+[node name="tree_pineDefaultB2" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 0.764107)
+
+[node name="tree_tall2" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 0)
+
+[node name="tree_pineDefaultB3" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 2.42886)
+
+[node name="tree_tall3" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 1.66475)
+
+[node name="tree_pineDefaultB4" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 2.42886)
+
+[node name="tree_tall4" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 1.66475)
+
+[node name="tree_pineDefaultB5" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 4.24372)
+
+[node name="tree_tall5" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 3.47961)
+
+[node name="tree_pineDefaultB6" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 4.24372)
+
+[node name="tree_tall6" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 3.47961)
+
+[node name="tree_pineDefaultB7" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 5.81013)
+
+[node name="tree_tall7" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 5.04603)
+
+[node name="tree_pineDefaultB8" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 5.81013)
+
+[node name="tree_tall8" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 5.04603)
+
+[node name="tree_pineDefaultB9" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 7.47489)
+
+[node name="tree_tall9" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 6.71078)
+
+[node name="tree_pineDefaultB10" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 7.47489)
+
+[node name="tree_tall10" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 6.71078)
+
+[node name="tree_pineDefaultB11" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 9.28975)
+
+[node name="tree_tall11" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 8.52564)
+
+[node name="tree_pineDefaultB12" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 9.28975)
+
+[node name="tree_tall12" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 8.52564)
+
+[node name="tree_pineDefaultB13" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, 10.8415)
+
+[node name="tree_tall13" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, 10.0774)
+
+[node name="tree_pineDefaultB14" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, 10.8415)
+
+[node name="tree_tall14" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, 10.0774)
+
+[node name="statue_obelisk" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 10.8069)
+
+[node name="statue_obelisk2" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43799, 0, 11.5754)
+
+[node name="statue_obelisk3" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399048, 0, 11.5754)
+
+[node name="statue_obelisk4" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -0.140686)
+
+[node name="statue_ring" parent="." instance=ExtResource("4_ygfgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.05)
+
+[node name="statue_column" parent="." instance=ExtResource("5_bibci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.29388)
+
+[node name="statue_obelisk5" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -0.0155754, 0, -13.174)
+
+[node name="statue_obelisk6" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.422415, 0, -13.9425)
+
+[node name="statue_obelisk7" parent="." instance=ExtResource("3_vp7nn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.414623, 0, -13.9425)
+
+[node name="statue_ring2" parent="." instance=ExtResource("4_ygfgv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0155754, 0, -14.4171)
+
+[node name="statue_column2" parent="." instance=ExtResource("5_bibci")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0155754, 0, -11.661)
+
+[node name="statue_column9" parent="." instance=ExtResource("5_bibci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.11238)
+
+[node name="statue_column10" parent="." instance=ExtResource("5_bibci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.42895)
+
+[node name="tree_pineDefaultB15" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -10.9853)
+
+[node name="tree_tall15" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -11.7494)
+
+[node name="tree_pineDefaultB16" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -10.9853)
+
+[node name="tree_tall16" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -11.7494)
+
+[node name="tree_pineDefaultB29" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -12.6072)
+
+[node name="tree_tall29" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -13.3713)
+
+[node name="tree_pineDefaultB30" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -12.6072)
+
+[node name="tree_tall30" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -13.3713)
+
+[node name="tree_pineDefaultB17" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -9.32052)
+
+[node name="tree_tall17" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -10.0846)
+
+[node name="tree_pineDefaultB18" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -9.32052)
+
+[node name="tree_tall18" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -10.0846)
+
+[node name="tree_pineDefaultB19" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -7.50566)
+
+[node name="tree_tall19" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -8.26976)
+
+[node name="tree_pineDefaultB20" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -7.50566)
+
+[node name="tree_tall20" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -8.26976)
+
+[node name="tree_pineDefaultB21" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -5.93924)
+
+[node name="tree_tall21" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -6.70335)
+
+[node name="tree_pineDefaultB22" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -5.93924)
+
+[node name="tree_tall22" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -6.70335)
+
+[node name="tree_pineDefaultB23" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -4.27449)
+
+[node name="tree_tall23" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -5.0386)
+
+[node name="tree_pineDefaultB24" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -4.27449)
+
+[node name="tree_tall24" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -5.0386)
+
+[node name="tree_pineDefaultB25" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -2.45963)
+
+[node name="tree_tall25" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -3.22373)
+
+[node name="tree_pineDefaultB26" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -2.45963)
+
+[node name="tree_tall26" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -3.22373)
+
+[node name="tree_pineDefaultB27" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04167, 0, -0.907917)
+
+[node name="tree_tall27" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02696, 0, -1.67203)
+
+[node name="tree_pineDefaultB28" parent="." instance=ExtResource("1_wcbql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15998, 0, -0.907917)
+
+[node name="tree_tall28" parent="." instance=ExtResource("2_1io05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17468, 0, -1.67203)

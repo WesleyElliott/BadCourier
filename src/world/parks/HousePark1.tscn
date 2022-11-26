@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbbo3l6vcvk7f"]
+
+[ext_resource type="PackedScene" uid="uid://jpihcxwme0mj" path="res://src/world/nature/models/fence_planksDouble.glb" id="1_dbhjb"]
+[ext_resource type="PackedScene" uid="uid://4iikwc2wvrjc" path="res://src/world/nature/models/stone_largeE.glb" id="2_rjhjy"]
+[ext_resource type="PackedScene" uid="uid://x5qqpdlgy25d" path="res://src/world/nature/models/stump_squareDetailed.glb" id="3_ptw50"]
+[ext_resource type="PackedScene" uid="uid://dpc27umohhmn0" path="res://src/world/nature/models/stump_oldTall.glb" id="4_u052j"]
+[ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="5_eu3kh"]
+[ext_resource type="PackedScene" uid="uid://bo7gutye3xu8a" path="res://src/world/nature/models/tree_thin.glb" id="6_1aeen"]
+[ext_resource type="PackedScene" uid="uid://bepgfngj1i6uu" path="res://src/world/nature/models/tree_tall.glb" id="7_ams3c"]
+[ext_resource type="PackedScene" uid="uid://tej0g6hs17qt" path="res://src/world/nature/models/stone_smallD.glb" id="8_lj1im"]
+
+[node name="HousePark1" type="Node3D"]
+
+[node name="fence_planksDouble3" parent="." instance=ExtResource("1_dbhjb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.60566, 0, 1.04851)
+
+[node name="fence_planksDouble4" parent="." instance=ExtResource("1_dbhjb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.60566, 0, -0.782951)
+
+[node name="stone_largeE2" parent="." instance=ExtResource("2_rjhjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231932, 0, 0.62508)
+
+[node name="stump_squareDetailed2" parent="." instance=ExtResource("3_ptw50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56883, 0, 1.00099)
+
+[node name="stump_oldTall2" parent="." instance=ExtResource("4_u052j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134071, 0, 0.12711)
+
+[node name="tree_small3" parent="." instance=ExtResource("5_eu3kh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37037, 0, -0.71891)
+
+[node name="tree_thin3" parent="." instance=ExtResource("6_1aeen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0392284, 0, -0.71891)
+
+[node name="tree_tall3" parent="." instance=ExtResource("7_ams3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.796061, 0, 0.596638)
+
+[node name="tree_small4" parent="." instance=ExtResource("5_eu3kh")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, 0.86587, 0, -0.138)
+
+[node name="tree_thin4" parent="." instance=ExtResource("6_1aeen")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, 0.0870438, 0, 1.0369)
+
+[node name="tree_tall4" parent="." instance=ExtResource("7_ams3c")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, -0.547955, 0, -0.143711)
+
+[node name="stone_smallD2" parent="." instance=ExtResource("8_lj1im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345049, 0, -1.12718)

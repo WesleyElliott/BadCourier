@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1spq3v8vpaf0"]
+
+[ext_resource type="PackedScene" uid="uid://bepgfngj1i6uu" path="res://src/world/nature/models/tree_tall.glb" id="1_w0yt8"]
+[ext_resource type="PackedScene" uid="uid://8ei8utgyc476" path="res://src/world/nature/models/statue_ring.glb" id="2_7s861"]
+[ext_resource type="PackedScene" uid="uid://d320hkwv4cai1" path="res://src/world/nature/models/statue_block.glb" id="3_0igy8"]
+[ext_resource type="PackedScene" uid="uid://cwgbssn0668li" path="res://src/world/nature/models/statue_column.glb" id="4_nwv5a"]
+[ext_resource type="PackedScene" uid="uid://dcmygymqof3vi" path="res://src/world/nature/models/fence_simple.glb" id="5_m2yko"]
+
+[node name="MiniPark2" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.68967, 0, -78.7513)
+
+[node name="tree_tall" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10774, 0, -2.17648)
+
+[node name="tree_tall2" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10774, 0, -1.52233)
+
+[node name="tree_tall3" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10774, 0, -0.86705)
+
+[node name="tree_tall4" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10774, 0, -0.102875)
+
+[node name="tree_tall5" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10774, 0, 0.746353)
+
+[node name="tree_tall6" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35658, 0, -2.17648)
+
+[node name="tree_tall7" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35658, 0, -1.52233)
+
+[node name="tree_tall8" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35658, 0, -0.86705)
+
+[node name="tree_tall9" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35658, 0, -0.102875)
+
+[node name="tree_tall10" parent="." instance=ExtResource("1_w0yt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35658, 0, 0.746353)
+
+[node name="statue_ring" parent="." instance=ExtResource("2_7s861")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.628448, 0, 0)
+
+[node name="statue_block" parent="." instance=ExtResource("3_0igy8")]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -0.641539, 0, -1.08771)
+
+[node name="statue_column" parent="." instance=ExtResource("4_nwv5a")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.328946, 0, -2.33323)
+
+[node name="statue_column2" parent="." instance=ExtResource("4_nwv5a")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.977067, 0, -2.33323)
+
+[node name="statue_column3" parent="." instance=ExtResource("4_nwv5a")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.328946, 0, 1.15757)
+
+[node name="statue_column4" parent="." instance=ExtResource("4_nwv5a")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.977067, 0, 1.15757)
+
+[node name="fence_simple" parent="." instance=ExtResource("5_m2yko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.778949, 0, -1.98384)
+
+[node name="fence_simple2" parent="." instance=ExtResource("5_m2yko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346646, 0, -1.98384)
+
+[node name="fence_simple3" parent="." instance=ExtResource("5_m2yko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11806, 0, -1.98384)
+
+[node name="fence_simple4" parent="." instance=ExtResource("5_m2yko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.664, 0, -1.98384)

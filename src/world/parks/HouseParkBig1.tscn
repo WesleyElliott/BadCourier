@@ -1,0 +1,202 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhcmfc1mg5hee"]
+
+[ext_resource type="PackedScene" uid="uid://jpihcxwme0mj" path="res://src/world/nature/models/fence_planksDouble.glb" id="1_4xcsq"]
+[ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="2_pmj53"]
+[ext_resource type="PackedScene" uid="uid://bo7gutye3xu8a" path="res://src/world/nature/models/tree_thin.glb" id="3_jey0y"]
+[ext_resource type="PackedScene" uid="uid://bepgfngj1i6uu" path="res://src/world/nature/models/tree_tall.glb" id="4_l05gd"]
+[ext_resource type="PackedScene" uid="uid://4iikwc2wvrjc" path="res://src/world/nature/models/stone_largeE.glb" id="5_7nais"]
+[ext_resource type="PackedScene" uid="uid://x5qqpdlgy25d" path="res://src/world/nature/models/stump_squareDetailed.glb" id="6_mnyu1"]
+[ext_resource type="PackedScene" uid="uid://tej0g6hs17qt" path="res://src/world/nature/models/stone_smallD.glb" id="7_l7hmm"]
+[ext_resource type="PackedScene" uid="uid://38q5pxljrswe" path="res://src/world/nature/models/statue_head.glb" id="8_iolc2"]
+[ext_resource type="PackedScene" uid="uid://dyd47qrtp8ra5" path="res://src/world/nature/models/stone_largeD.glb" id="9_htv4y"]
+[ext_resource type="PackedScene" uid="uid://duisewi5drabr" path="res://src/world/nature/models/stone_tallB.glb" id="10_8s4lo"]
+[ext_resource type="PackedScene" uid="uid://t3f2it32ny8n" path="res://src/world/nature/models/stone_largeB.glb" id="11_hspbt"]
+
+[node name="Houses2" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.7834, 0, -109.985)
+
+[node name="fence_planksDouble" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09957, 0, -6.02632)
+
+[node name="fence_planksDouble2" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02861, 0, -6.02632)
+
+[node name="fence_planksDouble3" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96072, 0, -6.02632)
+
+[node name="fence_planksDouble4" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.63545, 0, -4.08764)
+
+[node name="fence_planksDouble5" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.63545, 0, -5.04556)
+
+[node name="tree_small" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57431, 0, 0)
+
+[node name="tree_thin" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.835289, 0, 0)
+
+[node name="tree_tall" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.31555)
+
+[node name="tree_small2" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, 1.66193, 0, 0.580917)
+
+[node name="tree_thin2" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, 0.883104, 0, 1.75582)
+
+[node name="tree_tall2" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, 0.248105, 0, 0.575199)
+
+[node name="tree_thin9" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111504, 0, -2.52323)
+
+[node name="tree_tall11" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, -0.698688, 0, -1.94803)
+
+[node name="stone_largeE3" parent="." instance=ExtResource("5_7nais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.564129, 0, -1.40037)
+
+[node name="stump_squareDetailed3" parent="." instance=ExtResource("6_mnyu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36489, 0, -1.02447)
+
+[node name="stone_smallD3" parent="." instance=ExtResource("7_l7hmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14111, 0, -3.15263)
+
+[node name="tree_small3" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(0.0315852, 0, 0.999501, 0, 1, 0, -0.999501, 0, 0.0315852, -0.0375006, 0, 4.71295)
+
+[node name="tree_thin3" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(0.0315852, 0, 0.999501, 0, 1, 0, -0.999501, 0, 0.0315852, 0.0070219, 0, 3.30406)
+
+[node name="tree_tall3" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(0.0315852, 0, 0.999501, 0, 1, 0, -0.999501, 0, 0.0315852, 1.29553, 0, 4.18048)
+
+[node name="tree_small4" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(0.815633, 0, -0.57857, 0, 1, 0, 0.57857, 0, 0.815633, 0.613759, 0, 2.49617)
+
+[node name="tree_thin4" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(0.815633, 0, -0.57857, 0, 1, 0, 0.57857, 0, 0.815633, 1.76347, 0, 3.31172)
+
+[node name="tree_tall4" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(0.815633, 0, -0.57857, 0, 1, 0, 0.57857, 0, 0.815633, 0.563388, 0, 3.90911)
+
+[node name="stone_largeE4" parent="." instance=ExtResource("5_7nais")]
+transform = Transform3D(0.0315852, 0, 0.999501, 0, 1, 0, -0.999501, 0, 0.0315852, -1.40121, 0, 3.53085)
+
+[node name="stump_squareDetailed4" parent="." instance=ExtResource("6_mnyu1")]
+transform = Transform3D(0.0315852, 0, 0.999501, 0, 1, 0, -0.999501, 0, 0.0315852, -1.00021, 0, 2.74237)
+
+[node name="stone_smallD4" parent="." instance=ExtResource("7_l7hmm")]
+transform = Transform3D(0.0315852, 0, 0.999501, 0, 1, 0, -0.999501, 0, 0.0315852, -3.13438, 0, 2.89882)
+
+[node name="tree_small5" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, 5.01886, 0, -0.706459)
+
+[node name="tree_thin5" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, 4.10522, 0, -1.77987)
+
+[node name="tree_tall5" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, 5.64841, 0, -1.99648)
+
+[node name="tree_small6" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(0.992835, 0, 0.119496, 0, 1, 0, -0.119496, 0, 0.992835, 4.01179, 0, -2.78589)
+
+[node name="tree_thin6" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(0.992835, 0, 0.119496, 0, 1, 0, -0.119496, 0, 0.992835, 5.41129, 0, -2.95433)
+
+[node name="tree_tall6" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(0.992835, 0, 0.119496, 0, 1, 0, -0.119496, 0, 0.992835, 4.92382, 0, -1.70555)
+
+[node name="stone_largeE5" parent="." instance=ExtResource("5_7nais")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, 3.21458, 0, -0.665722)
+
+[node name="stump_squareDetailed5" parent="." instance=ExtResource("6_mnyu1")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, 2.98182, 0, -1.51914)
+
+[node name="stone_smallD5" parent="." instance=ExtResource("7_l7hmm")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, 1.50626, 0, 0.0306549)
+
+[node name="tree_small7" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8777, 0, -5.30706)
+
+[node name="tree_thin7" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4681, 0, -5.30706)
+
+[node name="tree_tall7" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30339, 0, -3.9915)
+
+[node name="tree_small8" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, -2.64146, 0, -4.72614)
+
+[node name="tree_tall8" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(-0.552519, 0, -0.8335, 0, 1, 0, 0.8335, 0, -0.552519, -4.05529, 0, -4.73186)
+
+[node name="stone_largeE6" parent="." instance=ExtResource("5_7nais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73926, 0, -5.72186)
+
+[node name="stump_squareDetailed6" parent="." instance=ExtResource("6_mnyu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17153, 0, -5.79797)
+
+[node name="stone_smallD6" parent="." instance=ExtResource("7_l7hmm")]
+transform = Transform3D(-0.64816, 0, 0.761504, 0, 1, 0, -0.761504, 0, -0.64816, -2.79714, 0, -5.2764)
+
+[node name="statue_head" parent="." instance=ExtResource("8_iolc2")]
+transform = Transform3D(-1.99995, 0, 0.0135085, 0, 2, 0, -0.0135085, 0, -1.99995, 4.33325, 0, 7.16711)
+
+[node name="stone_largeD" parent="." instance=ExtResource("9_htv4y")]
+transform = Transform3D(-0.0669182, 0, -0.997758, 0, 1, 0, 0.997758, 0, -0.0669182, 5.39381, 0, 6.10545)
+
+[node name="stone_tallB" parent="." instance=ExtResource("10_8s4lo")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 5.52154, 0, 8.04433)
+
+[node name="stone_tallB2" parent="." instance=ExtResource("10_8s4lo")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 2.20742, 0, -2.20585)
+
+[node name="stone_largeB" parent="." instance=ExtResource("11_hspbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89062, 0, 7.51339)
+
+[node name="fence_planksDouble6" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.60585, 0, 5.836)
+
+[node name="fence_planksDouble9" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.60585, 0, 6.76503)
+
+[node name="fence_planksDouble10" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.60585, 0, 7.69715)
+
+[node name="fence_planksDouble11" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.66717, 0, 8.37187)
+
+[node name="fence_planksDouble12" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.62509, 0, 8.37187)
+
+[node name="tree_small9" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.88659, 0, 8.61413)
+
+[node name="tree_thin8" parent="." instance=ExtResource("3_jey0y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.88659, 0, 7.20453)
+
+[node name="tree_tall9" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.57104, 0, 8.03982)
+
+[node name="tree_small10" parent="." instance=ExtResource("2_pmj53")]
+transform = Transform3D(0.8335, 0, -0.552519, 0, 1, 0, 0.552519, 0, 0.8335, -3.30567, 0, 6.37788)
+
+[node name="tree_tall10" parent="." instance=ExtResource("4_l05gd")]
+transform = Transform3D(0.8335, 0, -0.552519, 0, 1, 0, 0.552519, 0, 0.8335, -3.31139, 0, 7.79171)
+
+[node name="stone_largeE7" parent="." instance=ExtResource("5_7nais")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.30139, 0, 7.47569)
+
+[node name="stump_squareDetailed7" parent="." instance=ExtResource("6_mnyu1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.3775, 0, 5.90796)
+
+[node name="stone_smallD7" parent="." instance=ExtResource("7_l7hmm")]
+transform = Transform3D(-0.761504, 0, -0.64816, 0, 1, 0, 0.64816, 0, -0.761504, -3.85593, 0, 6.53357)
+
+[node name="fence_planksDouble7" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.38633, 0, -0.495174)
+
+[node name="fence_planksDouble8" parent="." instance=ExtResource("1_4xcsq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.38633, 0, -2.32663)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://vom2wdpclgog"]
+
+[ext_resource type="PackedScene" uid="uid://lia47qucy5sa" path="res://src/world/nature/models/sign.glb" id="1_tpye5"]
+[ext_resource type="PackedScene" uid="uid://cwgbssn0668li" path="res://src/world/nature/models/statue_column.glb" id="2_eagj8"]
+[ext_resource type="PackedScene" uid="uid://dw8gfuj35kje7" path="res://src/world/nature/models/statue_columnDamaged.glb" id="3_mi6ix"]
+
+[node name="Ruins" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0522, 0, -72.354)
+
+[node name="sign" parent="." instance=ExtResource("1_tpye5")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -1.69125, 0, -1.61852)
+
+[node name="statue_column" parent="." instance=ExtResource("2_eagj8")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.78778, 0, -2.9093)
+
+[node name="statue_column2" parent="." instance=ExtResource("2_eagj8")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1.62658, 0, -0.0313644)
+
+[node name="statue_columnDamaged" parent="." instance=ExtResource("3_mi6ix")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.36045, 0, -2.70475)
+
+[node name="statue_columnDamaged2" parent="." instance=ExtResource("3_mi6ix")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.36045, 0, 2.97993)
+
+[node name="statue_columnDamaged3" parent="." instance=ExtResource("3_mi6ix")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.78182, 0, 2.97993)
