@@ -8,6 +8,12 @@
 
 config_version=5
 
+[MonoCustomResourceRegistry]
+
+ClassPrefix=""
+SearchType=0
+ResourceScriptDirectories=["res://"]
+
 [application]
 
 config/name="GameOff2022"
@@ -29,6 +35,10 @@ window/stretch/aspect="keep_height"
 [dotnet]
 
 project/assembly_name="GameOff2022"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/MonoCustomResource/plugin.cfg")
 
 [gui]
 
