@@ -6,6 +6,12 @@ public partial class OrderManager : Node {
     [Export]
     public Node DropOffPoints { get; private set; }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     private RandomNumberGenerator rng = new RandomNumberGenerator();
 
     public override void _Ready() {
@@ -25,7 +31,7 @@ public partial class OrderManager : Node {
     }
 
     public void GenerateOrder() {
-        if (GetChildCount() == 20) {
+        if (GetChildCount() == LevelData.WarehouseCapacity) {
             // Game has ended!
             GD.Print("[Order] Warehouse full! Game ending...");
             this.EventBus().EmitSignal(EventBus.SignalName.WarehouseCapacityExceeded);
