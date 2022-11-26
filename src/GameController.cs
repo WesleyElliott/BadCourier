@@ -3,7 +3,7 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        _gameTime = 60;
+        _gameTime = 0;
         Money = 0;
         Paused = false;
         GameOver = false;
@@ -50,10 +50,17 @@ public partial class GameController : Node {
     [Export]
     public AudioStream BoxCollectedSound { get; private set; }
 
+    private LevelData LevelData {
+        get {
+             return this.Level().LevelData;
+        }
+    }
+
     private Timer gameTimer;
-    private GameState gameState = new GameState();
+    private GameState gameState;
 
     public override void _EnterTree() {
+        gameState.GameTime = LevelData.GameTime;
         this.EventBus().PackageDelivered += OnPackageDelivered;
         this.EventBus().PackageExpired += OnPackageExpired;
         this.EventBus().PauseChanged += OnPauseChanged;
@@ -95,16 +102,16 @@ public partial class GameController : Node {
     }
 
     private void OnPackageDelivered(DropOff dropOff, bool anyoneHome) {
-        var addedMoney = 20;
-        gameState.Money += 20;
+        var addedMoney = LevelData.PackageDeliveredMoneyAward;
+        gameState.Money += addedMoney;
         this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
         if (!anyoneHome) {
-            gameState.GameTime += 10;
-            gameState.Money += 10;
-            addedMoney += 10;
+            gameState.GameTime += LevelData.PackageDeliveredTimeAward;
+            gameState.Money += LevelData.PackageDeliveredMoneyBonus;
+            addedMoney += LevelData.PackageDeliveredMoneyBonus;
             this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
             this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
-            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "+ 10s", SafeColor);
+            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ {LevelData.PackageDeliveredTimeAward}s", SafeColor);
         }
         this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ ${addedMoney}", SafeColor);
         SoundController.PlayPackageDelivered();
@@ -113,7 +120,7 @@ public partial class GameController : Node {
     private void OnPackageExpired(DropOff dropOff) {
         gameState.GameTime -= 10;
         this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
-        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "- 10s", CriticalColor);
+        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"- {LevelData.PackageExpiredTimeCost}s", CriticalColor);
     }
 
     private void OnPauseChanged(bool newState) {

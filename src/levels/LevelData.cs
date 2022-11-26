@@ -27,9 +27,12 @@ public partial class LevelData : Resource {
 
     [Export]
     public int PackageDeliveredMoneyAward;
+    
+    [Export]
+    public int PackageDeliveredMoneyBonus;
 
     [Export]
-    public int PackageExpiredMoneyCost;
+    public int PackageExpiredTimeCost;
 
     [Export]
     public Vector2i DropOffHomeStateChangeRange;
