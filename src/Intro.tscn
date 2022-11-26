@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cyjvcxybe6us5"]
+[gd_scene load_steps=24 format=3 uid="uid://cyjvcxybe6us5"]
 
 [ext_resource type="PackedScene" uid="uid://wnu1vi8xoprw" path="res://src/world/roads/models/construction_barrier.glb" id="1_w7qqs"]
 [ext_resource type="PackedScene" uid="uid://84s3pt8wfwx2" path="res://src/world/roads/models/construction_pylon.glb" id="2_8ra2d"]
@@ -13,8 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cl3x4dpf7j3ne" path="res://src/world/buildings/models/large_buildingC.glb" id="11_kak4r"]
 [ext_resource type="PackedScene" uid="uid://j0cyrw6kgxlu" path="res://src/world/buildings/models/skyscraperE.glb" id="12_buqrj"]
 [ext_resource type="PackedScene" uid="uid://bxcrv6voejj3d" path="res://src/world/buildings/models/skyscraperC.glb" id="13_dpoyn"]
+[ext_resource type="PackedScene" uid="uid://bs0ueqdtgax27" path="res://src/world/buildings/models/skyscraperF.glb" id="14_3fmbc"]
 [ext_resource type="PackedScene" uid="uid://cvu4gpqjuh6rk" path="res://src/world/misc/box/box.glb" id="14_halkq"]
 [ext_resource type="PackedScene" uid="uid://utgm0bq22p6b" path="res://src/world/buildings/models/detail_umbrellaDetailed.glb" id="15_k6jk1"]
+[ext_resource type="PackedScene" uid="uid://c13p7t4j0h1pl" path="res://src/world/buildings/models/skyscraperB.glb" id="15_n0sa8"]
 [ext_resource type="PackedScene" uid="uid://c5pk7hvl73o0f" path="res://src/world/nature/models/tree_small.glb" id="16_f7g2o"]
 [ext_resource type="Script" path="res://src/IntroCamera.cs" id="17_gc1kp"]
 
@@ -102,11 +104,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.754321)
 [node name="road_straight6" parent="Roads" instance=ExtResource("5_xmf4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.754321)
 
+[node name="road_straight7" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -0.754321)
+
+[node name="road_straight8" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -0.754321)
+
+[node name="road_straight9" parent="Roads" instance=ExtResource("5_xmf4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -0.754321)
+
 [node name="road_straight5" parent="Roads" instance=ExtResource("5_xmf4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.754321)
 
 [node name="light_curved" parent="Roads" instance=ExtResource("6_tc7kd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12665, -0.00408173, -1.22301)
+
+[node name="light_curved4" parent="Roads" instance=ExtResource("6_tc7kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12665, -0.00408173, -1.22301)
+
+[node name="light_curved5" parent="Roads" instance=ExtResource("6_tc7kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12665, -0.00408173, -1.22301)
 
 [node name="light_curved2" parent="Roads" instance=ExtResource("6_tc7kd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126646, -0.00408173, -1.22301)
@@ -128,6 +145,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.222007)
 [node name="tile_low12" parent="Floor" instance=ExtResource("7_v7uml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0.222007)
 
+[node name="tile_low14" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0.222007)
+
+[node name="tile_low17" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0.222007)
+
+[node name="tile_low18" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0.222007)
+
 [node name="tile_low4" parent="Floor" instance=ExtResource("7_v7uml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.222007)
 
@@ -145,6 +171,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.73364)
 
 [node name="tile_low11" parent="Floor" instance=ExtResource("7_v7uml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.73364)
+
+[node name="tile_low13" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.73364)
+
+[node name="tile_low15" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.73364)
+
+[node name="tile_low16" parent="Floor" instance=ExtResource("7_v7uml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.73364)
 
 [node name="tile_low9" parent="Floor" instance=ExtResource("7_v7uml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.73364)
@@ -237,6 +272,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.172
 [node name="large_buildingC" parent="Buildings" instance=ExtResource("11_kak4r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08392, 0, -1.60686)
 
+[node name="large_buildingC2" parent="Buildings" instance=ExtResource("11_kak4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74743, 0, -1.4341)
+
 [node name="skyscraperE" parent="Buildings" instance=ExtResource("12_buqrj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33572, 0, -1.60686)
 
@@ -245,6 +283,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62954, 0, -1.60686)
 
 [node name="skyscraperC" parent="Buildings" instance=ExtResource("13_dpoyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.60686)
+
+[node name="skyscraperF" parent="Buildings" instance=ExtResource("14_3fmbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86612, 0, -1.65197)
+
+[node name="skyscraperB" parent="Buildings" instance=ExtResource("15_n0sa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.16953, 0, -1.65197)
 
 [node name="Misc" type="Node3D" parent="."]
 
@@ -268,6 +312,30 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.24383, 0, -0.532683)
 
 [node name="tree_small4" parent="Misc" instance=ExtResource("16_f7g2o")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.63304, 0, -0.532683)
+
+[node name="tree_small13" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.60265, 0, -0.532683)
+
+[node name="tree_small14" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.89481, 0, -0.532683)
+
+[node name="tree_small15" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.24383, 0, -0.532683)
+
+[node name="tree_small16" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.63304, 0, -0.532683)
+
+[node name="tree_small17" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.60265, 0, -0.532683)
+
+[node name="tree_small18" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.89481, 0, -0.532683)
+
+[node name="tree_small19" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.24383, 0, -0.532683)
+
+[node name="tree_small20" parent="Misc" instance=ExtResource("16_f7g2o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.63304, 0, -0.532683)
 
 [node name="tree_small5" parent="Misc" instance=ExtResource("16_f7g2o")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.05319, 0, -0.532683)
@@ -296,7 +364,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.02281, 0, 0.606589)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.762052, -0.100037, 0.639742, -0.0925364, 0.961028, 0.260505, -0.640869, -0.257717, 0.723096, 1.597, 0.587, 0.866)
 attributes = SubResource("CameraAttributesPractical_dp31d")
-fov = 45.0
+fov = 40.3
 script = ExtResource("17_gc1kp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -324,6 +392,24 @@ omni_attenuation = 2.2974
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16757, 0.642064, -0.313984)
+light_color = Color(1, 0.984314, 0.729412, 1)
+shadow_enabled = true
+shadow_opacity = 0.61
+shadow_blur = 2.407
+omni_range = 0.94
+omni_attenuation = 2.2974
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16757, 0.642064, -0.313984)
+light_color = Color(1, 0.984314, 0.729412, 1)
+shadow_enabled = true
+shadow_opacity = 0.61
+shadow_blur = 2.407
+omni_range = 0.94
+omni_attenuation = 2.2974
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.16757, 0.642064, -0.313984)
 light_color = Color(1, 0.984314, 0.729412, 1)
 shadow_enabled = true
 shadow_opacity = 0.61
