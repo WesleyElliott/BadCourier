@@ -14,7 +14,7 @@ public partial class MoneyComponent : Control {
     }
 
     private void UpdateMoneyLabel(int newMoney) {
-        var text = string.Format("{0:N0}", newMoney);
+        var text = string.Format("${0:N0}", newMoney);
         MoneyLabel.Text = text;
     }
 }
