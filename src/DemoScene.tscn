@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwo3th26jy21g"]
+[gd_scene load_steps=12 format=3 uid="uid://dwo3th26jy21g"]
 
 [ext_resource type="PackedScene" uid="uid://dyscq2mcmblhd" path="res://src/world/World.tscn" id="1_adbhg"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="2_im14v"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bx24huigwieum" path="res://src/ui/packages/PackageComponent.tscn" id="5_55vw0"]
 [ext_resource type="Script" path="res://src/GameController.cs" id="6_x582o"]
 [ext_resource type="PackedScene" uid="uid://4x5na8gwhug5" path="res://src/ui/timer/TimerComponent.tscn" id="6_ytojr"]
+[ext_resource type="PackedScene" uid="uid://dcveeyfrbmxlh" path="res://src/ui/game_over/GameOver.tscn" id="7_kngy8"]
 
 [node name="DemoScene" type="Node3D"]
 
@@ -99,6 +100,25 @@ script = ExtResource("2_l7yum")
 GameController = NodePath("../../../../GameController")
 NotificationScene = ExtResource("2_xmkmn")
 
+[node name="CenterContainer" type="CenterContainer" parent="UI/Margins"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 1956.0
+offset_bottom = 1000.0
+
+[node name="GameOver" parent="UI/Margins/CenterContainer" instance=ExtResource("7_kngy8")]
+process_mode = 2
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 966.0
+offset_top = 488.0
+offset_right = 966.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="World" parent="." instance=ExtResource("1_adbhg")]
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
@@ -113,11 +133,12 @@ environment = ExtResource("2_im14v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57321, 0, 0)
 BoxCapacity = 5
 
-[node name="GameController" type="Node" parent="."]
+[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("GameOver")]
 script = ExtResource("6_x582o")
 SafeColor = Color(0.654902, 1, 0.462745, 1)
 WarningColor = Color(1, 0.603922, 0.32549, 1)
 CriticalColor = Color(1, 0.247059, 0.301961, 1)
+GameOver = NodePath("../UI/Margins/CenterContainer/GameOver")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
 

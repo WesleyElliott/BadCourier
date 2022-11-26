@@ -11,9 +11,13 @@ public partial class TimerComponent : Control {
 
     private Tween tween;
 
-    public override void _Ready() {
+    public override void _EnterTree() {
         TimerLabel.Text = "02:00";
         this.EventBus().GameTimerTick += UpdateTimer;
+    }
+
+    public override void _ExitTree() {
+        this.EventBus().GameTimerTick -= UpdateTimer;
     }
 
     private void UpdateTimer(int newTime) {

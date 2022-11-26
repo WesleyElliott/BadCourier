@@ -30,6 +30,14 @@ public partial class DropOff : Node3D {
     private RandomNumberGenerator rng;
     private int timeLeft;
 
+    public override void _EnterTree() {
+        this.EventBus().GameTimerTick += OnTickTimeout;
+    }
+
+    public override void _ExitTree() {
+        this.EventBus().GameTimerTick -= OnTickTimeout;
+    }
+
     public override void _Ready() {
         Model = GetNode<MeshInstance3D>("Model");
         HomeStateTimer = GetNode<Timer>("HomeStateTimer");
@@ -40,7 +48,7 @@ public partial class DropOff : Node3D {
         rng = new RandomNumberGenerator();
         rng.Randomize();
 
-        this.EventBus().GameTimerTick += OnTickTimeout;
+        
     }
 
     public void Enable() {

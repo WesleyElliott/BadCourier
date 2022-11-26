@@ -25,4 +25,7 @@ public partial class EventBus : Node {
 
     [Signal]
     public delegate void MoneyChangedEventHandler(int newMoney);
+
+    [Signal]
+    public delegate void GameEndEventHandler();
 }

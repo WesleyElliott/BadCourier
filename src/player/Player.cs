@@ -19,6 +19,14 @@ public partial class Player : Node3D {
 	private Node boxes;
 	private List<Color> dropOffColors = new List<Color>();
 
+    public override void _EnterTree() {
+        this.EventBus().PackageExpired += OnPackageExpired;
+    }
+
+    public override void _ExitTree() {
+        this.EventBus().PackageExpired -= OnPackageExpired;
+    }
+
     public override void _Ready() {
         boxes = GetNode<Node>("Boxes");
 		dropOffColors.Add(new Color(1, 0, 0));
@@ -29,7 +37,7 @@ public partial class Player : Node3D {
 		dropOffColors.Add(new Color(1, 0, 1));
 		dropOffColors.Add(new Color(1, 1, 1));
 
-		this.EventBus().PackageExpired += OnPackageExpired;
+		
     }
 
     public override void _PhysicsProcess(double delta) {

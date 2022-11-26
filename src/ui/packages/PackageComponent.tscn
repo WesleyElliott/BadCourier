@@ -31,7 +31,6 @@ PackagesLabel = NodePath("Panel/MarginContainer/HBoxContainer/PackagesLabel")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(160, 64)
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -45,7 +44,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ljlf2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.056
 anchor_right = 1.0
@@ -57,7 +55,6 @@ theme_override_constants/margin_right = 12
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
-layout_mode = 2
 offset_left = 66.0
 offset_right = 148.0
 offset_bottom = 64.0
@@ -68,7 +65,6 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="PackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
 anchors_preset = -1
 offset_right = 82.0
 offset_bottom = 64.0
@@ -84,7 +80,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SlashLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
 visible = false
-layout_mode = 2
 offset_left = 90.0
 offset_right = 110.0
 offset_bottom = 64.0
@@ -96,7 +91,6 @@ vertical_alignment = 1
 
 [node name="TotalPackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
 visible = false
-layout_mode = 2
 offset_left = 90.0
 offset_right = 134.0
 offset_bottom = 64.0
@@ -108,7 +102,6 @@ vertical_alignment = 1
 
 [node name="RoundBackground" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(80, 80)
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -122,7 +115,6 @@ ignore_texture_size = true
 [node name="Icon" type="TextureRect" parent="RoundBackground"]
 modulate = Color(0.45098, 0.803922, 0.294118, 1)
 custom_minimum_size = Vector2(42, 42)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -11,9 +11,14 @@ public partial class DropOffNotifications : Control {
 
     private int notificationCount;
 
-    public override void _Ready() {
+    public override void _EnterTree() {
         this.EventBus().ShowNotification += OnShowNotification;
         this.EventBus().HideNotification += OnHideNotification;
+    }
+
+    public override void _ExitTree() {
+        this.EventBus().ShowNotification -= OnShowNotification;
+        this.EventBus().HideNotification -= OnHideNotification;
     }
     
     private void OnShowNotification(DropOff dropOff) {

@@ -10,9 +10,14 @@ public partial class WarehouseComponent : Control {
 
     private Tween tween;
 
-    public override void _Ready() {
+    public override void _EnterTree() {
         RenderProgress(0);
         this.EventBus().WarehouseCapacity += RenderProgress;
+    }
+
+    public override void _ExitTree() {
+        RenderProgress(0);
+        this.EventBus().WarehouseCapacity -= RenderProgress;
     }
 
     private void RenderProgress(int newBoxCount) {

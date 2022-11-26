@@ -3,7 +3,7 @@ using Godot;
 struct GameState {
 
     public GameState() {
-        GameTime = 120;
+        GameTime = 30;
         Money = 0;
     }
 
@@ -22,15 +22,34 @@ public partial class GameController : Node {
     [Export]
     public Color CriticalColor { get; private set; }
 
+    [Export]
+    public GameOver GameOver { get; private set; }
+
     private Timer gameTimer;
     private GameState gameState = new GameState();
+
+    public override void _EnterTree() {
+        this.EventBus().PackageDelivered += OnPackageDelivered;
+        this.EventBus().PackageExpired += OnPackageExpired;
+    }
+
+    public override void _ExitTree() {
+        this.EventBus().PackageDelivered -= OnPackageDelivered;
+        this.EventBus().PackageExpired -= OnPackageExpired;
+    }
 
     public override void _Ready() {
         gameTimer = GetNode<Timer>("GameTimer");
         OnTick();
+    }
 
-        this.EventBus().PackageDelivered += OnPackageDelivered;
-        this.EventBus().PackageExpired += OnPackageExpired;
+    public override void _Process(double delta) {
+        if (gameState.GameTime < 0) {
+            GD.Print("[GameController] GAME OVER");
+            GetTree().Paused = true;
+            GameOver.Render(gameState.Money, 5, 2);
+            GameOver.Visible = true;
+        }
     }
 
     public void OnTick() {

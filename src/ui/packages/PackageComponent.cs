@@ -10,9 +10,13 @@ public partial class PackageComponent : Control {
 
     private Tween tween;
 
-    public override void _Ready() {
+    public override void _EnterTree() {
         PackagesLabel.Text = "0 / 20";
         this.EventBus().WarehouseCapacity += UpdatePackagesLabel;
+    }
+
+    public override void _ExitTree() {
+        this.EventBus().WarehouseCapacity -= UpdatePackagesLabel;
     }
 
     private void UpdatePackagesLabel(int packages) {
