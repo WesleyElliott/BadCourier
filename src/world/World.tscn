@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0jq0watc4f85"]
 
 [ext_resource type="MeshLibrary" uid="uid://c5jgujgnbkw5b" path="res://src/world/WorldMeshLib.tres" id="1_gblxm"]
-[ext_resource type="PackedScene" uid="uid://maaq1i2ukihx" path="res://src/world/misc/box/Box.tscn" id="2_s3dq0"]
+[ext_resource type="Script" path="res://src/order/OrderManager.cs" id="3_3uyrs"]
 [ext_resource type="PackedScene" uid="uid://cecwxkpsvet5a" path="res://src/world/misc/dropoff/DropOff.tscn" id="3_nussy"]
 
 [node name="World" type="Node3D"]
@@ -19,20 +19,36 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="CollectionPoints" type="Node" parent="."]
 
-[node name="Box1" parent="CollectionPoints" node_paths=PackedStringArray("DropOff") instance=ExtResource("2_s3dq0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.37031, 0.162961, -22.6463)
-DropOff = NodePath("../../DropOffPoints/DropOff1")
+[node name="Collection1" type="Node3D" parent="CollectionPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.1494)
 
-[node name="Box2" parent="CollectionPoints" instance=ExtResource("2_s3dq0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.10252, 0.162961, -35.192)
+[node name="Collection2" type="Node3D" parent="CollectionPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.90924, 0, -16.1494)
 
-[node name="Box3" parent="CollectionPoints" instance=ExtResource("2_s3dq0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -23.4823, 0.162961, -28.5617)
-
-[node name="Box4" parent="CollectionPoints" instance=ExtResource("2_s3dq0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -38.3957, 0.162961, -34.9741)
+[node name="Collection3" type="Node3D" parent="CollectionPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.90924, 0, -24.1233)
 
 [node name="DropOffPoints" type="Node" parent="."]
 
 [node name="DropOff1" parent="DropOffPoints" instance=ExtResource("3_nussy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07708, 0, -13.7464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.7757, 0, -28.497)
+
+[node name="DropOff2" parent="DropOffPoints" instance=ExtResource("3_nussy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.0989, 0, -28.497)
+
+[node name="DropOff3" parent="DropOffPoints" instance=ExtResource("3_nussy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.0989, 0, -4.07977)
+
+[node name="DropOff5" parent="DropOffPoints" instance=ExtResource("3_nussy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.1052, 0, -4.07977)
+
+[node name="DropOff6" parent="DropOffPoints" instance=ExtResource("3_nussy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.1052, 0, -4.07977)
+
+[node name="DropOff4" parent="DropOffPoints" instance=ExtResource("3_nussy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.031, 0, -17.7967)
+
+[node name="OrderManager" type="Node" parent="." node_paths=PackedStringArray("CollectionPoints", "DropOffPoints")]
+script = ExtResource("3_3uyrs")
+CollectionPoints = NodePath("../CollectionPoints")
+DropOffPoints = NodePath("../DropOffPoints")
