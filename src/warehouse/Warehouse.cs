@@ -9,6 +9,9 @@ public partial class Warehouse : Node3D {
     [Export]
     public Timer OrderGenerator { get; private set; }
 
+    [Export]
+    public Node DropOffPoints { get; private set; }
+
     public OrderManager OrderManager { get; private set; }
 
     private RandomNumberGenerator rng = new RandomNumberGenerator();

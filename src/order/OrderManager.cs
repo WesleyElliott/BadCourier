@@ -3,8 +3,12 @@ using System.Linq;
 
 public partial class OrderManager : Node {
 
-    [Export]
-    public Node DropOffPoints { get; private set; }
+    public Node DropOffPoints { 
+        get {
+            return GetOwner<Warehouse>().DropOffPoints;
+        }
+        private set {}
+    }
 
     private LevelData LevelData {
         get {
