@@ -47,6 +47,9 @@ public partial class GameController : Node {
     [Export]
     public SoundController SoundController { get; private set; }
 
+    [Export]
+    public AudioStream BoxCollectedSound { get; private set; }
+
     private Timer gameTimer;
     private GameState gameState = new GameState();
 
@@ -54,12 +57,14 @@ public partial class GameController : Node {
         this.EventBus().PackageDelivered += OnPackageDelivered;
         this.EventBus().PackageExpired += OnPackageExpired;
         this.EventBus().PauseChanged += OnPauseChanged;
+        this.EventBus().BoxCollected += OnBoxCollected;
     }
 
     public override void _ExitTree() {
         this.EventBus().PackageDelivered -= OnPackageDelivered;
         this.EventBus().PackageExpired -= OnPackageExpired;
         this.EventBus().PauseChanged -= OnPauseChanged;
+        this.EventBus().BoxCollected -= OnBoxCollected;
     }
 
     public override void _Ready() {
@@ -122,6 +127,10 @@ public partial class GameController : Node {
             PauseMenu.Hide();
             gameTimer.Start();
         }
+    }
+
+    private void OnBoxCollected() {
+        SoundController.PlayGeneric(BoxCollectedSound);
     }
 
     private void HandleGameOver() {

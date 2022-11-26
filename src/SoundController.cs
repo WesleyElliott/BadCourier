@@ -8,6 +8,9 @@ public partial class SoundController : Node {
     [Export]
     public AudioStreamPlayer PackageDeliveredAudio;
 
+    [Export]
+    public AudioStreamPlayer GenericAudio;
+
     public override void _EnterTree() {
         var buttons = GetTree().GetNodesInGroup("Button");
         foreach (Button button in buttons) {
@@ -24,6 +27,11 @@ public partial class SoundController : Node {
 
     public void PlayPackageDelivered() {
         PackageDeliveredAudio.Play();
+    }
+
+    public void PlayGeneric(AudioStream stream) {
+        GenericAudio.Stream = stream;
+        GenericAudio.Play();
     }
 
     private void OnButtonPressed() {

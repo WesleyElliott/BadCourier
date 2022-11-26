@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cc4dct2bwyhec" path="res://src/ui/game_over/GameOver.tscn" id="7_oq8a0"]
 [ext_resource type="PackedScene" uid="uid://evf2h4ep5h4k" path="res://src/ui/pause/Pause.tscn" id="9_rh8hs"]
 [ext_resource type="Resource" uid="uid://qkudsg6te5pi" path="res://src/order/OrderColors.tres" id="11_2pgxb"]
+[ext_resource type="AudioStream" uid="uid://2tk0te67mlhy" path="res://src/audio/Wood Block1.ogg" id="14_n3dau"]
 [ext_resource type="Script" path="res://src/SoundController.cs" id="14_oj82j"]
 [ext_resource type="AudioStream" uid="uid://cg42y04f7w0fc" path="res://src/ui/audio/Minimalist7.ogg" id="15_j6ykx"]
-[ext_resource type="AudioStream" uid="uid://b3gwwtr02rydt" path="res://src/audio/Modern13.ogg" id="16_b874u"]
 
 [node name="DemoScene" type="Node3D"]
 
@@ -142,21 +142,22 @@ CriticalColor = Color(1, 0.278431, 0.341176, 1)
 GameOver = NodePath("../GameOver")
 PauseMenu = NodePath("../Pause")
 SoundController = NodePath("../SoundController")
+BoxCollectedSound = ExtResource("14_n3dau")
 
 [node name="GameTimer" type="Timer" parent="GameController"]
 
-[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio", "PackageDeliveredAudio")]
+[node name="SoundController" type="Node" parent="." node_paths=PackedStringArray("ButtonAudio", "PackageDeliveredAudio", "GenericAudio")]
 script = ExtResource("14_oj82j")
 ButtonAudio = NodePath("ButtonAudio")
-PackageDeliveredAudio = NodePath("PackageDeliveredAudio")
+PackageDeliveredAudio = NodePath("")
+GenericAudio = NodePath("GenericAudio")
 
 [node name="ButtonAudio" type="AudioStreamPlayer" parent="SoundController"]
 stream = ExtResource("15_j6ykx")
 volume_db = 8.0
 
-[node name="PackageDeliveredAudio" type="AudioStreamPlayer" parent="SoundController"]
-stream = ExtResource("16_b874u")
-volume_db = 8.0
+[node name="GenericAudio" type="AudioStreamPlayer" parent="SoundController"]
+stream = ExtResource("14_n3dau")
 
 [connection signal="timeout" from="GameController/GameTimer" to="GameController" method="OnTick"]
 
