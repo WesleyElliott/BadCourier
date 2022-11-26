@@ -59,6 +59,7 @@ public partial class Player : Node {
 		GD.Print($"Dropping off box: {box.Name}");
 		boxes.RemoveChild(box);
 		box.QueueFree();
+		dropOff.CallDeferred("Disable");
 	}
 
 }
