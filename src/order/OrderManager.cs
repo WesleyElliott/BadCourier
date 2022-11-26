@@ -24,14 +24,14 @@ public partial class OrderManager : Node {
         }
     }
 
-    /**
-        Order generation:
-        1. Get random drop off point
-        2. Get random collection point
-        3. Create Box instance, placed at collection point
-        4. Enable drop off point
-    */
     public void GenerateOrder() {
+        if (GetChildCount() == 20) {
+            // Game has ended!
+            GD.Print("[Order] Warehouse full! Game ending...");
+            this.EventBus().EmitSignal(EventBus.SignalName.WarehouseCapacityExceeded);
+            return;
+        }
+
         GD.Print("[Order] Generating order...");
         var boxScene = GD.Load<PackedScene>("res://src/world/misc/box/Box.tscn");
         Box box = (Box) boxScene.Instantiate();

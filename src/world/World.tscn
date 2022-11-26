@@ -115,10 +115,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.1052, 0, -4.07977)
 [node name="DropOff6" parent="DropOffPoints" instance=ExtResource("3_nussy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.8477, 0, 3.65113)
 
-[node name="Warehouse" type="Node3D" parent="."]
+[node name="Warehouse" type="Node3D" parent="." node_paths=PackedStringArray("OrderGenerator")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6161, 0, -15.9881)
 script = ExtResource("4_v60ma")
 BoxTemplate = ExtResource("5_2xn53")
+OrderGenerator = NodePath("OrderGenerator")
 
 [node name="OrderManager" type="Node3D" parent="Warehouse" node_paths=PackedStringArray("DropOffPoints")]
 script = ExtResource("3_3uyrs")

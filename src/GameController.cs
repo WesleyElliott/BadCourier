@@ -59,6 +59,7 @@ public partial class GameController : Node {
         this.EventBus().PauseChanged += OnPauseChanged;
         this.EventBus().BoxCollected += OnBoxCollected;
         this.EventBus().GameStart += OnGameStart;
+        this.EventBus().WarehouseCapacityExceeded += OnWarehouseCapacityExceeded;
     }
 
     public override void _ExitTree() {
@@ -67,6 +68,7 @@ public partial class GameController : Node {
         this.EventBus().PauseChanged -= OnPauseChanged;
         this.EventBus().BoxCollected -= OnBoxCollected;
         this.EventBus().GameStart -= OnGameStart;
+        this.EventBus().WarehouseCapacityExceeded -= OnWarehouseCapacityExceeded;
     }
 
     public override void _Ready() {
@@ -146,5 +148,9 @@ public partial class GameController : Node {
 
     private void OnGameStart() {
         OnTick();
+    }
+
+    private void OnWarehouseCapacityExceeded() {
+        HandleGameOver();
     }
 }

@@ -6,6 +6,9 @@ public partial class EventBus : Node {
     public delegate void WarehouseCapacityEventHandler(int packageAmount);
 
     [Signal]
+    public delegate void WarehouseCapacityExceededEventHandler();
+
+    [Signal]
     public delegate void BoxCollectedEventHandler();
 
     [Signal]
