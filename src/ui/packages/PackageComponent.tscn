@@ -29,7 +29,6 @@ script = ExtResource("1_jlv47")
 PackagesLabel = NodePath("Panel/MarginContainer/HBoxContainer/PackagesLabel")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -41,7 +40,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ljlf2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.056
 anchor_right = 1.0
@@ -56,7 +54,6 @@ theme_override_constants/margin_right = 48
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
-layout_mode = 2
 offset_left = 139.0
 offset_right = 288.0
 offset_bottom = 91.0
@@ -67,7 +64,6 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="PackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
 anchors_preset = -1
 offset_right = 37.0
 offset_bottom = 91.0
@@ -82,7 +78,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="SlashLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 45.0
 offset_right = 87.0
 offset_bottom = 91.0
@@ -93,7 +88,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TotalPackagesLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 95.0
 offset_right = 149.0
 offset_bottom = 91.0
@@ -105,7 +99,6 @@ vertical_alignment = 1
 
 [node name="RoundBackground" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
-layout_mode = 0
 offset_right = 96.0
 offset_bottom = 96.0
 texture = ExtResource("3_t7lcj")
@@ -114,7 +107,6 @@ ignore_texture_size = true
 [node name="Icon" type="TextureRect" parent="RoundBackground"]
 modulate = Color(0.45098, 0.803922, 0.294118, 1)
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
