@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bi3t72cksj4fu"]
+[gd_scene load_steps=38 format=3 uid="uid://bi3t72cksj4fu"]
 
 [ext_resource type="ArrayMesh" uid="uid://dh2i1x4f4nq2u" path="res://src/world/roads/meshes/road_end.tres" id="1_4r2jf"]
 [ext_resource type="ArrayMesh" uid="uid://mt00vcbfvrpo" path="res://src/world/roads/meshes/road_straight.tres" id="2_eqatq"]
@@ -14,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dd67wdy1s5o3q" path="res://src/world/buildings/meshes/big_building_c.tres" id="12_a60ky"]
 [ext_resource type="ArrayMesh" uid="uid://cnsfarg34bqjo" path="res://src/world/roads/meshes/tile_low.tres" id="13_wywfq"]
 [ext_resource type="ArrayMesh" uid="uid://chlw0x4wrq5y5" path="res://src/world/suburbs/meshes/house5.tres" id="14_fyd6p"]
+[ext_resource type="ArrayMesh" uid="uid://bedmr6y3hc3hd" path="res://src/world/roads/meshes/tile_grass.tres" id="14_tu2mi"]
 [ext_resource type="ArrayMesh" uid="uid://br5txpgmyphrm" path="res://src/world/suburbs/meshes/house7.tres" id="15_lpky4"]
 [ext_resource type="ArrayMesh" uid="uid://gq8nuojl1jop" path="res://src/world/suburbs/meshes/house13.tres" id="16_2bb28"]
 [ext_resource type="ArrayMesh" uid="uid://r20bmdxwbbd" path="res://src/world/suburbs/meshes/house21.tres" id="17_v2hkw"]
@@ -190,6 +191,15 @@ mesh = ExtResource("13_wywfq")
 [node name="StaticBody3D" type="StaticBody3D" parent="tile_low"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tile_low/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_2pggq")
+
+[node name="tile_grass" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("14_tu2mi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tile_grass"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tile_grass/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2pggq")
 
 [node name="house_5" type="MeshInstance3D" parent="."]
