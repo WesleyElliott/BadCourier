@@ -12,6 +12,12 @@ public partial class Warehouse : Node3D {
     [Export]
     public Node DropOffPoints { get; private set; }
 
+    [Export]
+    public WayPoint WayPoint { get; private set; }
+
+    [Export]
+    public Texture2D WarehouseIcon { get; private set; }
+
     public OrderManager OrderManager { get; private set; }
 
     private RandomNumberGenerator rng = new RandomNumberGenerator();
@@ -37,6 +43,8 @@ public partial class Warehouse : Node3D {
         OrderManager = GetNode<OrderManager>("OrderManager");
 
         OrderGenerator.WaitTime = rng.RandiRange(LevelData.PackageSpawnRange.x, LevelData.PackageSpawnRange.y);
+        WayPoint.SetColor(new Color("#1e90ff"));
+        WayPoint.SetIcon(WarehouseIcon);
     }
 
     public void OnPlayerEntered(Area3D body) {

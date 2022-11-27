@@ -1,10 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgum38fi8ha8s"]
+[gd_scene load_steps=17 format=3 uid="uid://dgum38fi8ha8s"]
 
 [ext_resource type="Script" path="res://src/warehouse/Warehouse.cs" id="1_q75yj"]
 [ext_resource type="PackedScene" uid="uid://maaq1i2ukihx" path="res://src/world/misc/box/Box.tscn" id="2_7jr7p"]
 [ext_resource type="Script" path="res://src/order/OrderManager.cs" id="3_1bofl"]
+[ext_resource type="Texture2D" uid="uid://cikwfnrbv20g7" path="res://src/warehouse/structure_house.png" id="3_lnnvm"]
 [ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="4_b6n2h"]
 [ext_resource type="Texture2D" uid="uid://dx5fdsaceunm0" path="res://src/warehouse/loading_zone.png" id="5_fb472"]
+[ext_resource type="Script" path="res://src/world/misc/dropoff/WayPoint.cs" id="6_61b12"]
+[ext_resource type="Texture2D" uid="uid://3wew1evg2kjc" path="res://src/world/misc/dropoff/marker.png" id="7_dw52j"]
+[ext_resource type="Texture2D" uid="uid://bjmy44sqeknfk" path="res://src/ui/drop_off/character.png" id="8_k3kc4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as221"]
 transparency = 1
@@ -80,11 +84,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yx5b2")
 
-[node name="Warehouse" type="Node3D" node_paths=PackedStringArray("OrderGenerator")]
+[node name="Warehouse" type="Node3D" node_paths=PackedStringArray("OrderGenerator", "WayPoint")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.69071, 0, -35.5694)
 script = ExtResource("1_q75yj")
 BoxTemplate = ExtResource("2_7jr7p")
 OrderGenerator = NodePath("OrderGenerator")
+WayPoint = NodePath("WayPoint")
+WarehouseIcon = ExtResource("3_lnnvm")
 
 [node name="OrderManager" type="Node3D" parent="."]
 script = ExtResource("3_1bofl")
@@ -422,5 +428,31 @@ mesh = SubResource("ArrayMesh_jj0fb")
 skeleton = NodePath("")
 
 [node name="OrderGenerator" type="Timer" parent="."]
+
+[node name="WayPoint" type="Control" parent="."]
+custom_minimum_size = Vector2(48, 72)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 42.0
+script = ExtResource("6_61b12")
+
+[node name="Marker" type="TextureRect" parent="WayPoint"]
+custom_minimum_size = Vector2(48, 72)
+layout_mode = 1
+offset_left = -24.0
+offset_top = -50.0
+offset_right = 24.0
+offset_bottom = 22.0
+texture = ExtResource("7_dw52j")
+
+[node name="Icon" type="TextureRect" parent="WayPoint"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 24.0
+texture = ExtResource("8_k3kc4")
+ignore_texture_size = true
 
 [connection signal="area_entered" from="LoadingZone/Floor/Area3D" to="." method="OnPlayerEntered"]
