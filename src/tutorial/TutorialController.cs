@@ -90,7 +90,7 @@ public partial class TutorialController : Node {
         
         await WaitUntilSpacePressed();
 
-        TutorialDialog.SetMessage("So lets get started! Using the Arrow Keys, you drive your truck around.", true);
+        TutorialDialog.SetMessage("So lets get started! Using the Arrow/WASD Keys, drive your truck around.", true);
         TutorialDialog.SetHelpText("[WASD]");
         Player.Van.CanDrive = true;
         this.EventBus().EmitSignal(EventBus.SignalName.GameStart);
