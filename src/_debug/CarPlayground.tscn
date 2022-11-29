@@ -11,6 +11,9 @@ size = Vector3(44.279, 0.157, 69.403)
 
 [node name="Node3D" type="Node3D"]
 
+[node name="Van" parent="." instance=ExtResource("2_keqdr")]
+CanDrive = true
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.489115, 0)
 
@@ -29,6 +32,3 @@ environment = ExtResource("1_fict1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-3.09086e-08, -0.707107, 0.707107, -3.09086e-08, 0.707107, 0.707107, -1, 0, -4.37114e-08, 7.23847, 12.0012, 0)
-
-[node name="Van2" parent="." instance=ExtResource("2_keqdr")]
-CanDrive = true

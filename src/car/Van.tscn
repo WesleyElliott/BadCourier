@@ -301,64 +301,62 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_7w8vj")
 
 [node name="FL" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.424, -0.000466883, -0.666)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.476, -0.000466883, -0.666)
 use_as_steering = true
 wheel_radius = 0.3
-wheel_rest_length = 0.1
-suspension_stiffness = 18.0
+suspension_stiffness = 22.0
 suspension_max_force = 120.0
 damping_compression = 0.3
 damping_relaxation = 0.4
 
 [node name="Model" type="MeshInstance3D" parent="FL"]
-transform = Transform3D(1, 0, 8.6613e-08, 0, -1, 0, -8.6613e-08, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 8.6613e-08, 0, -1, 0, -8.6613e-08, 0, 1, -0.1, 0, 0)
 mesh = SubResource("ArrayMesh_ckptj")
 skeleton = NodePath("")
 
 [node name="BL" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.423, -0.000466883, 0.855)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.476, -0.000466883, 0.855)
 use_as_traction = true
 wheel_radius = 0.3
 wheel_rest_length = 0.1
 wheel_friction_slip = 21.0
-suspension_stiffness = 18.0
+suspension_stiffness = 22.0
 suspension_max_force = 120.0
 damping_compression = 0.3
 damping_relaxation = 0.4
 
 [node name="Model" type="MeshInstance3D" parent="BL"]
-transform = Transform3D(1, 0, 8.6613e-08, 0, -1, 0, -8.6613e-08, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 8.6613e-08, 0, -1, 0, -8.6613e-08, 0, 1, -0.1, 0, 0)
 mesh = SubResource("ArrayMesh_ckptj")
 skeleton = NodePath("")
 
 [node name="FR" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.503, -0.000466883, -0.666)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.476363, 0, -0.666)
 use_as_steering = true
 wheel_radius = 0.3
-wheel_rest_length = 0.1
-suspension_stiffness = 18.0
+suspension_stiffness = 22.0
 suspension_max_force = 120.0
 damping_compression = 0.3
 damping_relaxation = 0.4
 
 [node name="Model" type="MeshInstance3D" parent="FR"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, 0, 0)
 mesh = SubResource("ArrayMesh_3nubt")
 skeleton = NodePath("")
 
 [node name="BR" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.436, -0.000466883, 0.855)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.476363, 0, 0.855)
 use_as_traction = true
 wheel_radius = 0.3
 wheel_rest_length = 0.1
 wheel_friction_slip = 21.0
-suspension_stiffness = 18.0
+suspension_stiffness = 22.0
 suspension_max_force = 120.0
 damping_compression = 0.3
 damping_relaxation = 0.4
 
 [node name="Model" type="MeshInstance3D" parent="BR"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, 0, 0)
 mesh = SubResource("ArrayMesh_3nubt")
 skeleton = NodePath("")
 
