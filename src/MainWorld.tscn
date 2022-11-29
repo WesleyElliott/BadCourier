@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b66m2i44tacbh"]
+[gd_scene load_steps=55 format=3 uid="uid://b66m2i44tacbh"]
 
 [ext_resource type="Script" path="res://src/levels/Level.cs" id="1_chroj"]
 [ext_resource type="Resource" uid="uid://d3vw20q0lvxgs" path="res://src/levels/levels/MainLevel.tres" id="2_d6cio"]
@@ -54,6 +54,9 @@
 [ext_resource type="AudioStream" uid="uid://b3gwwtr02rydt" path="res://src/audio/Modern13.ogg" id="50_t13wy"]
 [ext_resource type="AudioStream" uid="uid://b438r7km4oa5j" path="res://src/audio/Music.wav" id="51_84a65"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_524b3"]
+size = Vector3(2.0296, 2.55174, 0.888347)
+
 [node name="MainWorld" type="Node3D"]
 script = ExtResource("1_chroj")
 LevelData = ExtResource("2_d6cio")
@@ -67,6 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="HUD"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,6 +82,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="LeftUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 224.0
@@ -86,6 +91,7 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 24
 
 [node name="TimerComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("3_3wt35")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -98,6 +104,7 @@ size_flags_vertical = 0
 GameController = NodePath("../../../../GameController")
 
 [node name="MoneyComponent" parent="HUD/Margins/LeftUI" instance=ExtResource("4_d3gof")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -108,6 +115,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="PackageComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("5_05xsx")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -119,6 +127,7 @@ GameController = NodePath("../../../../GameController")
 
 [node name="WarehouseInfoComponent" parent="HUD/Margins/LeftUI" node_paths=PackedStringArray("GameController") instance=ExtResource("6_ytfij")]
 visible = false
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -128,6 +137,7 @@ offset_bottom = 472.0
 GameController = NodePath("../../../../GameController")
 
 [node name="RightUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
 offset_left = 1956.0
 offset_top = 24.0
 offset_right = 1956.0
@@ -136,7 +146,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="DropOffNotifications" type="Control" parent="HUD/Margins/RightUI" node_paths=PackedStringArray("GameController")]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_bottom = 976.0
 size_flags_vertical = 3
@@ -225,6 +235,11 @@ DropOffPoints = NodePath("../DropOffPoints")
 
 [node name="large_buildingF" parent="Warehouse" instance=ExtResource("27_t145k")]
 transform = Transform3D(-8.74228e-07, 0, -4, 0, 4, 0, 4, 0, -8.74228e-07, 3.53977, 1.90735e-06, 0.177437)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Warehouse/large_buildingF"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Warehouse/large_buildingF/StaticBody3D"]
+shape = SubResource("BoxShape3D_524b3")
 
 [node name="Props" type="Node" parent="."]
 
