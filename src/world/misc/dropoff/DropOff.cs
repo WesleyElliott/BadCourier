@@ -123,6 +123,9 @@ public partial class DropOff : Node3D {
     }
 
     private void ResetDropOffTimers() {
+        if (!HasOrder) {
+            return;
+        }
         ExpirationTimer.Stop();
         timeLeft = LevelData.PackageExpiryTime;
         ExpirationTimer.WaitTime = timeLeft;
