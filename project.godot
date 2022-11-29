@@ -19,7 +19,9 @@ ResourceScriptDirectories=["res://"]
 config/name="GameOff2022"
 run/main_scene="res://src/ui/main_menu/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Icon.png"
+config/macos_native_icon="res://Icon.icns"
+config/windows_native_icon="res://Icon.ico"
 
 [autoload]
 
