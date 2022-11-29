@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgupj6d18i0y8"]
 
 [ext_resource type="Script" path="res://src/player/Player.cs" id="1_gpnmw"]
-[ext_resource type="PackedScene" uid="uid://bjgngxw6tcvss" path="res://src/car/Van.tscn" id="2_5t2is"]
+[ext_resource type="PackedScene" uid="uid://cwecrvurpgu8s" path="res://src/car/Van.tscn" id="2_uh5sq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w47xt"]
-size = Vector3(1.38146, 1, 2.70675)
+[sub_resource type="BoxShape3D" id="BoxShape3D_juscu"]
+size = Vector3(1, 1.47101, 3.02414)
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("Rig", "Container", "Model", "Van")]
 script = ExtResource("1_gpnmw")
 Rig = NodePath("Rig")
-Container = NodePath("Van/Container")
-Model = NodePath("Van/Container/Node")
+Container = NodePath("Van")
+Model = NodePath("Van")
 Van = NodePath("Van")
 
 [node name="Rig" type="Node3D" parent="."]
@@ -21,19 +21,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 5.66244e-07, 0, 0, 1, 0, 0, 28)
 current = true
 fov = 50.0
 
-[node name="Van" parent="." instance=ExtResource("2_5t2is")]
+[node name="Van" parent="." instance=ExtResource("2_uh5sq")]
+collision_layer = 1
+collision_mask = 1
 
-[node name="BoxCollider" type="Area3D" parent="Van/Container/Node" index="0"]
+[node name="Area3D" type="Area3D" parent="Van"]
 collision_layer = 270
 collision_mask = 270
 
-[node name="CollisionShape" type="CollisionShape3D" parent="Van/Container/Node/BoxCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.768535, 0.500442)
-shape = SubResource("BoxShape3D_w47xt")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Van/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.381816, 0)
+shape = SubResource("BoxShape3D_juscu")
 
 [node name="Boxes" type="Node" parent="."]
 
-[connection signal="area_entered" from="Van/Container/Node/BoxCollider" to="." method="OnAreaEntered"]
-[connection signal="body_entered" from="Van/Container/Node/BoxCollider" to="." method="OnBoxEntered"]
-
-[editable path="Van"]
+[connection signal="area_entered" from="Van/Area3D" to="." method="OnAreaEntered"]
+[connection signal="body_entered" from="Van/Area3D" to="." method="OnBoxEntered"]

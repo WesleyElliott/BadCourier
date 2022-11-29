@@ -173,4 +173,3 @@ volume_db = -30.0
 [connection signal="timeout" from="GameController/GameTimer" to="GameController" method="OnTick"]
 
 [editable path="Player"]
-[editable path="Player/Van"]

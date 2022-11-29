@@ -14,7 +14,7 @@ public partial class Player : Node3D {
 	public Node3D Model { get; private set; }
 
 	[Export]
-	public Car Van { get; private set; }
+	public Van Van { get; private set; }
 
 	[Export]
 	public OrderColorData OrderColors;
@@ -44,9 +44,9 @@ public partial class Player : Node3D {
     }
 
     public override void _PhysicsProcess(double delta) {
-		Rig.Position = Rig.Position.Lerp(Container.Position, (float) delta * 5);
+		Rig.Position = Rig.Position.Lerp(Container.Position - new Vector3(0, 1, 0), (float) delta * 2);
 
-		var newRotationY = Mathf.Lerp(Rig.Rotation.y, Model.Rotation.y, (float) delta * 0.8f);
+		var newRotationY = Mathf.LerpAngle(Rig.Rotation.y, Model.Rotation.y, (float) delta * 2f);
 		Rig.Rotation = new Vector3(Rig.Rotation.x, newRotationY, Rig.Rotation.z);
     }
 

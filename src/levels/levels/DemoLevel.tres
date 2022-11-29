@@ -15,6 +15,6 @@ PackageDeliveredMoneyAward = 20
 PackageDeliveredMoneyBonus = 10
 PackageExpiredTimeCost = 10
 DropOffHomeStateChangeRange = Vector2i(5, 8)
-GameStartPlaysMusic = true
+GameStartPlaysMusic = false
 GameStartGeneratesOrder = true
 ResetTimerChancePercentage = 0.95
