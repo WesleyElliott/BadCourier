@@ -23,7 +23,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*res://src/EventBus.cs"
+EventBus="*res://src/utils/EventBus.cs"
 
 [display]
 
