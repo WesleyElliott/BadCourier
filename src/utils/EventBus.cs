@@ -36,7 +36,7 @@ public partial class EventBus : Node {
     public delegate void PauseChangedEventHandler(bool newState);
     
     [Signal]
-    public delegate void CarNotificationEventHandler(string text, Color color);
+    public delegate void CarNotificationEventHandler(Godot.Collections.Array<string> text, Color color);
 
     [Signal]
     public delegate void GameStartEventHandler();

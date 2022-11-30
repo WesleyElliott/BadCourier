@@ -18,11 +18,11 @@ public partial class CarNotifications : Node3D {
         base._PhysicsProcess(delta);
     }
 
-    private async void ShowNotification(string text, Color color) {
+    private async void ShowNotification(Godot.Collections.Array<string> text, Color color) {
         var notification = NotificationTemplate.Instantiate<CarNotification>();
         AddChild(notification);
         if (GetChildCount() > 1)
             await Task.Delay(300 * GetChildCount());
-        notification.ShowNotification(text, color);
+        notification.ShowNotification(text[0], color);
     }
 }

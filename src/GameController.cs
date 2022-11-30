@@ -119,7 +119,7 @@ public partial class GameController : Node {
             addedMoney += LevelData.PackageDeliveredMoneyBonus;
             this.EventBus().EmitSignal(EventBus.SignalName.MoneyChanged, gameState.Money);
             this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
-            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ {LevelData.PackageDeliveredTimeAward}s", SafeColor);
+            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, BuildNotificationText($"+ {LevelData.PackageDeliveredTimeAward}s"), SafeColor);
 
             // Random chance to reset drop off timers
             var r = rng.Randf();
@@ -127,10 +127,10 @@ public partial class GameController : Node {
                 timersReset = true;
             }
         }
-        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"+ ${addedMoney}", SafeColor);
+        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, BuildNotificationText($"+ ${addedMoney}"), SafeColor);
         if (timersReset) {
             this.EventBus().EmitSignal(EventBus.SignalName.ResetDropOffTimers);
-            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, "Timer's RESET!", SafeColor);
+            this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, BuildNotificationText("Timer's RESET!"), SafeColor);
         }
         SoundController.PlayPackageDelivered();
     }
@@ -138,7 +138,7 @@ public partial class GameController : Node {
     private void OnPackageExpired(DropOff dropOff) {
         gameState.GameTime -= 10;
         this.EventBus().EmitSignal(EventBus.SignalName.GameTimerTick, gameState.GameTime);
-        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, $"- {LevelData.PackageExpiredTimeCost}s", CriticalColor);
+        this.EventBus().EmitSignal(EventBus.SignalName.CarNotification, BuildNotificationText($"- {LevelData.PackageExpiredTimeCost}s"), CriticalColor);
     }
 
     private void OnPauseChanged(bool newState) {
@@ -180,5 +180,9 @@ public partial class GameController : Node {
 
     private void OnWarehouseCapacityExceeded() {
         HandleGameOver();
+    }
+
+    private Godot.Collections.Array<string> BuildNotificationText(string text) {
+        return new Godot.Collections.Array<string>(new string[] { text });
     }
 }

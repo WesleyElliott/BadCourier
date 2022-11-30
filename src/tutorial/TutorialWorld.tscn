@@ -1555,10 +1555,10 @@ MessageLabel = NodePath("Panel/MarginContainer/VBoxContainer/MessageLabel")
 HelpText = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/MessageLabel2")
 
 [node name="Panel" type="Panel" parent="TutorialUI/DialogBox"]
-custom_minimum_size = Vector2(768, 384)
+custom_minimum_size = Vector2(768, 472)
 layout_mode = 2
 offset_right = 768.0
-offset_bottom = 384.0
+offset_bottom = 472.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k2owq")
@@ -1580,24 +1580,23 @@ layout_mode = 2
 offset_left = 24.0
 offset_top = 8.0
 offset_right = 744.0
-offset_bottom = 376.0
+offset_bottom = 464.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MessageLabel" type="Label" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 offset_right = 720.0
-offset_bottom = 154.0
+offset_bottom = 77.0
 size_flags_vertical = 2
-text = "A message to shown in the dialog"
 label_settings = SubResource("LabelSettings_ht0d4")
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 291.0
+offset_top = 379.0
 offset_right = 720.0
-offset_bottom = 368.0
+offset_bottom = 456.0
 
 [node name="MessageLabel2" type="Label" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
