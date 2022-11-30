@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://5gwq33cyysu3"]
 
-[ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="1_pp2qt"]
+[ext_resource type="FontFile" uid="uid://bvgixiv4bsnv6" path="res://src/ui/fonts/IndieFlower-Regular.ttf" id="1_uj342"]
 [ext_resource type="Script" path="res://src/car/notifications/CarNotification.cs" id="1_umb0n"]
 
 [node name="Notification" type="Label3D"]
 billboard = 1
 modulate = Color(1, 0.372549, 0.541176, 1)
 text = "Test Text"
-font = ExtResource("1_pp2qt")
+font = ExtResource("1_uj342")
 font_size = 224
 outline_size = 64
 script = ExtResource("1_umb0n")

@@ -23,4 +23,6 @@ This project was built using Godot 4 beta ([download](https://godotengine.org/do
 ## Attribution:
 
 - [Kenney](http://kenney.nl/) for all the models, UI art, sound effects
+- [Nathan Gibson​](https://nathangibson.myportfolio.com) for SFX​
+- [Kimberly Geswein](https://kimberlygeswein.com) for the font
 - [Abstraction](https://tallbeard.itch.io/music-loop-bundle) for the music (Ludum Dare 30 - Track Four)

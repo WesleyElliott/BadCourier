@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/ui/money/MoneyComponent.cs" id="1_qt47k"]
 [ext_resource type="Texture2D" uid="uid://dos0ghjwncwi8" path="res://src/ui/sprites/yellow_round_panel.png" id="2_pi43i"]
 [ext_resource type="Texture2D" uid="uid://cd7lx5jq2ycoq" path="res://src/ui/money/dollar.png" id="3_exu7e"]
-[ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="3_itlkw"]
+[ext_resource type="FontFile" uid="uid://bvgixiv4bsnv6" path="res://src/ui/fonts/IndieFlower-Regular.ttf" id="3_hhmt3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqtkc"]
 texture = ExtResource("1_12qmq")
@@ -15,7 +15,7 @@ margin_bottom = 8.0
 region_rect = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jqb0k"]
-font = ExtResource("3_itlkw")
+font = ExtResource("3_hhmt3")
 font_size = 38
 outline_size = 8
 outline_color = Color(0.470588, 0.470588, 0.470588, 1)
@@ -54,7 +54,7 @@ grow_vertical = 2
 theme_override_constants/margin_right = 12
 
 [node name="MoneyLabel" type="Label" parent="Panel/MarginContainer"]
-offset_left = 26.0
+offset_left = 37.0
 offset_right = 148.0
 offset_bottom = 64.0
 size_flags_horizontal = 8

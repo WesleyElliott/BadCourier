@@ -9,9 +9,6 @@ public partial class MainMenu : Control {
     public Button TutorialButton { get; private set; }
 
     [Export]
-    public Button OptionsButton { get; private set; }
-
-    [Export]
     public Button QuitButton { get; private set; }
 
     [Export]
@@ -26,14 +23,12 @@ public partial class MainMenu : Control {
     public override void _EnterTree() {
         NewGameButton.Pressed += OnNewGamePressed;
         TutorialButton.Pressed += OnTutorialPressed;
-        OptionsButton.Pressed += OnOptionsPressed;
         QuitButton.Pressed += OnQuitPressed;
     }
 
     public override void _ExitTree() {
         NewGameButton.Pressed -= OnNewGamePressed;
         TutorialButton.Pressed -= OnTutorialPressed;
-        OptionsButton.Pressed -= OnOptionsPressed;
         QuitButton.Pressed -= OnQuitPressed;
     }
 
@@ -42,7 +37,6 @@ public partial class MainMenu : Control {
         Heading.Modulate = new Color(1, 1, 1, 0);
         NewGameButton.Modulate = new Color(1, 1, 1, 0);
         TutorialButton.Modulate = new Color(1, 1, 1, 0);
-        OptionsButton.Modulate = new Color(1, 1, 1, 0);
         QuitButton.Modulate = new Color(1, 1, 1, 0);
 
         var enterTween = GetTree().CreateTween().SetParallel();
@@ -64,10 +58,6 @@ public partial class MainMenu : Control {
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.Out)
             .SetDelay(1.35f);
-        enterTween.TweenProperty(OptionsButton, "modulate:a", 1, time)
-            .SetTrans(Tween.TransitionType.Quint)
-            .SetEase(Tween.EaseType.Out)
-            .SetDelay(1.5f);
         enterTween.TweenProperty(QuitButton, "modulate:a", 1, time)
             .SetTrans(Tween.TransitionType.Quint)
             .SetEase(Tween.EaseType.Out)
@@ -82,10 +72,6 @@ public partial class MainMenu : Control {
     private void OnTutorialPressed() {
         ButtonAudio.Play();
         GetTree().ChangeSceneToFile("res://src/tutorial/TutorialWorld.tscn");
-    }
-
-    private void OnOptionsPressed() {
-        ButtonAudio.Play();
     }
 
     private void OnQuitPressed() {

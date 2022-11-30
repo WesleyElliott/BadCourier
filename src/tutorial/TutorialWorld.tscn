@@ -16,13 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://dgum38fi8ha8s" path="res://src/warehouse/Warehouse.tscn" id="19_h1mm2"]
 [ext_resource type="PackedScene" uid="uid://b3ejx1wnpb25x" path="res://src/world/misc/dropoff/DropOff.tscn" id="20_0plmm"]
 [ext_resource type="Environment" uid="uid://dsvtpcokmfqcy" path="res://src/environment.tres" id="21_18y64"]
-[ext_resource type="FontFile" uid="uid://dsvje30wnwbpy" path="res://src/ui/fonts/Rabbitonthemoon-V89Z.ttf" id="22_bweq0"]
 [ext_resource type="PackedScene" uid="uid://cgupj6d18i0y8" path="res://src/player/Player.tscn" id="22_i3c3v"]
 [ext_resource type="Resource" uid="uid://qkudsg6te5pi" path="res://src/order/OrderColors.tres" id="23_ltgri"]
 [ext_resource type="Script" path="res://src/tutorial/TutorialController.cs" id="26_5fn7j"]
 [ext_resource type="Script" path="res://src/tutorial/dialog/TutorialDialog.cs" id="26_n30xm"]
 [ext_resource type="PackedScene" uid="uid://doei5wax15b7w" path="res://src/world/parks/MiniPark1.tscn" id="32_jej43"]
 [ext_resource type="PackedScene" uid="uid://b1spq3v8vpaf0" path="res://src/world/parks/MiniStatuePark1.tscn" id="33_181h4"]
+[ext_resource type="FontFile" uid="uid://bvgixiv4bsnv6" path="res://src/ui/fonts/IndieFlower-Regular.ttf" id="33_g64eq"]
 [ext_resource type="PackedScene" uid="uid://byi1et7g5ou6h" path="res://src/world/parks/HouseParkRow1.tscn" id="34_dsnto"]
 [ext_resource type="Script" path="res://src/GameController.cs" id="35_74ih2"]
 [ext_resource type="PackedScene" uid="uid://bhcmfc1mg5hee" path="res://src/world/parks/HouseParkBig1.tscn" id="35_nb0a6"]
@@ -66,7 +66,7 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_ht0d4"]
 line_spacing = 0.0
-font = ExtResource("22_bweq0")
+font = ExtResource("33_g64eq")
 font_size = 52
 
 [node name="TutorialWorld" type="Node3D"]
@@ -82,6 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margins" type="MarginContainer" parent="HUD"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -93,6 +94,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="LeftUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 224.0
@@ -102,12 +104,13 @@ theme_override_constants/separation = 24
 
 [node name="Control1" type="Control" parent="HUD/Margins/LeftUI"]
 custom_minimum_size = Vector2(200, 80)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_right = 200.0
 offset_bottom = 80.0
 
 [node name="TimerComponent" parent="HUD/Margins/LeftUI/Control1" node_paths=PackedStringArray("GameController") instance=ExtResource("3_my3vf")]
+layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -122,13 +125,14 @@ GameController = NodePath("../../../../../GameController")
 
 [node name="Control2" type="Control" parent="HUD/Margins/LeftUI"]
 custom_minimum_size = Vector2(200, 80)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_top = 104.0
 offset_right = 200.0
 offset_bottom = 184.0
 
 [node name="MoneyComponent" parent="HUD/Margins/LeftUI/Control2" instance=ExtResource("4_snpbr")]
+layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -140,13 +144,14 @@ size_flags_vertical = 0
 
 [node name="Control3" type="Control" parent="HUD/Margins/LeftUI"]
 custom_minimum_size = Vector2(200, 80)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_top = 208.0
 offset_right = 200.0
 offset_bottom = 288.0
 
 [node name="PackageComponent" parent="HUD/Margins/LeftUI/Control3" node_paths=PackedStringArray("GameController") instance=ExtResource("5_owhpt")]
+layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -157,6 +162,7 @@ size_flags_horizontal = 0
 GameController = NodePath("../../../../../GameController")
 
 [node name="RightUI" type="VBoxContainer" parent="HUD/Margins"]
+layout_mode = 2
 offset_left = 1956.0
 offset_top = 24.0
 offset_right = 1956.0
@@ -165,7 +171,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="DropOffNotifications" type="Control" parent="HUD/Margins/RightUI" node_paths=PackedStringArray("GameController")]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_bottom = 976.0
 size_flags_vertical = 3
@@ -1531,6 +1537,7 @@ grow_vertical = 2
 
 [node name="DialogBox" type="MarginContainer" parent="TutorialUI" node_paths=PackedStringArray("MessageLabel", "HelpText")]
 process_mode = 3
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -1549,6 +1556,7 @@ HelpText = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/MessageLa
 
 [node name="Panel" type="Panel" parent="TutorialUI/DialogBox"]
 custom_minimum_size = Vector2(768, 384)
+layout_mode = 2
 offset_right = 768.0
 offset_bottom = 384.0
 grow_horizontal = 0
@@ -1556,6 +1564,7 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k2owq")
 
 [node name="MarginContainer" type="MarginContainer" parent="TutorialUI/DialogBox/Panel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1567,6 +1576,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TutorialUI/DialogBox/Panel/MarginContainer"]
+layout_mode = 2
 offset_left = 24.0
 offset_top = 8.0
 offset_right = 744.0
@@ -1575,21 +1585,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MessageLabel" type="Label" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 720.0
-offset_bottom = 71.0
+offset_bottom = 154.0
 size_flags_vertical = 2
 text = "A message to shown in the dialog"
 label_settings = SubResource("LabelSettings_ht0d4")
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer"]
-offset_top = 297.0
+layout_mode = 2
+offset_top = 291.0
 offset_right = 720.0
 offset_bottom = 368.0
 
 [node name="MessageLabel2" type="Label" parent="TutorialUI/DialogBox/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 720.0
-offset_bottom = 71.0
+offset_bottom = 77.0
 size_flags_horizontal = 3
 text = "[Space]"
 label_settings = SubResource("LabelSettings_ht0d4")
@@ -1597,6 +1610,7 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="TutorialUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

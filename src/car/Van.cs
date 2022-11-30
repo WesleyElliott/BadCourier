@@ -40,6 +40,10 @@ public partial class Van : VehicleBody3D {
 
         if (!CanDrive) {
             Brake = 1.6f;
+            BackLeftWheel.EngineForce = 0;
+            BackRightWheel.EngineForce = 0;
+            SkidAudio.Stop();
+            HandleEngineAudio((float) delta);
             return;
         }
 
