@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://cwecrvurpgu8s"]
 
 [ext_resource type="Script" path="res://src/car/Van.cs" id="1_qfr25"]
-[ext_resource type="AudioStream" uid="uid://cxs12xmar8y17" path="res://src/car/audio/engine.ogg" id="2_qo14u"]
-[ext_resource type="AudioStream" uid="uid://cq42f8dlsgl11" path="res://src/car/audio/skid.ogg" id="3_cqqk7"]
+[ext_resource type="AudioStream" uid="uid://btmfigkfquwrf" path="res://src/car/audio/engine_heavy_loop.ogg" id="2_dkw21"]
+[ext_resource type="AudioStream" uid="uid://dd0itvym7lenm" path="res://src/car/audio/tires_squal_loop.wav" id="3_j21o2"]
 [ext_resource type="Script" path="res://src/car/notifications/CarNotifications.cs" id="4_kphx0"]
 [ext_resource type="PackedScene" uid="uid://5gwq33cyysu3" path="res://src/car/notifications/CarNotification.tscn" id="5_5jljn"]
 
@@ -361,11 +361,11 @@ mesh = SubResource("ArrayMesh_3nubt")
 skeleton = NodePath("")
 
 [node name="EngineAudioPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_qo14u")
+stream = ExtResource("2_dkw21")
 volume_db = -15.0
 
 [node name="SkidAudioPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_cqqk7")
+stream = ExtResource("3_j21o2")
 volume_db = -2.0
 
 [node name="Notifications" type="Node3D" parent="."]

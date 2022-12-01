@@ -93,7 +93,7 @@ public partial class Van : VehicleBody3D {
 
     public void OnGameStart() {
         var tween = GetTree().CreateTween();
-        tween.TweenProperty(EngineAudio, "volume_db", -3, 0.8f);
+        tween.TweenProperty(EngineAudio, "volume_db", 0, 0.8f);
     }
 
     private void HandleEngineAudio(float delta) {
